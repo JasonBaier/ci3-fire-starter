@@ -1,0 +1,58 @@
+WHAT'S NEW IN CI3 FIRE STARTER
+
+===================================
+
+Version 3.0.0
+
+* Started as a whole new repository (retiring former repo)
+* Upgraded to CI 3.0
+* Stripped out HMVC pattern
+* Removed database navigation
+* Replaced TinyMCE with Summernote
+* Lots of code cleanup and other improvements
+
+===================================
+
+Version 2.1.0
+07/25/2014
+
+* Upgraded from CI 2.1.4 to CI 2.2.0
+
+===================================
+
+Version 2.0.0
+05/06/2014
+
+Too many to list them all, but here are some of the major changes:
+
+* Added database-driven settings administration
+* Included TinyMCE WYSIWYG editor
+* Included Bootstrap DatePicker and modified to work with Bootstrap 3.x
+* Removed separate auth module and merged into user module
+* Added user self-registration and forgot password functionality to the user module
+* Removed separate login template
+* Added database-driven menus with sub-menu capabilities and built-in Bootstrap formatting
+* Added a CAPTCHA-protected contact page with an admin tool to view messages
+* Enabled CSRF protection on all forms
+* Enabled database session handling
+* Tons of code cleanup and miscellaneous improvements
+
+===================================
+
+Version 1.0.1
+10/10/2013
+
+* Removed admin template includes
+* Made login more secure using salt
+* Modified users table to handle the login change
+    - password field is now char(128)
+    - added salt field char(128)
+* Added this what-new.txt file
+* Added road-map.txt
+
+===================================
+
+Version 1.0.0
+10/08/2013
+
+* Initial version
