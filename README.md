@@ -219,6 +219,7 @@ starting point, check out one of these awesome applications:
 ##WHAT'S NEW
 
 ####Version 3.0.0
+01/31/2015
 
 * Started as a whole new repository (retiring former repo)
 * Upgraded to CI 3.0
