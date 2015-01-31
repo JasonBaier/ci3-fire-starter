@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @var	string
  *
  */
-	define('CI_VERSION', '3.0-dev');
+	define('CI_VERSION', '3.0rc');
 
 /*
  * ------------------------------------------------------
@@ -533,6 +533,3 @@ if ( ! is_php('5.4'))
  * ------------------------------------------------------
  */
 	$EXT->call_hook('post_system');
-
-/* End of file CodeIgniter.php */
-/* Location: ./system/core/CodeIgniter.php */

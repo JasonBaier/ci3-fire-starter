@@ -7,7 +7,7 @@ It is intended to be light weight, minimalistic and to not get in your way of bu
 
 Here is what's included:
 
-* CodeIgniter 3.0.0
+* CodeIgniter 3.0
 * Single base controller with Public, Private, Admin and API classes
 * JSi18n Library to support internationalization in your JS files
 * The latest version of jQuery
@@ -218,11 +218,16 @@ starting point, check out one of these awesome applications:
 
 ##WHAT'S NEW
 
+####Version 3.0.1
+01/31/2015
+
+* Upgraded to CI 3.0rc
+
 ####Version 3.0.0
 01/31/2015
 
 * Started as a whole new repository (retiring former repo)
-* Upgraded to CI 3.0
+* Upgraded to CI 3.0dev
 * Stripped out HMVC pattern
 * Removed database navigation
 * Replaced TinyMCE with Summernote

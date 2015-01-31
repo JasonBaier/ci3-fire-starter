@@ -2,10 +2,18 @@ WHAT'S NEW IN CI3 FIRE STARTER
 
 ===================================
 
+Version 3.0.1
+01/31/2015
+
+* Upgraded to CI 3.0rc
+
+===================================
+
 Version 3.0.0
+01/31/2015
 
 * Started as a whole new repository (retiring former repo)
-* Upgraded to CI 3.0
+* Upgraded to CI 3.0dev
 * Stripped out HMVC pattern
 * Removed database navigation
 * Replaced TinyMCE with Summernote
