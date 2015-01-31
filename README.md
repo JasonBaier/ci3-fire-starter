@@ -43,7 +43,7 @@ http://php.net/.
 The former versions of CI Fire Starter (less than v3.0.0) used to implement wiredesign's Modular Extensions
 (https://bitbucket.org/wiredesignz/codeigniter-modular-extensions-hmvc). However, while the concept is nice, I found over 
 time that there really wasn't much benefit achieved by using it. It is also no longer under active development and therefore
-not compatible with CodeIgniter 3.0. Therefore, I opted to remove it fromn CI3 Fire Starter. If you have an argument in
+not compatible with CodeIgniter 3.0. Therefore, I opted to remove it from CI3 Fire Starter. If you have an argument in
 support of reimplementing it, I'm all ears... just let me know.
 
 ##BASE CLASSES
@@ -55,17 +55,17 @@ Private, Admin and API base classes. This allows you to use shared functionality
 
 ####MY_Controller
 
-This loads settings, defines header data that gets passed to the views, loads logged-in user data, sets the configured timezone,
+This loads settings, defines includes that gets passed to the views, loads logged-in user data, sets the configured timezone,
 and turns the profile on or off. 
 
-####Understanding Header Data
+####Understanding Includes
 
 * page_title    : the title of the page which gets inserted into the document head
 * css_files     : an array of css files to insert into the document head
 * js_files      : an array of javascript libraries to insert into the document body
 * js_files_i18n : an array of javascript files with internationalization to insert into the document body (see more about these below)
 
-Header data can be appended and/or overwritten from any controller function.
+Includes can be appended and/or overwritten from any controller function.
 
 ####Public_Controller
 
@@ -137,9 +137,9 @@ Render the Javascript file in your template file:
 
     <script type="text/javascript"><?php echo $this->jsi18n->translate("/themes/admin/js/my_javascript_i18n.js"); ?></script>
 
-OR in your header data array:
+OR in your includes array:
 
-    $this->header_data = array_merge_recursive($this->header_data, array(
+    $this->includes = array_merge_recursive($this->includes, array(
         'js_files_i18n' => array(
             $this->jsi18n->translate("/themes/admin/js/my_javascript_i18n.js")
         )
@@ -206,7 +206,7 @@ That's it in a nutshell. As I said earlier, CI3 Fire Starter does not attempt to
 to build that functionality on your own. If you want a great CMS built on CodeIgniter, or need a more robust 
 starting point, check out one of these awesome applications:
 
-* HeroFramework: http://www.heroframework.com/ (seems to no longer be active)
+* HeroFramework: http://www.heroframework.com/ (sadly, this seems to no longer be active - this was my favorite)
 * Halogy: http://www.halogy.com/ (seems to no longer be active)
 * Expression Engine: http://ellislab.com/expressionengine (from the original creators of CodeIgniter)
 * GoCart: http://gocartdv.com/ (shopping cart)
