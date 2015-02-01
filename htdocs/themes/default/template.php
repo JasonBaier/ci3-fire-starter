@@ -107,7 +107,7 @@
     <footer>
         <div class="container">
             <div class="clearfix"><hr /></div>
-            <p class="text-muted">Page rendered in <strong>{elapsed_time}</strong> seconds | CodeIgniter v<?php echo CI_VERSION; ?> | CI3 Fire Starter v<?php echo $this->settings->site_version; ?></p>
+            <p class="text-muted">Page rendered in <strong>{elapsed_time}</strong> seconds | CodeIgniter v<?php echo CI_VERSION; ?> | <?php echo $this->settings->site_name; ?> v<?php echo $this->settings->site_version; ?></p>
         </div>
     </footer>
 
