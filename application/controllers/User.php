@@ -253,7 +253,7 @@ class User extends Public_Controller {
 
         // set content data
         $content_data = array(
-            'cancel_url' => base_url('login'),
+            'cancel_url' => base_url(),
             'user'       => NULL
         );
 

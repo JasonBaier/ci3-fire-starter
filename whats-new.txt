@@ -2,6 +2,22 @@ WHAT'S NEW IN CI3 FIRE STARTER
 
 ===================================
 
+Version 3.0.3
+01/31/2015
+
+* Added missing glyphicon halfling fonts
+* Added favicon transparency
+* Fixed favicon bug in main template files
+
+===================================
+
+Version 3.0.2
+01/31/2015
+
+* Updated site name in footers
+
+===================================
+
 Version 3.0.1
 01/31/2015
 
