@@ -1,5 +1,5 @@
 /**
- * Global theme functions
+ * Default theme functions
  */
 $(document).ready(function() {
 

@@ -57,7 +57,7 @@ class Profile extends Private_Controller {
             }
 
             // reload page and display message
-            redirect('users/profile');
+            redirect('profile');
         }
 
         // setup page header data
