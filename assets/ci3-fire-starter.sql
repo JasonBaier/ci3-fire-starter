@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 31, 2015 at 05:40 PM
+-- Generation Time: Feb 02, 2015 at 01:58 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `captcha`
 --
 
+DROP TABLE IF EXISTS `captcha`;
 CREATE TABLE IF NOT EXISTS `captcha` (
   `captcha_id` bigint(13) unsigned NOT NULL AUTO_INCREMENT,
   `captcha_time` int(10) unsigned NOT NULL,
@@ -33,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `captcha` (
   `word` varchar(20) NOT NULL,
   PRIMARY KEY (`captcha_id`),
   KEY `word` (`word`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -41,8 +42,9 @@ CREATE TABLE IF NOT EXISTS `captcha` (
 -- Table structure for table `emails`
 --
 
+DROP TABLE IF EXISTS `emails`;
 CREATE TABLE IF NOT EXISTS `emails` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(64) NOT NULL,
   `email` varchar(256) NOT NULL,
   `title` varchar(128) NOT NULL,
@@ -51,8 +53,8 @@ CREATE TABLE IF NOT EXISTS `emails` (
   `read` datetime DEFAULT NULL,
   `read_by` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `name` (`name`,`email`,`title`,`created`,`read`,`read_by`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  KEY `name` (`name`,`email`(255),`title`,`created`,`read`,`read_by`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `emails`
@@ -67,10 +69,11 @@ INSERT INTO `emails` (`id`, `name`, `email`, `title`, `message`, `created`, `rea
 -- Table structure for table `settings`
 --
 
+DROP TABLE IF EXISTS `settings`;
 CREATE TABLE IF NOT EXISTS `settings` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(128) NOT NULL,
-  `input_type` enum('input','textarea','radio','dropdown','timezones') NOT NULL,
+  `input_type` enum('input','textarea','radio','dropdown','timezones') CHARACTER SET latin1 NOT NULL,
   `options` text COMMENT 'Use for radio and dropdown: key|value on each line',
   `is_numeric` enum('0','1') NOT NULL DEFAULT '0' COMMENT 'forces numeric keypad on mobile devices',
   `show_editor` enum('0','1') NOT NULL DEFAULT '0',
@@ -85,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   KEY `updated_by` (`updated_by`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `settings`
@@ -106,8 +109,9 @@ INSERT INTO `settings` (`id`, `name`, `input_type`, `options`, `is_numeric`, `sh
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(30) NOT NULL,
   `password` char(128) NOT NULL,
   `salt` char(128) NOT NULL,
@@ -122,7 +126,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `users`

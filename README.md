@@ -186,7 +186,7 @@ so if you need a more robust solution, such as authentication and API keys, chec
 
 ##INSTALLATION
 
-* Create a new database and import the included sql file
+* Create a new database and import the included sql file from the /assets folder
     + default administrator username/password is admin/admin
 * Modify the application/config/config.php
     + line 251: set your log threshold - I usually set it to 1 for production environments
@@ -196,6 +196,8 @@ so if you need a more robust solution, such as authentication and API keys, chec
 * Modify application/config/database.php and connect to your database
 * Upload all files to your server
 * Make sure the /captcha/ folder has write permission
+* Set /application/sessions permission to 0600
+* Configure your path to use /htdocs
 * Visit your new URL
 * The default welcome page includes links to the admin tool and the private user profile page
 * Make sure you log in to admin and change the administrator password!
