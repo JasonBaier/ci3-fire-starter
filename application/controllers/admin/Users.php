@@ -137,17 +137,6 @@ class Users extends Admin_Controller {
         ));
         $data = $this->includes;
 
-        // create button to add new users
-        $data['controls'] = array(
-            'add_new' => array(
-                'bootstrap_button_class' => 'btn-success tooltips',
-                'bootstrap_icon_class'   => 'glyphicon-plus-sign',
-                'url'                    => THIS_URL . '/add',
-                'text'                   => lang('users button add_new_user'),
-                'tooltip'                => lang('users tooltip add_new_user')
-            )
-        );
-
         // set content data
         $content_data = array(
             'this_url'   => THIS_URL,
