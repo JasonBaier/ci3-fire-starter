@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if ( ! function_exists('is_php'))
 {
 	/**
-	 * Determines if the current version of PHP is greater then the supplied value
+	 * Determines if the current version of PHP is equal to or greater than the supplied value
 	 *
 	 * @param	string
 	 * @return	bool	TRUE if the current version is $version or higher
@@ -555,15 +555,14 @@ if ( ! function_exists('set_status_header'))
 			}
 		}
 
-		$server_protocol = isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : FALSE;
-
 		if (strpos(PHP_SAPI, 'cgi') === 0)
 		{
 			header('Status: '.$code.' '.$text, TRUE);
 		}
 		else
 		{
-			header(($server_protocol ? $server_protocol : 'HTTP/1.1').' '.$code.' '.$text, TRUE, $code);
+			$server_protocol = isset($_SERVER['SERVER_PROTOCOL']) ? $_SERVER['SERVER_PROTOCOL'] : 'HTTP/1.1';
+			header($server_protocol.' '.$code.' '.$text, TRUE, $code);
 		}
 	}
 }

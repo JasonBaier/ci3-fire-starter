@@ -220,6 +220,11 @@ starting point, check out one of these awesome applications:
 
 ##WHAT'S NEW
 
+####Version 3.0.4
+02/17/2015
+
+* Upgraded to CI 3.0rc2
+
 ####Version 3.0.3
 01/31/2015
 
