@@ -2,7 +2,7 @@
 
 ##INTRODUCTION
 
-CI3 Fire Starter is a skeleton application built on CodeIgniter 3, jQuery and Bootstrap. 
+CI3 Fire Starter is a CodeIgniter skeleton application built on CodeIgniter 3, jQuery and Bootstrap. 
 It is intended to be light weight, minimalistic and to not get in your way of building great CodeIgniter applications.
 
 Here is what's included:
