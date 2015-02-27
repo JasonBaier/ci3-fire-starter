@@ -2,12 +2,11 @@
 
 ##INTRODUCTION
 
-CI3 Fire Starter is a CodeIgniter skeleton application built on CodeIgniter 3, jQuery and Bootstrap. 
-It is intended to be light weight, minimalistic and to not get in your way of building great CodeIgniter applications.
+CI3 Fire Starter is a CodeIgniter3 skeleton application that includes jQuery and Bootstrap. It is intended to be light weight, minimalistic and not get in your way of building great CodeIgniter applications. It is also intended for people who want to learn CodeIgniter.
 
 Here is what's included:
 
-* CodeIgniter 3.0
+* CodeIgniter 3.x
 * Single base controller with Public, Private, Admin and API classes
 * JSi18n Library to support internationalization in your JS files
 * The latest version of jQuery
@@ -21,16 +20,16 @@ Here is what's included:
     + Array to CSV exporting
     + Enhanced CAPTCHA
 * User authentication with registration, forgot password and profile editor
+* Contact Us page
 * Basic admin tool with dashboard, user management, settings and Contact Us message list
 * File-based sessions
 
 That should be the absolute minimal things you need to get started on many projects. While there are many great CodeIgniter
 CMS applications (see below), sometimes you don't need a full CMS, or you need something much simpler than what's available, 
 or you need a completely customizable solution. That's why I created CI3 Fire Starter. I was tired of always having to do 
-the same things over and over again. So I took some best practices, included all the addons and functions I most commonly use,
-and this was the end result, which I now use to start all of my projects.
+the same things over and over again. So I took some best practices, included all the addons and functions I most commonly use, and this was the end result, which I now use to start all of my projects.
 
-I hope you find it useful. Please fork it on Github and help make it better!
+I hope you find it useful. **Please [fork it on Github](https://github.com/JasonBaier/ci3-fire-starter/fork "Fork It") and help make it better!**
 
 NOTE: This documentation assumes you are already familiar with PHP and CodeIgniter. If you need to learn more about
 CodeIgniter, visit the user guide at http://www.codeigniter.com/userguide3/index.html. To learn more about PHP, visit
@@ -41,10 +40,7 @@ http://php.net/.
 ##MODULAR
 
 The former versions of CI Fire Starter (less than v3.0.0) used to implement wiredesign's Modular Extensions
-(https://bitbucket.org/wiredesignz/codeigniter-modular-extensions-hmvc). However, while the concept is nice, I found over 
-time that there really wasn't much benefit achieved by using it. It is also no longer under active development and therefore
-not compatible with CodeIgniter 3.0. Therefore, I opted to remove it from CI3 Fire Starter. If you have an argument in
-support of reimplementing it, I'm all ears... just let me know.
+(https://bitbucket.org/wiredesignz/codeigniter-modular-extensions-hmvc). At this time I have opted not to include it, however, if you have an argument in support of reimplementing it, I'm all ears... just let me know.
 
 ##BASE CLASSES
 
@@ -164,8 +160,7 @@ admin tool.
 
 ##THEMES
 
-There are 2 themes provided with CI3 Fire Starter: 'admin' and 'default'. There is also a 'core' theme for global assets.
-To keep the application light-weight, I did not include a templating library, such as Smarty, nor did I utilize CI's 
+There are 2 responsive themes provided with CI3 Fire Starter: 'admin' and 'default'. There is also a 'core' theme for global assets. To keep the application light-weight, I did not include a templating library, such as Smarty, nor did I utilize CI's 
 built-in parser. If you really wanted to include one, you could check out Phil Sturgeon's CI-Dwoo extension 
 (https://github.com/philsturgeon/codeigniter-dwoo).
 
@@ -173,7 +168,7 @@ built-in parser. If you really wanted to include one, you could check out Phil S
 
 With the API class, you can quite easily create API functions for external applications. There is no security on these,
 so if you need a more robust solution, such as authentication and API keys, check out Phil Sturgeon's CI Rest Server
-(https://github.com/philsturgeon/codeigniter-restserver).
+(https://github.com/philsturgeon/codeigniter-restserver). You could also just set your own request authentication headers to the code that's already there.
 
 ![Sample JSON String](http://s8.postimg.org/nx4x1tdlx/ci3_fire_starter_sample_api.png?raw=true)
 
@@ -208,8 +203,8 @@ That's it in a nutshell. As I said earlier, CI3 Fire Starter does not attempt to
 to build that functionality on your own. If you want a great CMS built on CodeIgniter, or need a more robust 
 starting point, check out one of these awesome applications:
 
-* HeroFramework: http://www.heroframework.com/ (sadly, this seems to no longer be active - this was my favorite)
-* Halogy: http://www.halogy.com/ (seems to no longer be active)
+* HeroFramework: sadly, this project appears to no longer be active since their website went down - but the source is still available here: https://github.com/electricfunction/hero
+* Halogy: http://www.halogy.com/
 * Expression Engine: http://ellislab.com/expressionengine (from the original creators of CodeIgniter)
 * GoCart: http://gocartdv.com/ (shopping cart)
 * Open-Blog: http://www.open-blog.org/ (this is my other project - currently working on a complete rewrite, but it's
