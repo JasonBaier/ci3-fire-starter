@@ -189,8 +189,8 @@ so if you need a more robust solution, such as authentication and API keys, chec
 * Create a new database and import the included sql file from the /assets folder
     + default administrator username/password is admin/admin
 * Modify the application/config/config.php
-    + line 251: set your log threshold - I usually set it to 1 for production environments
-    + line 345: set your encryption key
+    + line 215: set your log threshold - I usually set it to 1 for production environments
+    + line 309: set your encryption key
 * Modify the application/config/core.php
     + set your site name
 * Modify application/config/database.php and connect to your database
