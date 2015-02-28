@@ -241,7 +241,7 @@ class Users extends Admin_Controller {
         $this->form_validation->set_rules('status', lang('users input status'), 'required|numeric');
         $this->form_validation->set_rules('is_admin', lang('users input is_admin'), 'required|numeric');
         $this->form_validation->set_rules('password', lang('users input password'), 'min_length[5]|matches[password_repeat]');
-        $this->form_validation->set_rules('password_repeat', lang('users input password_repeat'), '');
+        $this->form_validation->set_rules('password_repeat', lang('users input password_repeat'), 'matches[password]');
 
         if ($this->form_validation->run() == TRUE)
         {
