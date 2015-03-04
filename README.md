@@ -12,7 +12,7 @@ Here is what's included:
 * The latest version of jQuery
 * The latest version of Bootstrap 3
 * Independent admin and frontend themes
-* Summernote WYSIWYG editor
+* [Summernote](http://summernote.org/ "Summernote") WYSIWYG editor
 * Auto-loaded core config file
 * Auto-loaded core language file
 * Auto-loaded core helper files
@@ -51,8 +51,8 @@ Private, Admin and API base classes. This allows you to use shared functionality
 
 ####MY_Controller
 
-This loads settings, defines includes that gets passed to the views, loads logged-in user data, sets the configured timezone,
-and turns the profile on or off. 
+This loads settings, defines includes that get passed to the views, loads logged-in user data, sets the configured timezone,
+and turns the profiler on or off. 
 
 ####Understanding Includes
 
@@ -94,7 +94,7 @@ for the whole world to see (see below for details).
 ####Core Config
 
 In application/config there is a file core.php. This file allows you to set site-wide variables. It is set up with site
-name, site version, default templates, pagination settings, enable/disable the profiler and default error delimiters.
+name, site version, default templates, pagination settings, enable/disable the profiler and default form validation error delimiters.
 
 ####Core Language
 
@@ -143,7 +143,7 @@ OR in your includes array:
     
 ##USER MANAGEMENT
 
-CI3 Fire Starter comes with a simple user management tool in the administration tool. It does use a database table called
+CI3 Fire Starter comes with a simple user management tool in the administration tool. It uses a database table called
 'users'. This tool demonstrates a lot of basic but important functionality:
 
 * Sortable list columns
