@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.5
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Feb 02, 2015 at 01:58 PM
--- Server version: 5.5.16
--- PHP Version: 5.3.8
+-- Host: 127.0.0.1
+-- Generation Time: Mar 07, 2015 at 12:11 AM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -53,7 +53,12 @@ CREATE TABLE IF NOT EXISTS `emails` (
   `read` datetime DEFAULT NULL,
   `read_by` int(11) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `name` (`name`,`email`(255),`title`,`created`,`read`,`read_by`)
+  KEY `name` (`name`),
+  KEY `title` (`title`),
+  KEY `created` (`created`),
+  KEY `read` (`read`),
+  KEY `read_by` (`read_by`),
+  KEY `email` (`email`(78))
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
