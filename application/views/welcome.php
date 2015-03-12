@@ -19,11 +19,11 @@
 
 <div class="clearfix"><hr /></div>
 
-<p>Click <a href="/api/users">HERE</a> to view sample API output of users. This is for demo purposes only! Be sure to remove the users API before putting your site in a production environment.</p>
+<p>Click <a href="<?php echo base_url('api/users'); ?>">HERE</a> to view sample API output of users. This is for demo purposes only! Be sure to remove the users API before putting your site in a production environment.</p>
 
 <div class="clearfix"><hr /></div>
 
-<p>Click <a href="/profile">HERE</a> to view a sample user profile.</p>
+<p>Click <a href="<?php echo base_url('profile'); ?>">HERE</a> to view a sample user profile.</p>
 <p>
     Username: <strong>johndoe</strong><br />
     OR Email: <strong>john@doe.com</strong><br />
@@ -32,7 +32,7 @@
 
 <div class="clearfix"><hr /></div>
 
-<p>Click <a href="/admin">HERE</a> to view the admin interface.</p>
+<p>Click <a href="<?php echo base_url('admin'); ?>">HERE</a> to view the admin interface.</p>
 <p>
     Username: <strong>admin</strong><br />
     OR Email: <strong>admin@admin.com</strong><br />

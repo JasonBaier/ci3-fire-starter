@@ -639,7 +639,7 @@ class CI_Security {
 			$str_compare = $str;
 
 			// Decode standard entities, avoiding false positives
-			if ($c = preg_match_all('/&[a-z]{2,}(?![a-z;])/i', $str, $matches))
+			if (preg_match_all('/&[a-z]{2,}(?![a-z;])/i', $str, $matches))
 			{
 				if ( ! isset($_entities))
 				{
@@ -664,7 +664,7 @@ class CI_Security {
 
 				$replace = array();
 				$matches = array_unique(array_map('strtolower', $matches[0]));
-				for ($i = 0; $i < $c; $i++)
+				for ($i = 0, $c = count($matches); $i < $c; $i++)
 				{
 					if (($char = array_search($matches[$i].';', $_entities, TRUE)) !== FALSE)
 					{
@@ -784,30 +784,15 @@ class CI_Security {
 		}
 
 		do {
-			$count = 0;
-			$attribs = array();
+			$count = $temp_count = 0;
 
-			// find occurrences of illegal attribute strings with quotes (042 and 047 are octal quotes)
-			preg_match_all('/(?<!\w)('.implode('|', $evil_attributes).')\s*=\s*(\042|\047)([^\\2]*?)(\\2)/is', $str, $matches, PREG_SET_ORDER);
-
-			foreach ($matches as $attr)
-			{
-				$attribs[] = preg_quote($attr[0], '/');
-			}
+			// replace occurrences of illegal attribute strings with quotes (042 and 047 are octal quotes)
+			$str = preg_replace('/(<[^>]+)(?<!\w)('.implode('|', $evil_attributes).')\s*=\s*(\042|\047)([^\\2]*?)(\\2)/is', '$1[removed]', $str, -1, $temp_count);
+			$count += $temp_count;
 
 			// find occurrences of illegal attribute strings without quotes
-			preg_match_all('/(?<!\w)('.implode('|', $evil_attributes).')\s*=\s*([^\s>]*)/is', $str, $matches, PREG_SET_ORDER);
-
-			foreach ($matches as $attr)
-			{
-				$attribs[] = preg_quote($attr[0], '/');
-			}
-
-			// replace illegal attribute strings that are inside an html tag
-			if (count($attribs) > 0)
-			{
-				$str = preg_replace('/(<?)(\/?[^><]+?)([^A-Za-z<>\-])(.*?)('.implode('|', $attribs).')(.*?)([\s><]?)([><]*)/i', '$1$2 $4$6$7$8', $str, -1, $count);
-			}
+			$str = preg_replace('/(<[^>]+)(?<!\w)('.implode('|', $evil_attributes).')\s*=\s*([^\s>]*)/is', '$1[removed]', $str, -1, $temp_count);
+			$count += $temp_count;
 		}
 		while ($count);
 

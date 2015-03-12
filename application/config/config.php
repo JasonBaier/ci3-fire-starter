@@ -37,17 +37,16 @@ $config['index_page'] = '';
 |--------------------------------------------------------------------------
 |
 | This item determines which server global should be used to retrieve the
-| URI string.  The default setting of 'AUTO' works for most servers.
+| URI string.  The default setting of 'REQUEST_URI' works for most servers.
 | If your links do not seem to work, try one of the other delicious flavors:
 |
-| 'AUTO'		Default - auto detects
-| 'CLI' or 'argv'	Uses $_SERVER['argv'] (for php-cli only)
-| 'PATH_INFO'		Uses $_SERVER['PATH_INFO']
 | 'REQUEST_URI'		Uses $_SERVER['REQUEST_URI']
 | 'QUERY_STRING'	Uses $_SERVER['QUERY_STRING']
+| 'PATH_INFO'      Uses $_SERVER['PATH_INFO']
 |
+| WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
 */
-$config['uri_protocol']	= 'AUTO';
+$config['uri_protocol']	= 'REQUEST_URI';
 
 /*
 |--------------------------------------------------------------------------
@@ -204,7 +203,7 @@ $config['directory_trigger'] = 'd';
 |	3 = Informational Messages
 |	4 = All Messages
 |
-| You can also pass in a array with threshold levels to show individual error types
+| You can also pass an array with threshold levels to show individual error types
 |
 | 	array(2) = Debug Messages, without Error Messages
 |
@@ -328,11 +327,13 @@ $config['encryption_key'] = 'Ñ`╣ò╕n~Å╪‼╘♀Vσ≤♫';
 |
 | 'sess_save_path'
 |
-|	The location to save sessions to, driver dependant
+|	The location to save sessions to, driver dependant.
 |
-|	For the 'files' driver, it's a path to a directory.
+|	For the 'files' driver, it's a path to a writable directory.
 |	For the 'database' driver, it's a table name.
 |	Please read up the manual for the format with other session drivers.
+|
+|	IMPORTANT: You are REQUIRED to set a valid save path!
 |
 | 'sess_match_ip'
 |
@@ -341,6 +342,12 @@ $config['encryption_key'] = 'Ñ`╣ò╕n~Å╪‼╘♀Vσ≤♫';
 | 'sess_time_to_update'
 |
 |	How many seconds between CI regenerating the session ID.
+|
+| 'sess_regenerate_destroy'
+|
+|	Whether to destroy session data associated with the old session ID
+|	when auto-regenerating the session ID. When set to FALSE, the data
+|	will be later deleted by the garbage collector.
 |
 | Other session cookie settings are shared with the rest of the application,
 | except for 'cookie_prefix' and 'cookie_httponly', which are ignored here.
@@ -352,6 +359,7 @@ $config['sess_expiration'] = 7200;
 $config['sess_save_path'] = APPPATH . 'sessions';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
+$config['sess_regenerate_destroy'] = FALSE;
 
 /*
 |--------------------------------------------------------------------------
@@ -395,6 +403,9 @@ $config['standardize_newlines'] = FALSE;
 |
 | Determines whether the XSS filter is always active when GET, POST or
 | COOKIE data is encountered
+|
+| WARNING: This feature is DEPRECATED and currently available only
+|          for backwards compatibility purposes!
 |
 */
 $config['global_xss_filtering'] = FALSE;
