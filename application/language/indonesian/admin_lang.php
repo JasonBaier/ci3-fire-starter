@@ -34,4 +34,4 @@ $lang['admin col actions']                = "Aksi";
 $lang['admin col status']                 = "Status";
 
 // Form Labels
-$lang['admin label rows']                 = "% baris";
+$lang['admin label rows']                 = "%s baris";
