@@ -1,6 +1,6 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php	defined('BASEPATH') OR exit('Akses skrip secara langsung tidak diijinkan');
 /**
- * Users Language File
+ * File Bahasa Indonesia - Users
  */
 
 // Titles
