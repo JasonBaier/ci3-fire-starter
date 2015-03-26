@@ -1,6 +1,6 @@
-<?php	defined('BASEPATH') OR exit('No direct script access allowed');
+<?php	defined('BASEPATH') OR exit('Akses skrip secara langsung tidak diijinkan');
 /**
- * Form Validation Language
+ * File Bahasa Indonesia - Validasi Form
  */
 
 $lang['form_validation_required']		= 'Field {field} harus diisi.';
