@@ -20,12 +20,12 @@ class Dashboard extends Admin_Controller {
     function index()
     {
         // setup page header data
+		$this->add_js_theme( "dashboard_i18n.js", TRUE );
+		
         $this->includes = array_merge_recursive($this->includes, array(
             'page_title'    => lang('admin title admin'),
-            'js_files_i18n' => array(
-                $this->jsi18n->translate("/themes/admin/js/dashboard_i18n.js")
-            )
         ));
+		
         $data = $this->includes;
 
         // load views

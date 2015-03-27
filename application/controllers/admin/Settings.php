@@ -62,13 +62,11 @@ class Settings extends Admin_Controller {
         // setup page header data
 		$this
 			->add_css_theme( 'summernote.css' )
-			->add_js_theme( 'summernote.min.js' );
+			->add_js_theme( 'summernote.min.js' )
+			->add_js_theme( 'settings_i18n.js', TRUE );
 		
         $this->includes = array_merge_recursive($this->includes, array(
             'page_title'    => lang('admin settings title'),
-            'js_files_i18n' => array(
-                $this->jsi18n->translate("/themes/admin/js/settings_i18n.js")
-            )
         ));
 		
         $data = $this->includes;
