@@ -195,7 +195,7 @@ The second parameter is used to determine wether js file is support internationa
 	     $this->add_js_theme( array( "jquery-1.11.1.min.js", "bootstrap.min.js,", "another.js" ) );
 
 
-**add_jsi18n_theme( $js_files )***
+***add_jsi18n_theme( $js_files )***
 
 This function is used to easily add js files that support internationalization to be included in a template. With this function, you can just add js name as parameter and it will use default js path in active theme.
 You also can add one or more js files as parameter, either as string or array. If using parameter as string, it must use comma separator between js file name.
@@ -206,7 +206,7 @@ You also can add one or more js files as parameter, either as string or array. I
 	2. Using array as parameter
 	    $this->add_jsi18n_theme( array( "dahboard_i18n.js", "contact_i18n.js" ) );
 	
-	3. Or we can use add_js_theme function, and add **TRUE** for second parameter
+	3. Or we can use add_js_theme function, and add TRUE for second parameter
 	    $this->add_js_theme( "dahboard_i18n.js, contact_i18n.js", TRUE );
 	     or
 	   $this->add_js_theme( array( "dahboard_i18n.js", "contact_i18n.js" ), TRUE );
