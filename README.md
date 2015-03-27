@@ -164,6 +164,60 @@ There are 2 responsive themes provided with CI3 Fire Starter: 'admin' and 'defau
 built-in parser. If you really wanted to include one, you could check out Phil Sturgeon's CI-Dwoo extension 
 (https://github.com/philsturgeon/codeigniter-dwoo).
 
+####Theme Functions
+
+***add_css_theme( $css_files )***
+
+This function is used to easily add css files to be included in a template. With this function, you can just add css name as parameter and it will use default css path in active theme.
+You can add one or more css files as parameter, either as string or array. If using parameter as string, it must use comma separator between css file name.
+
+**Example:**
+
+	 1. Using string as parameter
+	     $this->add_css_theme( "bootstrap.min.css, style.css, admin.css" );
+	 
+	 2. Using array as parameter
+	     $this->add_css_theme( array( "bootstrap.min.css", "style.css", "admin.css" ) );
+
+***add_js_theme( $js_files, $is_i18n )***
+
+This function is used to easily add js files to be included in a template. With this function, you can just add js name as parameter and it will use default js path in active theme.
+You also can add one or more js files as parameter, either as string or array. If using parameter as string, it must use comma separator between js file name.
+
+The second parameter is used to determine wether js file is support internationalization or not. Default is FALSE.
+
+**Example:**
+
+	 1. Using string as parameter
+	     $this->add_js_theme( "jquery-1.11.1.min.js, bootstrap.min.js, another.js" );
+	 
+	 2. Using array as parameter
+	     $this->add_js_theme( array( "jquery-1.11.1.min.js", "bootstrap.min.js,", "another.js" ) );
+
+
+**add_jsi18n_theme( $js_files )***
+
+This function is used to easily add js files that support internationalization to be included in a template. With this function, you can just add js name as parameter and it will use default js path in active theme.
+You also can add one or more js files as parameter, either as string or array. If using parameter as string, it must use comma separator between js file name.
+
+    1. Using string as parameter
+	    $this->add_jsi18n_theme( "dahboard_i18n.js, contact_i18n.js" );
+	
+	2. Using array as parameter
+	    $this->add_jsi18n_theme( array( "dahboard_i18n.js", "contact_i18n.js" ) );
+	
+	3. Or we can use add_js_theme function, and add **TRUE** for second parameter
+	    $this->add_js_theme( "dahboard_i18n.js, contact_i18n.js", TRUE );
+	     or
+	   $this->add_js_theme( array( "dahboard_i18n.js", "contact_i18n.js" ), TRUE );
+
+With return as chained object we can simply do like this:
+
+    $this
+        ->add_css_theme( "bootstrap.min.css, style.css, admin.css" )
+        ->add_js_theme( "jquery-1.11.1.min.js, bootstrap.min.js, another.js" )
+		->add_js_theme( "dahboard_i18n.js, contact_i18n.js", TRUE );
+
 ##APIS
 
 With the API class, you can quite easily create API functions for external applications. There is no security on these,
