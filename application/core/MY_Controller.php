@@ -60,7 +60,93 @@ class MY_Controller extends CI_Controller {
         // enable the profiler?
         $this->output->enable_profiler($this->config->item('profiler'));
     }
+	
+	// --------------------------------------------------------------------
 
+	/**
+	 * Add CSS from Active Theme Folder
+	 *
+	 * This function used to easily add css files to be included in a template.
+	 * with this function, we can just add css name as parameter 
+	 * and it will use default css path in active theme.
+	 *
+	 * We can add one or more css files as parameter, either as string or array.
+	 * If using parameter as string, it must use comma separator between css file name.
+	 * -----------------------------------
+	 * Example:
+	 * -----------------------------------
+	 * 1. Using string as parameter
+	 *     $this->add_css_theme( "bootstrap.min.css, style.css, admin.css" );
+	 *
+	 * 2. Using array as parameter
+	 *     $this->add_css_theme( array( "bootstrap.min.css", "style.css", "admin.css" ) );
+	 *
+	 * --------------------------------------
+	 * @author	Arif Rahman Hakim
+	 * @access	public
+	 * @param	mixed
+	 */
+	 
+	function add_css_theme( $css_files )
+	{
+		// make sure that $this->includes has array value
+		if ( ! is_array( $this->includes ) )
+			$this->includes = array();
+		
+		// if $css_files is string, then convert into array
+		$css_files = is_array( $css_files ) ? $css_files : explode( ",", $css_files );
+		
+		foreach( $css_files as $css )
+		{
+			// using sha1( $css ) as a key to prevent duplicate css to be included
+			$this->includes[ 'css_files' ][ sha1( $css ) ] = base_url( "/themes/{$this->settings->theme}/css" ) . "/{$css}";
+		}
+
+		return $this;
+	}
+
+	/**
+	 * Add JS from Active Theme Folder
+	 *
+	 * This function used to easily add js files to be included in a template.
+	 * with this function, we can just add js name as parameter 
+	 * and it will use default js path in active theme.
+	 *
+	 * We can add one or more js files as parameter, either as string or array.
+	 * If using parameter as string, it must use comma separator between js file name.
+	 * -----------------------------------
+	 * Example:
+	 * -----------------------------------
+	 * 1. Using string as parameter
+	 *     $this->add_js_theme( "jquery-1.11.1.min.js, bootstrap.min.js, another.js" );
+	 *
+	 * 2. Using array as parameter
+	 *     $this->add_js_theme( array( "jquery-1.11.1.min.js", "bootstrap.min.js,", "another.js" ) );
+	 *
+	 * --------------------------------------
+	 * @author	Arif Rahman Hakim
+	 * @access	public
+	 * @param	mixed
+	 */
+	 
+	function add_js_theme( $js_files )
+	{
+		// make sure that $this->includes has array value
+		if ( ! is_array( $this->includes ) )
+			$this->includes = array();
+		
+		// if $css_files is string, then convert into array
+		$js_files = is_array( $js_files ) ? $js_files : explode( ",", $js_files );
+		
+		foreach( $js_files as $js )
+		{
+			// using sha1( $css ) as a key to prevent duplicate css to be included
+			$this->includes[ 'js_files' ][ sha1( $js ) ] = base_url( "/themes/{$this->settings->theme}/js" ) . "/{$js}";
+		}
+
+		return $this;
+	}
+	
 }
 
 
@@ -80,15 +166,14 @@ class Public_Controller extends MY_Controller {
         $this->settings->theme = strtolower($this->config->item('public_theme'));
 
         // set up global header data
+		$this->add_css_theme( "{$this->settings->theme}.css" );
+
         $this->includes = array_merge_recursive($this->includes, array(
-            'css_files'     => array(
-                "/themes/{$this->settings->theme}/css/{$this->settings->theme}.css"
-            ),
             'js_files_i18n' => array(
                 $this->jsi18n->translate("/themes/{$this->settings->theme}/js/{$this->settings->theme}_i18n.js")
             )
         ));
-
+;
         // declare main template
         $this->template = "../../htdocs/themes/{$this->settings->theme}/template.php";
     }
@@ -125,10 +210,9 @@ class Private_Controller extends MY_Controller {
         $this->settings->theme = strtolower($this->config->item('public_theme'));
 
         // set up global header data
+		$this->add_css_theme( "{$this->settings->theme}.css" );
+		
         $this->includes = array_merge_recursive($this->includes, array(
-            'css_files'     => array(
-                "/themes/{$this->settings->theme}/css/{$this->settings->theme}.css"
-            ),
             'js_files_i18n' => array(
                 $this->jsi18n->translate("/themes/{$this->settings->theme}/js/{$this->settings->theme}_i18n.js")
             )
@@ -179,14 +263,10 @@ class Admin_Controller extends MY_Controller {
         $this->settings->theme = strtolower($this->config->item('admin_theme'));
 
         // set up global header data
+		$this->add_css_theme( "{$this->settings->theme}.css,summernote-bs3.css" );
+		$this->add_js_theme( "summernote.min.js" );
+		
         $this->includes = array_merge_recursive($this->includes, array(
-            'css_files'     => array(
-                "/themes/{$this->settings->theme}/css/{$this->settings->theme}.css",
-                "/themes/{$this->settings->theme}/css/summernote-bs3.css"
-            ),
-            'js_files'      => array(
-                "/themes/{$this->settings->theme}/js/summernote.min.js"
-            ),
             'js_files_i18n' => array(
                 $this->jsi18n->translate("/themes/{$this->settings->theme}/js/{$this->settings->theme}_i18n.js")
             )
