@@ -184,7 +184,7 @@ class MY_Controller extends CI_Controller {
 	 * @author	Arif Rahman Hakim
 	 * @since	Version 3.0.5
 	 * @access	public
-	 * @param	mixed
+	 * @param	mixed	
 	 * @return	chained object
 	 */
 	 
@@ -203,6 +203,43 @@ class MY_Controller extends CI_Controller {
 			$this->includes[ 'js_files_i18n' ][ sha1( $js ) ] = $this->jsi18n->translate( "/themes/{$this->settings->theme}/js/{$js}" );
 		}
 
+		return $this;
+	}
+	
+	/* Set Page Title
+	 * --------------------------------------
+	 * @author	Arif Rahman Hakim
+	 * @since	Version 3.0.5
+	 * @access	public
+	 * @param	string
+	 * @return	chained object
+	 */
+	
+	function set_title( $page_title )
+	{
+		$this->includes[ 'page_title' ] = $page_title;
+		
+		/* check wether page_header has been set or has a value 
+		* if not, then set page_title as page_header
+		*/
+		$this->includes[ 'page_header' ] = isset( $this->includes[ 'page_header' ] ) ? $this->includes[ 'page_header' ] : $page_title;
+		return $this;
+	}
+	
+	/* Set Page Header
+	 * sometime, we want to have page header different from page title
+	 * so, use this function
+	 * --------------------------------------
+	 * @author	Arif Rahman Hakim
+	 * @since	Version 3.0.5
+	 * @access	public
+	 * @param	string
+	 * @return	chained object
+	 */
+	
+	function set_page_header( $page_header )
+	{
+		$this->includes[ 'page_header' ] = $page_header;
 		return $this;
 	}
 }

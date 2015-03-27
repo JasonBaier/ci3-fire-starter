@@ -76,9 +76,7 @@ class User extends Public_Controller {
         // setup page header data
 		$this->add_css_theme( 'login.css' );
 		
-        $this->includes = array_merge_recursive($this->includes, array(
-            'page_title' => lang('users title login'),
-        ));
+        $this->set_title( lang('users title login') );
 		
         $data = $this->includes;
 
@@ -155,9 +153,8 @@ class User extends Public_Controller {
         }
 
         // setup page header data
-        $this->includes = array_merge_recursive($this->includes, array(
-            'page_title' => lang('users title register')
-        ));
+        $this->set_title( lang('users title register') );
+
         $data = $this->includes;
 
         // set content data
@@ -246,9 +243,8 @@ class User extends Public_Controller {
         }
 
         // setup page header data
-        $this->includes = array_merge_recursive($this->includes, array(
-            'page_title' => lang('users title forgot')
-        ));
+        $this->set_title( lang('users title forgot') );
+ 
         $data = $this->includes;
 
         // set content data

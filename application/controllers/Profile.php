@@ -61,9 +61,8 @@ class Profile extends Private_Controller {
         }
 
         // setup page header data
-        $this->includes = array_merge_recursive($this->includes, array(
-            'page_title' => lang('users title profile')
-        ));
+		$this->set_title( lang('users title profile') );
+		
         $data = $this->includes;
 
         // set content data

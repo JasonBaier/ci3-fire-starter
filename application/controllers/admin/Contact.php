@@ -143,10 +143,7 @@ class Contact extends Admin_Controller {
 			->add_css_theme( 'bootstrap-datepicker.css' )
 			->add_js_theme( 'bootstrap-datepicker.js' )
 			->add_js_theme( 'contact_i18n.js', TRUE )
-		
-        $this->includes = array_merge_recursive($this->includes, array(
-            'page_title'    => lang('contact title messages_list'),
-        ));
+			->set_title( lang('contact title messages_list') );
 		
         $data = $this->includes;
 
