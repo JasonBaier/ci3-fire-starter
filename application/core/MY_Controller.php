@@ -200,7 +200,7 @@ class MY_Controller extends CI_Controller {
 		foreach( $js_files as $js )
 		{
 			// using sha1( $js ) as a key to prevent duplicate js to be included
-			$this->includes[ 'js_files_i18n' ][ sha1( $js ) ] = $this->jsi18n->translate( base_url( "/themes/{$this->settings->theme}/js" ) ."/{$js}.js" );
+			$this->includes[ 'js_files_i18n' ][ sha1( $js ) ] = $this->jsi18n->translate( "/themes/{$this->settings->theme}/js/{$js}" );
 		}
 
 		return $this;
