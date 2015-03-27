@@ -83,8 +83,10 @@ class MY_Controller extends CI_Controller {
 	 *
 	 * --------------------------------------
 	 * @author	Arif Rahman Hakim
+	 * @since	Version 3.0.5
 	 * @access	public
 	 * @param	mixed
+	 * @return	chained object
 	 */
 	 
 	function add_css_theme( $css_files )
@@ -125,8 +127,10 @@ class MY_Controller extends CI_Controller {
 	 *
 	 * --------------------------------------
 	 * @author	Arif Rahman Hakim
+	 * @since	Version 3.0.5
 	 * @access	public
 	 * @param	mixed
+	 * @return	chained object
 	 */
 	 
 	function add_js_theme( $js_files )
