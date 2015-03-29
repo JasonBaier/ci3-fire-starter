@@ -100,6 +100,12 @@ class MY_Controller extends CI_Controller {
 		
 		foreach( $css_files as $css )
 		{
+			// remove white space if any
+			$css = trim( $css );
+			
+			// go to next when passing empty space
+			if ( empty( $css ) ) continue;
+			
 			// using sha1( $css ) as a key to prevent duplicate css to be included
 			$this->includes[ 'css_files' ][ sha1( $css ) ] = base_url( "/themes/{$this->settings->theme}/css" ) . "/{$css}";
 		}
@@ -151,6 +157,12 @@ class MY_Controller extends CI_Controller {
 		
 		foreach( $js_files as $js )
 		{
+			// remove white space if any
+			$js = trim( $js );
+			
+			// go to next when passing empty space
+			if ( empty( $js ) ) continue;
+			
 			// using sha1( $js ) as a key to prevent duplicate js to be included
 			$this->includes[ 'js_files' ][ sha1( $js ) ] = base_url( "/themes/{$this->settings->theme}/js" ) . "/{$js}";
 		}
@@ -199,6 +211,12 @@ class MY_Controller extends CI_Controller {
 		
 		foreach( $js_files as $js )
 		{
+			// remove white space if any
+			$js = trim( $js );
+			
+			// go to next when passing empty space
+			if ( empty( $js ) ) continue;
+			
 			// using sha1( $js ) as a key to prevent duplicate js to be included
 			$this->includes[ 'js_files_i18n' ][ sha1( $js ) ] = $this->jsi18n->translate( "/themes/{$this->settings->theme}/js/{$js}" );
 		}
