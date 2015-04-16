@@ -17,9 +17,8 @@ class Welcome extends Public_Controller {
 	function index()
 	{
         // setup page header data
-        $this->includes = array_merge_recursive($this->includes, array(
-            'page_title' => sprintf(lang('core title welcome'), $this->settings->site_name)
-        ));
+        $this->set_title( sprintf(lang('core title welcome'), $this->settings->site_name) );
+ 
         $data = $this->includes;
 
         // set content data

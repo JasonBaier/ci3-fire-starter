@@ -68,7 +68,7 @@
 
         <?php // Page title ?>
         <div class="page-header">
-            <h1><?php echo $page_title; ?></h1>
+            <h1><?php echo $page_header; ?></h1>
         </div>
 
         <?php // System messages ?>

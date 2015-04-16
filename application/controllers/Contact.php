@@ -76,9 +76,8 @@ class Contact extends Public_Controller {
         $this->contact_model->save_captcha($captcha_data);
 
         // setup page header data
-        $this->includes = array_merge_recursive($this->includes, array(
-            'page_title' => lang('contact title')
-        ));
+        $this->set_title( lang('contact title') );
+		
         $data = $this->includes;
 
         // set content data

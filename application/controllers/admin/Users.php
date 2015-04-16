@@ -129,12 +129,10 @@ class Users extends Admin_Controller {
         ));
 
         // setup page header data
-        $this->includes = array_merge_recursive($this->includes, array(
-            'page_title'    => lang('users title user_list'),
-            'js_files_i18n' => array(
-                $this->jsi18n->translate("/themes/admin/js/users_i18n.js")
-            )
-        ));
+		$this
+			->add_js_theme( "users_i18n.js", TRUE )
+			->set_title( lang('users title user_list') );
+		
         $data = $this->includes;
 
         // set content data
@@ -192,9 +190,8 @@ class Users extends Admin_Controller {
         }
 
         // setup page header data
-        $this->includes = array_merge_recursive($this->includes, array(
-            'page_title' => lang('users title user_add')
-        ));
+        $this->set_title( lang('users title user_add') );
+		
         $data = $this->includes;
 
         // set content data
@@ -262,9 +259,8 @@ class Users extends Admin_Controller {
         }
 
         // setup page header data
-        $this->includes = array_merge_recursive($this->includes, array(
-            'page_title' => lang('users title user_edit')
-        ));
+        $this->set_title( lang('users title user_edit') );
+		
         $data = $this->includes;
 
         // set content data
