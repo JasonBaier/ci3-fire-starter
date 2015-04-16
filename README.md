@@ -215,6 +215,11 @@ starting point, check out one of these awesome applications:
 
 ##WHAT'S NEW
 
+####Version 3.1.0
+04/15/2015
+
+* Upgraded to CI 3.0.0
+
 ####Version 3.0.5
 03/11/2015
 
