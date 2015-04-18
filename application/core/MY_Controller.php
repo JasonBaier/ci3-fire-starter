@@ -34,20 +34,22 @@ class MY_Controller extends CI_Controller {
         $this->current_uri = "/" . uri_string();
 
         // set global header data - can be merged with or overwritten in controllers
-        $this->includes = array(
-            'css_files'     => array(
-                "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css",
-                "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css",
-                "//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css",
-                "/themes/core/css/core.css"
-            ),
-            'js_files'      => array(
-                "//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js",
-                "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"
-            ),
-            'js_files_i18n' => array(
-                $this->jsi18n->translate("/themes/core/js/core_i18n.js")
-            )
+		$this
+			->add_external_css(
+				array(
+					"//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css",
+					"//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css",
+					"//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css",
+					"/themes/core/css/core.css"
+				))
+			->add_external_js(
+				array(
+					"//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js",
+					"//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"
+				));
+				
+        $this->includes[ 'js_files_i18n' ] = array(
+            $this->jsi18n->translate("/themes/core/js/core_i18n.js")
         );
 
         // set the time zone
@@ -59,7 +61,121 @@ class MY_Controller extends CI_Controller {
 
         // enable the profiler?
         $this->output->enable_profiler($this->config->item('profiler'));
-    }
+	}
+	
+	// --------------------------------------------------------------------
+
+	/**
+	 * Add CSS from external source or outside folder theme
+	 *
+	 * This function used to easily add css files to be included in a template.
+	 * with this function, we can just add css name as parameter and their external path,
+	 * or add css complete with path. See example.
+	 *
+	 * We can add one or more css files as parameter, either as string or array.
+	 * If using parameter as string, it must use comma separator between css file name.
+	 * -----------------------------------
+	 * Example:
+	 * -----------------------------------
+	 * 1. Using string as first parameter
+	 *     $this->add_external_css( "global.css, color.css", "http://example.com/assets/css/" );
+	 *		or
+	 *		$this->add_external_css(  "http://example.com/assets/css/global.css, http://example.com/assets/css/color.css" );
+	 *
+	 * 2. Using array as first parameter
+	 *     $this->add_external_css( array( "global.css", "color.css" ),  "http://example.com/assets/css/" );
+	 *		or
+	 *		$this->add_external_css(  array( "http://example.com/assets/css/global.css", "http://example.com/assets/css/color.css") );
+	 *
+	 * --------------------------------------
+	 * @author	Arif Rahman Hakim
+	 * @since	Version 3.1.0
+	 * @access	public
+	 * @param	mixed
+	 * @param string, default = NULL
+	 * @return	chained object
+	 */
+	 
+	function add_external_css( $css_files, $path = NULL )
+	{
+		// make sure that $this->includes has array value
+		if ( ! is_array( $this->includes ) )
+			$this->includes = array();
+		
+		// if $css_files is string, then convert into array
+		$css_files = is_array( $css_files ) ? $css_files : explode( ",", $css_files );
+		
+		foreach( $css_files as $css )
+		{
+			// remove white space if any
+			$css = trim( $css );
+			
+			// go to next when passing empty space
+			if ( empty( $css ) ) continue;
+			
+			// using sha1( $css ) as a key to prevent duplicate css to be included
+			$this->includes[ 'css_files' ][ sha1( $css ) ] = is_null( $path ) ? $css : $path . $css;
+		}
+
+		return $this;
+	}
+	
+	// --------------------------------------------------------------------
+
+	/**
+	 * Add JS from external source or outside folder theme
+	 *
+	 * This function used to easily add js files to be included in a template.
+	 * with this function, we can just add js name as parameter and their external path,
+	 * or add js complete with path. See example.
+	 *
+	 * We can add one or more js files as parameter, either as string or array.
+	 * If using parameter as string, it must use comma separator between js file name.
+	 * -----------------------------------
+	 * Example:
+	 * -----------------------------------
+	 * 1. Using string as first parameter
+	 *     $this->add_external_js( "global.js, color.js", "http://example.com/assets/js/" );
+	 *		or
+	 *		$this->add_external_js(  "http://example.com/assets/js/global.js, http://example.com/assets/js/color.js" );
+	 *
+	 * 2. Using array as first parameter
+	 *     $this->add_external_js( array( "global.js", "color.js" ),  "http://example.com/assets/js/" );
+	 *		or
+	 *		$this->add_external_js(  array( "http://example.com/assets/js/global.js", "http://example.com/assets/js/color.js") );
+	 *
+	 * --------------------------------------
+	 * @author	Arif Rahman Hakim
+	 * @since	Version 3.1.0
+	 * @access	public
+	 * @param	mixed
+	 * @param string, default = NULL
+	 * @return	chained object
+	 */
+	 
+	function add_external_js( $js_files, $path = NULL )
+	{
+		// make sure that $this->includes has array value
+		if ( ! is_array( $this->includes ) )
+			$this->includes = array();
+		
+		// if $js_files is string, then convert into array
+		$js_files = is_array( $js_files ) ? $js_files : explode( ",", $js_files );
+		
+		foreach( $js_files as $js )
+		{
+			// remove white space if any
+			$js = trim( $js );
+			
+			// go to next when passing empty space
+			if ( empty( $js ) ) continue;
+			
+			// using sha1( $css ) as a key to prevent duplicate css to be included
+			$this->includes[ 'js_files' ][ sha1( $js ) ] = is_null( $path ) ? $js : $path . $js;
+		}
+
+		return $this;
+	}
 	
 	// --------------------------------------------------------------------
 
@@ -259,6 +375,26 @@ class MY_Controller extends CI_Controller {
 	{
 		$this->includes[ 'page_header' ] = $page_header;
 		return $this;
+	}
+	
+	/* Set Template
+	 * sometime, we want to use different template for different page
+	 * for example, 404 template, login template, full-width template, sidebar template, etc.
+	 * so, use this function
+	 * --------------------------------------
+	 * @author	Arif Rahman Hakim
+	 * @since	Version 3.1.0
+	 * @access	public
+	 * @param	string, template file name
+	 * @return	chained object
+	 */
+	 
+	function set_template( $template_file = 'template.php' )
+	{
+		// make sure that $template_file has .php extension
+		$template_file = substr( $template_file, -4 ) == '.php' ? $template_file : ( $template_file . ".php" );
+		
+		$this->template = "../../htdocs/themes/{$this->settings->theme}/{$template_file}";
 	}
 }
 

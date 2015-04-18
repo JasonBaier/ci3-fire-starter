@@ -211,12 +211,49 @@ You also can add one or more js files as parameter, either as string or array. I
 	     or
 	   $this->add_js_theme( array( "dahboard_i18n.js", "contact_i18n.js" ), TRUE );
 
+***add_external_css( $css_files, $path )***
+
+This function used to easily add css files from external source or outside folder theme to be included in a template. 
+With this function, we can just add css name as parameter and their external path, or add css complete with path. See example below:
+
+    1. Using string as first parameter
+	    $this->add_external_css( "global.css, color.css", "http://example.com/assets/css/" );
+	 	or
+		$this->add_external_css(  "http://example.com/assets/css/global.css, http://example.com/assets/css/color.css" );
+	
+	2. Using array as first parameter
+	    $this->add_external_css( array( "global.css", "color.css" ),  "http://example.com/assets/css/" );
+		or
+		$this->add_external_css(  array( "http://example.com/assets/css/global.css", "http://example.com/assets/css/color.css") );
+
+***add_external_js( $js_files, $path )***
+
+This function used to easily add js files from external source or outside folder theme to be included in a template. 
+With this function, we can just add js name as parameter and their external path, or add js complete with path. See example below:
+
+    1. Using string as first parameter
+	    $this->add_external_js( "global.js, color.js", "http://example.com/assets/js/" );
+	 	or
+		$this->add_external_js(  "http://example.com/assets/js/global.js, http://example.com/assets/js/color.js" );
+	
+	2. Using array as first parameter
+	    $this->add_external_js( array( "global.js", "color.js" ),  "http://example.com/assets/js/" );
+		or
+		$this->add_external_js(  array( "http://example.com/assets/js/global.js", "http://example.com/assets/js/color.js") );
+		
 With return as chained object we can simply do like this:
 
     $this
         ->add_css_theme( "bootstrap.min.css, style.css, admin.css" )
+		->add_external_css( "global.css, color.css", "http://example.com/assets/css/" )
         ->add_js_theme( "jquery-1.11.1.min.js, bootstrap.min.js, another.js" )
-		->add_js_theme( "dahboard_i18n.js, contact_i18n.js", TRUE );
+		->add_js_theme( "dahboard_i18n.js, contact_i18n.js", TRUE )
+		->add_external_js( "global.js, color.js", "http://example.com/assets/js/" );
+
+***set_template( $template_file )***
+
+Sometime, we want to use different template for different page, for example, 404 template, login template, full-width template, sidebar template, etc.
+You can easily load different template using this function.
 
 ##APIS
 
