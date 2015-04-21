@@ -168,92 +168,92 @@ built-in parser. If you really wanted to include one, you could check out Phil S
 
 ***add_css_theme( $css_files )***
 
-This function is used to easily add css files to be included in a template. With this function, you can just add css name as parameter and it will use default css path in active theme.
-You can add one or more css files as parameter, either as string or array. If using parameter as string, it must use comma separator between css file name.
+This function is used to easily add css files to be included in a template. With this function, you can just add the css file name as a parameter and it will use the default css path for the active theme.
+You can add one or more css files as the parameter, either as a string or an array. If using parameter as a string, it must use comma separation between each css file name.
 
 **Example:**
 
 	 1. Using string as parameter
-	     $this->add_css_theme( "bootstrap.min.css, style.css, admin.css" );
+	     $this->add_css_theme("bootstrap.min.css, style.css, admin.css");
 	 
 	 2. Using array as parameter
-	     $this->add_css_theme( array( "bootstrap.min.css", "style.css", "admin.css" ) );
+	     $this->add_css_theme(array("bootstrap.min.css", "style.css", "admin.css"));
 
-***add_js_theme( $js_files, $is_i18n )***
+***add_js_theme($js_files, $is_i18n)***
 
-This function is used to easily add js files to be included in a template. With this function, you can just add js name as parameter and it will use default js path in active theme.
-You also can add one or more js files as parameter, either as string or array. If using parameter as string, it must use comma separator between js file name.
+This function is used to easily add Javascript files to be included in a template. With this function, you can just add the js file name as a parameter and it will use the default js path for the active theme.
+You can add one or more js files as the parameter, either as a string or an array. If using the parameter as a string, it must use comma separation between each js file name.
 
-The second parameter is used to determine wether js file is support internationalization or not. Default is FALSE.
+The second parameter is used to indicate that the js file supports internationalization using the i18n library. Default is FALSE.
 
 **Example:**
 
 	 1. Using string as parameter
-	     $this->add_js_theme( "jquery-1.11.1.min.js, bootstrap.min.js, another.js" );
+	     $this->add_js_theme("jquery-1.11.1.min.js, bootstrap.min.js, another.js");
 	 
 	 2. Using array as parameter
-	     $this->add_js_theme( array( "jquery-1.11.1.min.js", "bootstrap.min.js,", "another.js" ) );
+	     $this->add_js_theme(array("jquery-1.11.1.min.js", "bootstrap.min.js,", "another.js"));
 
 
-***add_jsi18n_theme( $js_files )***
+***add_jsi18n_theme($js_files)***
 
-This function is used to easily add js files that support internationalization to be included in a template. With this function, you can just add js name as parameter and it will use default js path in active theme.
-You also can add one or more js files as parameter, either as string or array. If using parameter as string, it must use comma separator between js file name.
+This function is used to easily add Javascript files that support internationalization to be included in a template. With this function, you can just add the js file name as the parameter and it will use the default js path for the active theme.
+You also can add one or more js files as the parameter, either as a string or an array. If using the parameter as a string, it must use comma separation between each js file name.
 
     1. Using string as parameter
-	    $this->add_jsi18n_theme( "dahboard_i18n.js, contact_i18n.js" );
+	    $this->add_jsi18n_theme("dahboard_i18n.js, contact_i18n.js");
 	
 	2. Using array as parameter
-	    $this->add_jsi18n_theme( array( "dahboard_i18n.js", "contact_i18n.js" ) );
+	    $this->add_jsi18n_theme(array("dahboard_i18n.js", "contact_i18n.js"));
 	
 	3. Or we can use add_js_theme function, and add TRUE for second parameter
-	    $this->add_js_theme( "dahboard_i18n.js, contact_i18n.js", TRUE );
-	     or
-	   $this->add_js_theme( array( "dahboard_i18n.js", "contact_i18n.js" ), TRUE );
+	    $this->add_js_theme("dahboard_i18n.js, contact_i18n.js", TRUE);
+	    	- or -
+	    $this->add_js_theme(array("dahboard_i18n.js", "contact_i18n.js"), TRUE);
 
 ***add_external_css( $css_files, $path )***
 
-This function used to easily add css files from external source or outside folder theme to be included in a template. 
-With this function, we can just add css name as parameter and their external path, or add css complete with path. See example below:
+This function is used to easily add css files from external sources or outside the theme folder to be included in a template. 
+With this function, you can just add the css file name and their external path as the parameter, or add css complete with path. See example below:
 
     1. Using string as first parameter
-	    $this->add_external_css( "global.css, color.css", "http://example.com/assets/css/" );
-	 	or
-		$this->add_external_css(  "http://example.com/assets/css/global.css, http://example.com/assets/css/color.css" );
+	    $this->add_external_css("global.css, color.css", "http://example.com/assets/css/");
+	 	- or -
+	    $this->add_external_css("http://example.com/assets/css/global.css, http://example.com/assets/css/color.css");
 	
 	2. Using array as first parameter
-	    $this->add_external_css( array( "global.css", "color.css" ),  "http://example.com/assets/css/" );
-		or
-		$this->add_external_css(  array( "http://example.com/assets/css/global.css", "http://example.com/assets/css/color.css") );
+	    $this->add_external_css(array("global.css", "color.css"), "http://example.com/assets/css/");
+		- or -
+	    $this->add_external_css(array("http://example.com/assets/css/global.css", "http://example.com/assets/css/color.css"));
 
 ***add_external_js( $js_files, $path )***
 
-This function used to easily add js files from external source or outside folder theme to be included in a template. 
-With this function, we can just add js name as parameter and their external path, or add js complete with path. See example below:
+This function is used to easily add js files from external sources or outside the theme folder to be included in a template. 
+With this function, you can just add the js file name and their external path as the parameter, or add js complete with path. See example below:
 
     1. Using string as first parameter
-	    $this->add_external_js( "global.js, color.js", "http://example.com/assets/js/" );
-	 	or
-		$this->add_external_js(  "http://example.com/assets/js/global.js, http://example.com/assets/js/color.js" );
+	    $this->add_external_js("global.js, color.js", "http://example.com/assets/js/");
+	 	- or -
+	    $this->add_external_js("http://example.com/assets/js/global.js, http://example.com/assets/js/color.js");
 	
 	2. Using array as first parameter
-	    $this->add_external_js( array( "global.js", "color.js" ),  "http://example.com/assets/js/" );
-		or
-		$this->add_external_js(  array( "http://example.com/assets/js/global.js", "http://example.com/assets/js/color.js") );
+	    $this->add_external_js(array("global.js", "color.js"), "http://example.com/assets/js/");
+		- or -
+	    $this->add_external_js(array("http://example.com/assets/js/global.js", "http://example.com/assets/js/color.js"));
 		
-With return as chained object we can simply do like this:
+These methods can also be chained like this:
 
     $this
-        ->add_css_theme( "bootstrap.min.css, style.css, admin.css" )
-		->add_external_css( "global.css, color.css", "http://example.com/assets/css/" )
-        ->add_js_theme( "jquery-1.11.1.min.js, bootstrap.min.js, another.js" )
-		->add_js_theme( "dahboard_i18n.js, contact_i18n.js", TRUE )
-		->add_external_js( "global.js, color.js", "http://example.com/assets/js/" );
+        ->add_css_theme("bootstrap.min.css, style.css, admin.css")
+		->add_external_css("global.css, color.css", "http://example.com/assets/css/")
+        ->add_js_theme("jquery-1.11.1.min.js, bootstrap.min.js, another.js")
+		->add_js_theme("dahboard_i18n.js, contact_i18n.js", TRUE)
+		->add_external_js("global.js, color.js", "http://example.com/assets/js/");
 
-***set_template( $template_file )***
+Sometimes you might want to use a different template for different pages, for example, 404 template, login template, full-width template, sidebar template, etc.
+You can simply load a different template using this function:
 
-Sometime, we want to use different template for different page, for example, 404 template, login template, full-width template, sidebar template, etc.
-You can easily load different template using this function.
+***set_template($template_file)***
 
 ##APIS
 
@@ -290,7 +290,7 @@ so if you need a more robust solution, such as authentication and API keys, chec
 
 ##CONCLUSION
 
-That's it in a nutshell. As I said earlier, CI3 Fire Starter does not attempt to be a full-blown CMS. You'd have
+As I said earlier, CI3 Fire Starter does not attempt to be a full-blown CMS. You'd have
 to build that functionality on your own. If you want a great CMS built on CodeIgniter, or need a more robust 
 starting point, check out one of these awesome applications:
 
