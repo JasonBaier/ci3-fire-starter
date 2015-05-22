@@ -46,21 +46,21 @@
             <div id="navbar" class="navbar-collapse collapse">
                 <?php // Nav bar left ?>
                 <ul class="nav navbar-nav">
-                    <li class="<?php echo (uri_string() == '') ? 'active' : ''; ?>"><a href="/"><?php echo lang('core button home'); ?></a></li>
-                    <li class="<?php echo (uri_string() == 'contact') ? 'active' : ''; ?>"><a href="/contact"><?php echo lang('core button contact'); ?></a></li>
+                    <li class="<?php echo (uri_string() == '') ? 'active' : ''; ?>"><a href="<?php echo base_url('/'); ?>"><?php echo lang('core button home'); ?></a></li>
+                    <li class="<?php echo (uri_string() == 'contact') ? 'active' : ''; ?>"><a href="<?php echo base_url('/contact'); ?>"><?php echo lang('core button contact'); ?></a></li>
                     <?php if ($this->session->userdata('logged_in')) : ?>
-                        <li class="<?php echo (uri_string() == 'profile') ? 'active' : ''; ?>"><a href="/profile"><?php echo lang('core button profile'); ?></a></li>
+                        <li class="<?php echo (uri_string() == 'profile') ? 'active' : ''; ?>"><a href="<?php echo base_url('/profile'); ?>"><?php echo lang('core button profile'); ?></a></li>
                     <?php endif; ?>
                 </ul>
                 <?php // Nav bar right ?>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if ($this->session->userdata('logged_in')) : ?>
                         <?php if ($this->user['is_admin']) : ?> 
-                            <li><a href="/admin"><?php echo lang('core button admin'); ?></a></li>
+                            <li><a href="<?php echo base_url('admin'); ?>"><?php echo lang('core button admin'); ?></a></li>
                         <?php endif; ?>
                         <li><a href="/logout"><?php echo lang('core button logout'); ?></a></li>
                     <?php else : ?>
-                        <li class="<?php echo (uri_string() == 'login') ? 'active' : ''; ?>"><a href="/login"><?php echo lang('core button login'); ?></a></li>
+                        <li class="<?php echo (uri_string() == 'login') ? 'active' : ''; ?>"><a href="<?php echo base_url('/login'); ?>"><?php echo lang('core button login'); ?></a></li>
                     <?php endif; ?>
                 </ul>
             </div>
