@@ -107,7 +107,7 @@ class User extends Public_Controller {
         $this->form_validation->set_rules('username', lang('users input username'), 'required|trim|min_length[5]|max_length[30]|callback__check_username');
         $this->form_validation->set_rules('first_name', lang('users input first_name'), 'required|trim|min_length[2]|max_length[32]');
         $this->form_validation->set_rules('last_name', lang('users input last_name'), 'required|trim|min_length[2]|max_length[32]');
-        $this->form_validation->set_rules('email', lang('users input email'), 'required|trim|max_length[128]|valid_email|callback__check_email');
+        $this->form_validation->set_rules('email', lang('users input email'), 'required|trim|max_length[128]|valid_email');
         $this->form_validation->set_rules('password', lang('users input password'), 'required|trim|min_length[5]');
         $this->form_validation->set_rules('password_repeat', lang('users input password_repeat'), 'required|trim|matches[password]');
 
