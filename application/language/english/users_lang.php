@@ -74,6 +74,7 @@ $lang['users error edit_user_failed']         = "%s could not be modified!";
 $lang['users error email_exists']             = "The email <strong>%s</strong> already exists!";
 $lang['users error email_not_exists']         = "That email does not exists!";
 $lang['users error invalid_login']            = "Invalid username or password";
+$lang['users error password_reset_failed']    = "There was a problem resetting your password. Please try again.";
 $lang['users error register_failed']          = "Your account could not be created at this time. Please try again.";
 $lang['users error user_id_required']         = "A numeric user ID is required!";
 $lang['users error user_not_exist']           = "That user does not exist!";

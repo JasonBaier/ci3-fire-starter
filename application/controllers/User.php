@@ -75,9 +75,9 @@ class User extends Public_Controller {
 
         // setup page header data
 		$this->add_css_theme( 'login.css' );
-		
+
         $this->set_title( lang('users title login') );
-		
+
         $data = $this->includes;
 
         // load views
@@ -202,7 +202,7 @@ class User extends Public_Controller {
 	{
         // validators
         $this->form_validation->set_error_delimiters($this->config->item('error_delimeter_left'), $this->config->item('error_delimeter_right'));
-        $this->form_validation->set_rules('email', lang('users input email'), 'required|trim|valid_email|callback__check_email');
+        $this->form_validation->set_rules('email', lang('users input email'), 'required|trim|valid_email|callback__check_email_exists');
 
         if ($this->form_validation->run() == TRUE)
         {
@@ -235,7 +235,7 @@ class User extends Public_Controller {
             }
             else
             {
-                $this->session->set_flashdata('error', lang('core error process'));
+                $this->session->set_flashdata('error', lang('users error password_reset_failed'));
             }
 
             // redirect home and display message
@@ -244,7 +244,7 @@ class User extends Public_Controller {
 
         // setup page header data
         $this->set_title( lang('users title forgot') );
- 
+
         $data = $this->includes;
 
         // set content data
@@ -306,16 +306,36 @@ class User extends Public_Controller {
 
 
     /**
-     * Make sure email exists
+     * Make sure email is available
      *
      * @param  string $email
      * @return int|boolean
      */
     function _check_email($email)
     {
+        if ($this->users_model->email_exists($email))
+        {
+            $this->form_validation->set_message('_check_email', sprintf(lang('users error email_exists'), $email));
+            return FALSE;
+        }
+        else
+        {
+            return $email;
+        }
+    }
+
+
+    /**
+     * Make sure email exists
+     *
+     * @param  string $email
+     * @return int|boolean
+     */
+    function _check_email_exists($email)
+    {
         if ( ! $this->users_model->email_exists($email))
         {
-            $this->form_validation->set_message('_check_email', sprintf(lang('users error email_not_exists'), $email));
+            $this->form_validation->set_message('_check_email_exists', sprintf(lang('users error email_not_exists'), $email));
             return FALSE;
         }
         else
