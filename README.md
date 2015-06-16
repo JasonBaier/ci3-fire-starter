@@ -308,6 +308,7 @@ starting point, check out one of these awesome applications:
 
 ####Version 3.1.1
 06/16/2015
+
 Thanks [arif-rh](https://github.com/arif-rh "Arif RH") and [simogeo](https://github.com/simogeo "Simon Georget") for your contributions.
 
 * Included pull requests
