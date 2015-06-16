@@ -102,7 +102,12 @@
     <?php // Footer ?>
     <footer class="sticky-footer">
         <div class="container">
-            <p class="text-muted">Page rendered in <strong>{elapsed_time}</strong> seconds | CodeIgniter v<?php echo CI_VERSION; ?> | <?php echo $this->settings->site_name; ?> v<?php echo $this->settings->site_version; ?></p>
+            <p class="text-muted">
+                Page rendered in <strong>{elapsed_time}</strong> seconds
+                | CodeIgniter v<?php echo CI_VERSION; ?>
+                | <?php echo $this->settings->site_name; ?> v<?php echo $this->settings->site_version; ?>
+                | <a href="https://github.com/JasonBaier/ci3-fire-starter" target="_blank">Github.com</a>
+            </p>
         </div>
     </footer>
 

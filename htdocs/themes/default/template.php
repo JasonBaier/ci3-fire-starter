@@ -55,7 +55,7 @@
                 <?php // Nav bar right ?>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if ($this->session->userdata('logged_in')) : ?>
-                        <?php if ($this->user['is_admin']) : ?> 
+                        <?php if ($this->user['is_admin']) : ?>
                             <li><a href="<?php echo base_url('admin'); ?>"><?php echo lang('core button admin'); ?></a></li>
                         <?php endif; ?>
                         <li><a href="/logout"><?php echo lang('core button logout'); ?></a></li>
@@ -107,7 +107,12 @@
     <footer>
         <div class="container">
             <div class="clearfix"><hr /></div>
-            <p class="text-muted">Page rendered in <strong>{elapsed_time}</strong> seconds | CodeIgniter v<?php echo CI_VERSION; ?> | <?php echo $this->settings->site_name; ?> v<?php echo $this->settings->site_version; ?></p>
+            <p class="text-muted">
+                Page rendered in <strong>{elapsed_time}</strong> seconds
+                | CodeIgniter v<?php echo CI_VERSION; ?>
+                | <?php echo $this->settings->site_name; ?> v<?php echo $this->settings->site_version; ?>
+                | <a href="https://github.com/JasonBaier/ci3-fire-starter" target="_blank">Github.com</a>
+            </p>
         </div>
     </footer>
 

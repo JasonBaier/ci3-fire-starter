@@ -2,7 +2,7 @@
 
 ##INTRODUCTION
 
-CI3 Fire Starter is a CodeIgniter3 skeleton application that includes jQuery and Bootstrap. It is intended to be light weight, minimalistic and not get in your way of building great CodeIgniter applications. It is also intended for people who want to learn CodeIgniter.
+CI3 Fire Starter is a CodeIgniter3 skeleton application that includes jQuery and Bootstrap. It is intended to be light weight, minimalistic and not get in your way of building great CodeIgniter 3 applications. It is also intended for newbies who want a simple, easy platform for learning CodeIgniter.
 
 Here is what's included:
 
@@ -25,8 +25,8 @@ Here is what's included:
 * File-based sessions
 
 That should be the absolute minimal things you need to get started on many projects. While there are many great CodeIgniter
-CMS applications (see below), sometimes you don't need a full CMS, or you need something much simpler than what's available, 
-or you need a completely customizable solution. That's why I created CI3 Fire Starter. I was tired of always having to do 
+CMS applications (see below), sometimes you don't need a full CMS, or you need something much simpler than what's available,
+or you need a completely customizable solution. That's why I created CI3 Fire Starter. I was tired of always having to do
 the same things over and over again. So I took some best practices, included all the addons and functions I most commonly use, and this was the end result, which I now use to start all of my projects.
 
 I hope you find it useful. **Please [fork it on Github](https://github.com/JasonBaier/ci3-fire-starter/fork "Fork It") and help make it better!**
@@ -52,7 +52,7 @@ Private, Admin and API base classes. This allows you to use shared functionality
 ####MY_Controller
 
 This loads settings, defines includes that get passed to the views, loads logged-in user data, sets the configured timezone,
-and turns the profiler on or off. 
+and turns the profiler on or off.
 
 ####Understanding Includes
 
@@ -140,7 +140,7 @@ OR in your includes array:
             $this->jsi18n->translate("/themes/admin/js/my_javascript_i18n.js")
         )
     ));
-    
+
 ##USER MANAGEMENT
 
 CI3 Fire Starter comes with a simple user management tool in the administration tool. It uses a database table called
@@ -160,8 +160,8 @@ admin tool.
 
 ##THEMES
 
-There are 2 responsive themes provided with CI3 Fire Starter: 'admin' and 'default'. There is also a 'core' theme for global assets. To keep the application light-weight, I did not include a templating library, such as Smarty, nor did I utilize CI's 
-built-in parser. If you really wanted to include one, you could check out Phil Sturgeon's CI-Dwoo extension 
+There are 2 responsive themes provided with CI3 Fire Starter: 'admin' and 'default'. There is also a 'core' theme for global assets. To keep the application light-weight, I did not include a templating library, such as Smarty, nor did I utilize CI's
+built-in parser. If you really wanted to include one, you could check out Phil Sturgeon's CI-Dwoo extension
 (https://github.com/philsturgeon/codeigniter-dwoo).
 
 ####Theme Functions
@@ -175,7 +175,7 @@ You can add one or more css files as the parameter, either as a string or an arr
 
 	 1. Using string as parameter
 	     $this->add_css_theme("bootstrap.min.css, style.css, admin.css");
-	 
+
 	 2. Using array as parameter
 	     $this->add_css_theme(array("bootstrap.min.css", "style.css", "admin.css"));
 
@@ -190,7 +190,7 @@ The second parameter is used to indicate that the js file supports international
 
 	 1. Using string as parameter
 	     $this->add_js_theme("jquery-1.11.1.min.js, bootstrap.min.js, another.js");
-	 
+
 	 2. Using array as parameter
 	     $this->add_js_theme(array("jquery-1.11.1.min.js", "bootstrap.min.js,", "another.js"));
 
@@ -202,10 +202,10 @@ You also can add one or more js files as the parameter, either as a string or an
 
     1. Using string as parameter
 	    $this->add_jsi18n_theme("dahboard_i18n.js, contact_i18n.js");
-	
+
 	2. Using array as parameter
 	    $this->add_jsi18n_theme(array("dahboard_i18n.js", "contact_i18n.js"));
-	
+
 	3. Or we can use add_js_theme function, and add TRUE for second parameter
 	    $this->add_js_theme("dahboard_i18n.js, contact_i18n.js", TRUE);
 	    	- or -
@@ -213,14 +213,14 @@ You also can add one or more js files as the parameter, either as a string or an
 
 ***add_external_css( $css_files, $path )***
 
-This function is used to easily add css files from external sources or outside the theme folder to be included in a template. 
+This function is used to easily add css files from external sources or outside the theme folder to be included in a template.
 With this function, you can just add the css file name and their external path as the parameter, or add css complete with path. See example below:
 
     1. Using string as first parameter
 	    $this->add_external_css("global.css, color.css", "http://example.com/assets/css/");
 	 	- or -
 	    $this->add_external_css("http://example.com/assets/css/global.css, http://example.com/assets/css/color.css");
-	
+
 	2. Using array as first parameter
 	    $this->add_external_css(array("global.css", "color.css"), "http://example.com/assets/css/");
 		- or -
@@ -228,19 +228,19 @@ With this function, you can just add the css file name and their external path a
 
 ***add_external_js( $js_files, $path )***
 
-This function is used to easily add js files from external sources or outside the theme folder to be included in a template. 
+This function is used to easily add js files from external sources or outside the theme folder to be included in a template.
 With this function, you can just add the js file name and their external path as the parameter, or add js complete with path. See example below:
 
     1. Using string as first parameter
 	    $this->add_external_js("global.js, color.js", "http://example.com/assets/js/");
 	 	- or -
 	    $this->add_external_js("http://example.com/assets/js/global.js, http://example.com/assets/js/color.js");
-	
+
 	2. Using array as first parameter
 	    $this->add_external_js(array("global.js", "color.js"), "http://example.com/assets/js/");
 		- or -
 	    $this->add_external_js(array("http://example.com/assets/js/global.js", "http://example.com/assets/js/color.js"));
-		
+
 These methods can also be chained like this:
 
     $this
@@ -291,7 +291,7 @@ so if you need a more robust solution, such as authentication and API keys, chec
 ##CONCLUSION
 
 As I said earlier, CI3 Fire Starter does not attempt to be a full-blown CMS. You'd have
-to build that functionality on your own. If you want a great CMS built on CodeIgniter, or need a more robust 
+to build that functionality on your own. If you want a great CMS built on CodeIgniter, or need a more robust
 starting point, check out one of these awesome applications:
 
 * HeroFramework: sadly, this project appears to no longer be active since their website went down - but the source is still available here: https://github.com/electricfunction/hero
@@ -305,6 +305,18 @@ starting point, check out one of these awesome applications:
 * CMS Canvas: http://www.cmscanvas.com/
 
 ##WHAT'S NEW
+
+####Version 3.1.1
+06/16/2015
+Thanks [arif-rh](https://github.com/arif-rh "Arif RH") and [simogeo](https://github.com/simogeo "Simon Georget") for your contributions.
+
+* Included pull requests
+    + Added base_url to links
+    + Improved theme functions
+    + Indonesian language
+    + Repeat Password error fix
+* Fixed email validation check during account registration
+* Links to this Github page in theme footers
 
 ####Version 3.1.0
 04/15/2015
@@ -380,3 +392,7 @@ Too many to list them all, but here are some of the major changes:
 10/08/2013
 
 * Initial version
+
+##FORK IT!
+
+**Please [fork CI3 Fire Starter on Github](https://github.com/JasonBaier/ci3-fire-starter/fork "Fork It") and help make it better!**
