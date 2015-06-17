@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Ci3-fire-starter by JasonBaier</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Ci3-fire-starter</h1>
+      <h2 class="project-tagline">CI3 Fire Starter is a CodeIgniter3 skeleton application that includes jQuery and Bootstrap. It is intended to be light weight, minimalistic and not get in your way of building great CodeIgniter 3 applications. It is also intended for newbies who want a simple, easy platform for learning CodeIgniter.</h2>
+      <a href="https://github.com/JasonBaier/ci3-fire-starter" class="btn">View on GitHub</a>
+      <a href="https://github.com/JasonBaier/ci3-fire-starter/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/JasonBaier/ci3-fire-starter/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="ci3-fire-starter-ci3-fire-starter" class="anchor" href="#ci3-fire-starter-ci3-fire-starter" aria-hidden="true"><span class="octicon octicon-link"></span></a>CI3 Fire Starter (ci3-fire-starter)</h1>
+
+<h2>
+<a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>INTRODUCTION</h2>
+
+<p>CI3 Fire Starter is a CodeIgniter3 skeleton application that includes jQuery and Bootstrap. It is intended to be light weight, minimalistic and not get in your way of building great CodeIgniter 3 applications. It is also intended for newbies who want a simple, easy platform for learning CodeIgniter.</p>
+
+<p>Here is what's included:</p>
+
+<ul>
+<li>CodeIgniter 3.x</li>
+<li>Single base controller with Public, Private, Admin and API classes</li>
+<li>JSi18n Library to support internationalization in your JS files</li>
+<li>The latest version of jQuery</li>
+<li>The latest version of Bootstrap 3</li>
+<li>Independent admin and frontend themes</li>
+<li>
+<a href="http://summernote.org/" title="Summernote">Summernote</a> WYSIWYG editor</li>
+<li>Auto-loaded core config file</li>
+<li>Auto-loaded core language file</li>
+<li>Auto-loaded core helper files
+
+<ul>
+<li>Human-readable JSON string output for API functions</li>
+<li>Array to CSV exporting</li>
+<li>Enhanced CAPTCHA</li>
+</ul>
+</li>
+<li>User authentication with registration, forgot password and profile editor</li>
+<li>Contact Us page</li>
+<li>Basic admin tool with dashboard, user management, settings and Contact Us message list</li>
+<li>File-based sessions</li>
+</ul>
+
+<p>That should be the minimal features you need to kickstart many projects. While there are many great CodeIgniter CMS applications (see below), sometimes you don't need a full CMS, or you need something much simpler than what's available, or you need a completely customizable solution. That's why I created CI3 Fire Starter. I was tired of always having to do the same things over and over again. So I took some best practices, included all the addons and functions I most commonly use, and this was the end result, which I now use to start all of my projects.</p>
+
+<p>I hope you find it useful. <strong>Please <a href="https://github.com/JasonBaier/ci3-fire-starter/fork" title="Fork It">fork it on Github</a> and help make it better!</strong></p>
+
+<p>NOTE: This documentation assumes you are already familiar with PHP and CodeIgniter. To learn more about PHP, visit <a href="http://php.net/">http://php.net/</a>. If you need to learn more about CodeIgniter, visit the user guide at <a href="http://www.codeigniter.com/userguide3/index.html">http://www.codeigniter.com/userguide3/index.html</a>. </p>
+
+<p><img src="http://s3.postimg.org/7vxaw3b2b/ci3_fire_starter_welcome_screen.png?raw=true" alt="Welcome Screen"></p>
+
+<h2>
+<a id="modular" class="anchor" href="#modular" aria-hidden="true"><span class="octicon octicon-link"></span></a>MODULAR</h2>
+
+<p>The former versions of CI Fire Starter (less than v3.0.0) used to implement wiredesign's Modular Extensions
+(<a href="https://bitbucket.org/wiredesignz/codeigniter-modular-extensions-hmvc">https://bitbucket.org/wiredesignz/codeigniter-modular-extensions-hmvc</a>). At this time I have opted not to include it, however, if you have an argument in support of reimplementing it, I'm all ears... just let me know.</p>
+
+<h2>
+<a id="base-classes" class="anchor" href="#base-classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>BASE CLASSES</h2>
+
+<p>Phil Sturgeon wrote a very helpful blog post years ago called "CodeIgniter Base Classes: Keeping it DRY"
+(<a href="http://philsturgeon.co.uk/blog/2010/02/CodeIgniter-Base-Classes-Keeping-it-DRY">http://philsturgeon.co.uk/blog/2010/02/CodeIgniter-Base-Classes-Keeping-it-DRY</a>). The methods he described have been
+applied to CI3 Fire Starter. There is a file in /application/core called MY_Controller.php which includes the Public, Private, Admin and API base classes. This allows you to use shared functionality.</p>
+
+<h4>
+<a id="my_controller" class="anchor" href="#my_controller" aria-hidden="true"><span class="octicon octicon-link"></span></a>MY_Controller</h4>
+
+<p>This loads settings, defines includes that get passed to the views, loads logged-in user data, sets the configured timezone,
+and turns the profiler on or off.</p>
+
+<h4>
+<a id="understanding-includes" class="anchor" href="#understanding-includes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Understanding Includes</h4>
+
+<ul>
+<li>page_title    : the title of the page which gets inserted into the document head</li>
+<li>css_files     : an array of css files to insert into the document head</li>
+<li>js_files      : an array of javascript libraries to insert into the document body</li>
+<li>js_files_i18n : an array of javascript files with internationalization to insert into the document body (see more about these below)</li>
+</ul>
+
+<p>Includes can be appended and/or overwritten from any controller function.</p>
+
+<h4>
+<a id="public_controller" class="anchor" href="#public_controller" aria-hidden="true"><span class="octicon octicon-link"></span></a>Public_Controller</h4>
+
+<p>This extends MY_Controller and drives all your public pages (home page, etc). Any controller that extends
+Public_Controller will be open for the whole world to see.</p>
+
+<h4>
+<a id="private_controller" class="anchor" href="#private_controller" aria-hidden="true"><span class="octicon octicon-link"></span></a>Private_Controller</h4>
+
+<p>This extends MY_Controller and drives all your private pages (user profile, etc). Any controller that extends
+Private_Controller will require authentication. Specific page requests are stored in session and will redirect upon
+successful authentication.</p>
+
+<p><img src="http://s8.postimg.org/xpcn4kuud/ci3_fire_starter_profile_screen.png?raw=true" alt="Profile Screen"></p>
+
+<h4>
+<a id="admin_controller" class="anchor" href="#admin_controller" aria-hidden="true"><span class="octicon octicon-link"></span></a>Admin_Controller</h4>
+
+<p>This extends MY_Controller and drives all your administration pages. Any controller that extends Admin_Controller will
+require authentication from a user with administration privileges. Specific page requests are stored in session and will
+redirect upon successful authentication.</p>
+
+<p><img src="http://s4.postimg.org/3ltmgpt5p/ci3_fire_starter_setttings_screen.png?raw=true" alt="Settings Screen"></p>
+
+<h4>
+<a id="api_controller" class="anchor" href="#api_controller" aria-hidden="true"><span class="octicon octicon-link"></span></a>API_Controller</h4>
+
+<p>This extends MY_Controller and drives all your API functions. Any controller that extends API_Controller will be open
+for the whole world to see (see below for details).</p>
+
+<h2>
+<a id="core-files" class="anchor" href="#core-files" aria-hidden="true"><span class="octicon octicon-link"></span></a>CORE FILES</h2>
+
+<h4>
+<a id="core-config" class="anchor" href="#core-config" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core Config</h4>
+
+<p>In application/config there is a file core.php. This file allows you to set site-wide variables. It is set up with site version, default templates, pagination settings, enable/disable the profiler and default form validation error delimiters.</p>
+
+<h4>
+<a id="core-language" class="anchor" href="#core-language" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core Language</h4>
+
+<p>In application/language/english is a file core_lang.php. This file allows you to set language variables that could be used throughout the entire site (such as the words Home or Logout).</p>
+
+<h4>
+<a id="core-helper" class="anchor" href="#core-helper" aria-hidden="true"><span class="octicon octicon-link"></span></a>Core Helper</h4>
+
+<p>In application/helper is a file core_helper.php. This includes the following useful functions:</p>
+
+<ul>
+<li>display_json($array) - used to output an array as JSON in a human-readable format - used by the API</li>
+<li>json_indent($array) - this is the function that actually creates the human-readable JSON string</li>
+<li>array_to_csv($array, $filename) - exports an array into a CSV file (see admin user list)</li>
+</ul>
+
+<h2>
+<a id="libraries" class="anchor" href="#libraries" aria-hidden="true"><span class="octicon octicon-link"></span></a>LIBRARIES</h2>
+
+<h4>
+<a id="jsi18n" class="anchor" href="#jsi18n" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jsi18n</h4>
+
+<p>In application/libraries is a file Jsi18n.php. This library allows you to internationalize your JavaScript files through CI language files and was inspired by Alexandros D on coderwall.com (<a href="https://coderwall.com/p/j88iog">https://coderwall.com/p/j88iog</a>).</p>
+
+<p>Load this library in the autoload.php file or manually in your controller:</p>
+
+<pre><code>$this-&gt;load-&gt;library('jsi18n');
+</code></pre>
+
+<p>In your language file:</p>
+
+<pre><code>$lang['alert_message'] = "This is my alert message!";
+</code></pre>
+
+<p>In your JS files, place your language key inside double braces:</p>
+
+<pre><code>function myFunction() {
+    alert("{{alert_message}}");
+}
+</code></pre>
+
+<p>Render the Javascript file in your template file:</p>
+
+<pre><code>&lt;script type="text/javascript"&gt;&lt;?php echo $this-&gt;jsi18n-&gt;translate("/themes/admin/js/my_javascript_i18n.js"); ?&gt;&lt;/script&gt;
+</code></pre>
+
+<p>OR in your includes array:</p>
+
+<pre><code>$this-&gt;includes = array_merge_recursive($this-&gt;includes, array(
+    'js_files_i18n' =&gt; array(
+        $this-&gt;jsi18n-&gt;translate("/themes/admin/js/my_javascript_i18n.js")
+    )
+));
+</code></pre>
+
+<h2>
+<a id="user-management" class="anchor" href="#user-management" aria-hidden="true"><span class="octicon octicon-link"></span></a>USER MANAGEMENT</h2>
+
+<p>CI3 Fire Starter comes with a simple user management tool in the administration tool. It uses a database table called 'users'. This tool demonstrates a lot of basic but important functionality:</p>
+
+<ul>
+<li>Sortable list columns</li>
+<li>Search filters</li>
+<li>Pagination with user-changeable items/page</li>
+<li>Exporting lists to CSV</li>
+<li>Form validation</li>
+<li>Harnessing the power of Bootstrap to accelerate development</li>
+</ul>
+
+<p><img src="http://s27.postimg.org/udwfwrtqb/ci3_fire_starter_user_list.png?raw=true" alt="User Administration"></p>
+
+<p>Important note: user 1 is the main administrator - DO NOT MANUALLY DELETE. You can not delete this user from within the admin tool.</p>
+
+<h2>
+<a id="themes" class="anchor" href="#themes" aria-hidden="true"><span class="octicon octicon-link"></span></a>THEMES</h2>
+
+<p>There are 2 responsive themes provided with CI3 Fire Starter: 'admin' and 'default'. There is also a 'core' theme for global assets. To keep the application light-weight, I did not include a templating library, such as Smarty, nor did I utilize CI's built-in parser. If you really wanted to include one, you could check out Phil Sturgeon's CI-Dwoo extension
+(<a href="https://github.com/philsturgeon/codeigniter-dwoo">https://github.com/philsturgeon/codeigniter-dwoo</a>).</p>
+
+<h4>
+<a id="theme-functions" class="anchor" href="#theme-functions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Theme Functions</h4>
+
+<p><strong><em>add_css_theme( $css_files )</em></strong></p>
+
+<p>This function is used to easily add css files to be included in a template. With this function, you can just add the css file name as a parameter and it will use the default css path for the active theme.
+You can add one or more css files as the parameter, either as a string or an array. If using parameter as a string, it must use comma separation between each css file name.</p>
+
+<p><strong>Example:</strong></p>
+
+<pre><code> 1. Using string as parameter
+     $this-&gt;add_css_theme("bootstrap.min.css, style.css, admin.css");
+
+ 2. Using array as parameter
+     $this-&gt;add_css_theme(array("bootstrap.min.css", "style.css", "admin.css"));
+</code></pre>
+
+<p><strong><em>add_js_theme($js_files, $is_i18n)</em></strong></p>
+
+<p>This function is used to easily add Javascript files to be included in a template. With this function, you can just add the js file name as a parameter and it will use the default js path for the active theme.
+You can add one or more js files as the parameter, either as a string or an array. If using the parameter as a string, it must use comma separation between each js file name.</p>
+
+<p>The second parameter is used to indicate that the js file supports internationalization using the i18n library. Default is FALSE.</p>
+
+<p><strong>Example:</strong></p>
+
+<pre><code> 1. Using string as parameter
+     $this-&gt;add_js_theme("jquery-1.11.1.min.js, bootstrap.min.js, another.js");
+
+ 2. Using array as parameter
+     $this-&gt;add_js_theme(array("jquery-1.11.1.min.js", "bootstrap.min.js,", "another.js"));
+</code></pre>
+
+<p><strong><em>add_jsi18n_theme($js_files)</em></strong></p>
+
+<p>This function is used to easily add Javascript files that support internationalization to be included in a template. With this function, you can just add the js file name as the parameter and it will use the default js path for the active theme.
+You also can add one or more js files as the parameter, either as a string or an array. If using the parameter as a string, it must use comma separation between each js file name.</p>
+
+<pre><code>1. Using string as parameter
+    $this-&gt;add_jsi18n_theme("dahboard_i18n.js, contact_i18n.js");
+
+2. Using array as parameter
+    $this-&gt;add_jsi18n_theme(array("dahboard_i18n.js", "contact_i18n.js"));
+
+3. Or we can use add_js_theme function, and add TRUE for second parameter
+    $this-&gt;add_js_theme("dahboard_i18n.js, contact_i18n.js", TRUE);
+        - or -
+    $this-&gt;add_js_theme(array("dahboard_i18n.js", "contact_i18n.js"), TRUE);
+</code></pre>
+
+<p><strong><em>add_external_css( $css_files, $path )</em></strong></p>
+
+<p>This function is used to easily add css files from external sources or outside the theme folder to be included in a template.
+With this function, you can just add the css file name and their external path as the parameter, or add css complete with path. See example below:</p>
+
+<pre><code>1. Using string as first parameter
+    $this-&gt;add_external_css("global.css, color.css", "http://example.com/assets/css/");
+    - or -
+    $this-&gt;add_external_css("http://example.com/assets/css/global.css, http://example.com/assets/css/color.css");
+
+2. Using array as first parameter
+    $this-&gt;add_external_css(array("global.css", "color.css"), "http://example.com/assets/css/");
+    - or -
+    $this-&gt;add_external_css(array("http://example.com/assets/css/global.css", "http://example.com/assets/css/color.css"));
+</code></pre>
+
+<p><strong><em>add_external_js( $js_files, $path )</em></strong></p>
+
+<p>This function is used to easily add js files from external sources or outside the theme folder to be included in a template.
+With this function, you can just add the js file name and their external path as the parameter, or add js complete with path. See example below:</p>
+
+<pre><code>1. Using string as first parameter
+    $this-&gt;add_external_js("global.js, color.js", "http://example.com/assets/js/");
+    - or -
+    $this-&gt;add_external_js("http://example.com/assets/js/global.js, http://example.com/assets/js/color.js");
+
+2. Using array as first parameter
+    $this-&gt;add_external_js(array("global.js", "color.js"), "http://example.com/assets/js/");
+    - or -
+    $this-&gt;add_external_js(array("http://example.com/assets/js/global.js", "http://example.com/assets/js/color.js"));
+</code></pre>
+
+<p>These methods can also be chained like this:</p>
+
+<pre><code>$this
+    -&gt;add_css_theme("bootstrap.min.css, style.css, admin.css")
+    -&gt;add_external_css("global.css, color.css", "http://example.com/assets/css/")
+    -&gt;add_js_theme("jquery-1.11.1.min.js, bootstrap.min.js, another.js")
+    -&gt;add_js_theme("dahboard_i18n.js, contact_i18n.js", TRUE)
+    -&gt;add_external_js("global.js, color.js", "http://example.com/assets/js/");
+</code></pre>
+
+<p>Sometimes you might want to use a different template for different pages, for example, 404 template, login template, full-width template, sidebar template, etc.
+You can simply load a different template using this function:</p>
+
+<p><strong><em>set_template($template_file)</em></strong></p>
+
+<h2>
+<a id="apis" class="anchor" href="#apis" aria-hidden="true"><span class="octicon octicon-link"></span></a>APIS</h2>
+
+<p>With the API class, you can quite easily create API functions for external applications. There is no security on these, so if you need a more robust solution, such as authentication and API keys, check out Phil Sturgeon's CI Rest Server (<a href="https://github.com/philsturgeon/codeigniter-restserver">https://github.com/philsturgeon/codeigniter-restserver</a>). You could also just set your own request authentication headers to the code that's already there.</p>
+
+<p><img src="http://s8.postimg.org/nx4x1tdlx/ci3_fire_starter_sample_api.png?raw=true" alt="Sample JSON String"></p>
+
+<h2>
+<a id="system-requirements" class="anchor" href="#system-requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a>SYSTEM REQUIREMENTS</h2>
+
+<ul>
+<li>PHP version 5.4+</li>
+<li>MySQL 5.1+</li>
+<li>PHP GD extension for CAPTCHA to work</li>
+<li>PHP Mcrypt extension if you want to use the Encryption class</li>
+</ul>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>INSTALLATION</h2>
+
+<ul>
+<li>Create a new database and import the included sql file from the /assets folder
+
+<ul>
+<li>default administrator username/password is admin/admin</li>
+</ul>
+</li>
+<li>Modify the application/config/config.php
+
+<ul>
+<li>line 214: set your log threshold - I usually set it to 1 for production environments</li>
+<li>line 308: set your encryption key using the <a href="http://www.codeigniter.com/user_guide/libraries/encryption.html#setting-your-encryption-key" title="Encryption Library: Setting your encryption key">recommended method</a>
+</li>
+</ul>
+</li>
+<li>Modify application/config/database.php and connect to your database</li>
+<li>Upload all files to your server</li>
+<li>Make sure the /captcha/ folder has write permission</li>
+<li>Set /application/sessions permission to 0600</li>
+<li>Configure your path to use /htdocs</li>
+<li>Visit your new URL</li>
+<li>The default welcome page includes links to the admin tool and the private user profile page</li>
+<li>Make sure you log in to admin and change the administrator password!</li>
+</ul>
+
+<h2>
+<a id="conclusion" class="anchor" href="#conclusion" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONCLUSION</h2>
+
+<p>As I said earlier, CI3 Fire Starter does not attempt to be a full-blown CMS. You would need
+to build that functionality on your own. If you want a great CMS built on CodeIgniter, or need a more robust
+starting point, check out one of these awesome applications:</p>
+
+<ul>
+<li>HeroFramework: sadly, this project appears to no longer be active since their website went down - but the source is still available here: <a href="https://github.com/electricfunction/hero">https://github.com/electricfunction/hero</a>
+</li>
+<li>Halogy: <a href="http://www.halogy.com/">http://www.halogy.com/</a>
+</li>
+<li>Expression Engine: <a href="http://ellislab.com/expressionengine">http://ellislab.com/expressionengine</a> (from the original creators of CodeIgniter)</li>
+<li>GoCart: <a href="http://gocartdv.com/">http://gocartdv.com/</a> (shopping cart)</li>
+<li>Open-Blog: <a href="http://www.open-blog.org/">http://www.open-blog.org/</a> (this is my other project - currently working on a complete rewrite, but it's
+been slow going)</li>
+<li>Bonfire: <a href="http://cibonfire.com/">http://cibonfire.com/</a> (this is more of an application builder than a full CMS)</li>
+<li>FuelCMS: <a href="http://getfuelcms.com/">http://getfuelcms.com/</a>
+</li>
+<li>CMS Canvas: <a href="http://www.cmscanvas.com/">http://www.cmscanvas.com/</a>
+</li>
+</ul>
+
+<h2>
+<a id="whats-new" class="anchor" href="#whats-new" aria-hidden="true"><span class="octicon octicon-link"></span></a>WHAT'S NEW</h2>
+
+<h4>
+<a id="version-311" class="anchor" href="#version-311" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 3.1.1</h4>
+
+<p>06/16/2015</p>
+
+<p>Thanks <a href="https://github.com/arif-rh" title="Arif RH">arif-rh</a> and <a href="https://github.com/simogeo" title="Simon Georget">simogeo</a> for your contributions.</p>
+
+<ul>
+<li>Included pull requests
+
+<ul>
+<li>Added base_url to links</li>
+<li>Improved theme functions</li>
+<li>Indonesian language</li>
+<li>Repeat Password error fix</li>
+</ul>
+</li>
+<li>Fixed email validation check during account registration</li>
+<li>Links to this Github page in theme footers</li>
+</ul>
+
+<h4>
+<a id="version-310" class="anchor" href="#version-310" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 3.1.0</h4>
+
+<p>04/15/2015</p>
+
+<ul>
+<li>Upgraded to CI 3.0.0</li>
+</ul>
+
+<h4>
+<a id="version-305" class="anchor" href="#version-305" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 3.0.5</h4>
+
+<p>03/11/2015</p>
+
+<ul>
+<li>Upgraded to CI 3.0rc3</li>
+</ul>
+
+<h4>
+<a id="version-304" class="anchor" href="#version-304" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 3.0.4</h4>
+
+<p>02/17/2015</p>
+
+<ul>
+<li>Upgraded to CI 3.0rc2</li>
+</ul>
+
+<h4>
+<a id="version-303" class="anchor" href="#version-303" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 3.0.3</h4>
+
+<p>01/31/2015</p>
+
+<ul>
+<li>Added missing glyphicon halfling fonts</li>
+<li>Added favicon transparency</li>
+<li>Fixed favicon bug in main template files</li>
+</ul>
+
+<h4>
+<a id="version-302" class="anchor" href="#version-302" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 3.0.2</h4>
+
+<p>01/31/2015</p>
+
+<ul>
+<li>Updated site name in footers</li>
+</ul>
+
+<h4>
+<a id="version-301" class="anchor" href="#version-301" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 3.0.1</h4>
+
+<p>01/31/2015</p>
+
+<ul>
+<li>Upgraded to CI 3.0rc</li>
+</ul>
+
+<h4>
+<a id="version-300" class="anchor" href="#version-300" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 3.0.0</h4>
+
+<p>01/31/2015</p>
+
+<ul>
+<li>Started as a whole new repository (retiring former repo)</li>
+<li>Upgraded to CI 3.0dev</li>
+<li>Stripped out HMVC pattern</li>
+<li>Removed database navigation</li>
+<li>Replaced TinyMCE with Summernote</li>
+<li>Lots of code cleanup and other improvements</li>
+</ul>
+
+<h4>
+<a id="version-200" class="anchor" href="#version-200" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 2.0.0</h4>
+
+<p>05/06/2014</p>
+
+<p>Too many to list them all, but here are some of the major changes:</p>
+
+<ul>
+<li>Added database-driven settings administration</li>
+<li>Included TinyMCE WYSIWYG editor</li>
+<li>Included Bootstrap DatePicker and modified to work with Bootstrap 3.x</li>
+<li>Removed separate auth module and merged into user module</li>
+<li>Added user self-registration and forgot password functionality to the user module</li>
+<li>Removed separate login template</li>
+<li>Added database-driven menus with sub-menu capabilities and built-in Bootstrap formatting</li>
+<li>Added a CAPTCHA-protected contact page with an admin tool to view messages</li>
+<li>Enabled CSRF protection on all forms</li>
+<li>Enabled database session handling</li>
+<li>Tons of code cleanup and miscellaneous improvements</li>
+</ul>
+
+<h4>
+<a id="version-101" class="anchor" href="#version-101" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 1.0.1</h4>
+
+<p>10/10/2013</p>
+
+<ul>
+<li>Removed admin template includes</li>
+<li>Made login more secure using salt</li>
+<li>Modified users table to handle the login change
+
+<ul>
+<li>password field is now char(128)</li>
+<li>added salt field char(128)</li>
+</ul>
+</li>
+<li>Added this what-new.txt file</li>
+<li>Added road-map.txt</li>
+</ul>
+
+<h4>
+<a id="version-100" class="anchor" href="#version-100" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 1.0.0</h4>
+
+<p>10/08/2013</p>
+
+<ul>
+<li>Initial version</li>
+</ul>
+
+<h2>
+<a id="fork-it" class="anchor" href="#fork-it" aria-hidden="true"><span class="octicon octicon-link"></span></a>FORK IT!</h2>
+
+<p><strong>Please <a href="https://github.com/JasonBaier/ci3-fire-starter/fork" title="Fork It">fork CI3 Fire Starter on Github</a> and help make it better!</strong></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/JasonBaier/ci3-fire-starter">Ci3-fire-starter</a> is maintained by <a href="https://github.com/JasonBaier">JasonBaier</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
