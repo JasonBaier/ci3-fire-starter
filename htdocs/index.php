@@ -282,6 +282,7 @@ switch (ENVIRONMENT)
 
 	define('VIEWPATH', $view_folder);
 
+	define('THEME_PATH', "../../htdocs/themes/" );
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE

@@ -394,7 +394,8 @@ class MY_Controller extends CI_Controller {
 		// make sure that $template_file has .php extension
 		$template_file = substr( $template_file, -4 ) == '.php' ? $template_file : ( $template_file . ".php" );
 		
-		$this->template = "../../htdocs/themes/{$this->settings->theme}/{$template_file}";
+		$this->template = THEME_PATH . "{$this->settings->theme}/{$template_file}";
+		return $this;
 	}
 }
 
@@ -420,7 +421,7 @@ class Public_Controller extends MY_Controller {
 			->add_js_theme( "{$this->settings->theme}_i18n.js", TRUE );
 
         // declare main template
-        $this->template = "../../htdocs/themes/{$this->settings->theme}/template.php";
+        $this->template = THEME_PATH . "{$this->settings->theme}/template.php";
     }
 
 }
@@ -460,7 +461,7 @@ class Private_Controller extends MY_Controller {
 			->add_js_theme( "{$this->settings->theme}_i18n.js", TRUE );
 
         // declare main template
-        $this->template = "../../htdocs/themes/{$this->settings->theme}/template.php";
+        $this->template = THEME_PATH . "{$this->settings->theme}/template.php";
     }
 
 }
@@ -510,7 +511,7 @@ class Admin_Controller extends MY_Controller {
 			->add_js_theme( "{$this->settings->theme}_i18n.js", TRUE );
 
         // declare main template
-        $this->template = "../../htdocs/themes/{$this->settings->theme}/template.php";
+        $this->template = THEME_PATH . "{$this->settings->theme}/template.php";
     }
 
 }
