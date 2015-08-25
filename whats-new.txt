@@ -1,5 +1,29 @@
 WHAT'S NEW IN CI3 FIRE STARTER
 
+Version 3.1.2
+08/25/2015
+
+Thanks DeeJaVu for your Turkish and Dutch translations.
+
+* Included pull requests
+    - Turkish & Dutch translations
+* Upgraded to CI 3.0.1
+
+===================================
+
+Version 3.1.1
+06/16/2015
+
+Thanks arif-rh and simogeo for your contributions.
+
+* Included pull requests
+    - Added base_url to links
+    - Improved theme functions
+    - Indonesian translation
+    - Repeat Password error fix
+* Fixed email validation check during account registration
+* Links to this Github page in theme footers
+
 ===================================
 
 Version 3.1.0

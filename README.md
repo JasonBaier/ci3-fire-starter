@@ -28,7 +28,7 @@ That should be the minimal features you need to kickstart many projects. While t
 
 I hope you find it useful. **Please [fork it on Github](https://github.com/JasonBaier/ci3-fire-starter/fork "Fork It") and help make it better!**
 
-NOTE: This documentation assumes you are already familiar with PHP and CodeIgniter. To learn more about PHP, visit http://php.net/. If you need to learn more about CodeIgniter, visit the user guide at http://www.codeigniter.com/userguide3/index.html. 
+NOTE: This documentation assumes you are already familiar with PHP and CodeIgniter. To learn more about PHP, visit http://php.net/. If you need to learn more about CodeIgniter, visit the user guide at http://www.codeigniter.com/userguide3/index.html.
 
 ![Welcome Screen](http://s3.postimg.org/7vxaw3b2b/ci3_fire_starter_welcome_screen.png?raw=true)
 
@@ -290,6 +290,15 @@ starting point, check out one of these awesome applications:
 
 ##WHAT'S NEW
 
+####Version 3.1.2
+08/25/2015
+
+Thanks [DeeJaVu](https://github.com/DeeJaVu "DeeJaVu") for your Turkish and Dutch translations.
+
+* Included pull requests
+    + Turkish & Dutch translations
+* Upgraded to CI 3.0.1
+
 ####Version 3.1.1
 06/16/2015
 
@@ -298,7 +307,7 @@ Thanks [arif-rh](https://github.com/arif-rh "Arif RH") and [simogeo](https://git
 * Included pull requests
     + Added base_url to links
     + Improved theme functions
-    + Indonesian language
+    + Indonesian translation
     + Repeat Password error fix
 * Fixed email validation check during account registration
 * Links to this Github page in theme footers

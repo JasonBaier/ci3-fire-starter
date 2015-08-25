@@ -7,3 +7,6 @@
 */cache/!.htaccess
 */captcha/*.jpg
 */sessions/ci_session*
+.DS_Store
+Thumbs.db
+
