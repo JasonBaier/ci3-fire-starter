@@ -261,8 +261,9 @@ With the API class, you can quite easily create API functions for external appli
 * Create a new database and import the included sql file from the /assets folder
     + default administrator username/password is admin/admin
 * Modify the application/config/config.php
-    + line 214: set your log threshold - I usually set it to 1 for production environments
-    + line 308: set your encryption key using the [recommended method](http://www.codeigniter.com/user_guide/libraries/encryption.html#setting-your-encryption-key "Encryption Library: Setting your encryption key")
+    + line 26: set your base site URL
+    + line 220: set your log threshold - I usually set it to 1 for production environments
+    + line 314: set your encryption key using the [recommended method](http://www.codeigniter.com/user_guide/libraries/encryption.html#setting-your-encryption-key "Encryption Library: Setting your encryption key")
 * Modify application/config/database.php and connect to your database
 * Upload all files to your server
 * Make sure the /captcha/ folder has write permission
@@ -274,12 +275,12 @@ With the API class, you can quite easily create API functions for external appli
 
 ##CONCLUSION
 
-As I said earlier, CI3 Fire Starter does not attempt to be a full-blown CMS. You would need
-to build that functionality on your own. If you want a great CMS built on CodeIgniter, or need a more robust
-starting point, check out one of these awesome applications:
+As I said before, CI3 Fire Starter does not attempt to be a full-blown CMS. You would need
+to build that functionality yourself. If you're looking for a great CMS built on CodeIgniter,
+or need a more robust starting point, then check out one of these awesome applications:
 
 * HeroFramework: sadly, this project appears to no longer be active since their website went down - but the source is still available here: https://github.com/electricfunction/hero
-* Halogy: http://www.halogy.com/
+* Halogy: http://www.halogy.com/ (not sure if development is still active on this project)
 * Expression Engine: http://ellislab.com/expressionengine (from the original creators of CodeIgniter)
 * GoCart: http://gocartdv.com/ (shopping cart)
 * Open-Blog: http://www.open-blog.org/ (this is my other project - currently working on a complete rewrite, but it's
@@ -289,6 +290,14 @@ starting point, check out one of these awesome applications:
 * CMS Canvas: http://www.cmscanvas.com/
 
 ##WHAT'S NEW
+
+####Version 3.1.3
+11/02/2015
+
+* Upgraded to CI 3.0.3
+    + Requires you to now set your base URL in config.php
+* Upgraded jQuery to 1.11.3
+* Upgraded Font Awesome to 4.4.0
 
 ####Version 3.1.2
 08/25/2015
