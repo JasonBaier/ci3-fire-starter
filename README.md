@@ -414,6 +414,11 @@ working on a complete rewrite, but it's been slow going
 <a name="whats-new"></a>
 ## WHAT'S NEW
 
+#### Version 3.1.5
+11/10/2015
+
+* Moved CAPTCHA font, Bromine, to core theme folder
+
 #### Version 3.1.4
 11/09/2015
 
