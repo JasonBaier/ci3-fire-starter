@@ -240,6 +240,8 @@ variables that could be used throughout the entire site (such as the words Home 
 <li>Dutch</li>
 <li>Indonesian</li>
 <li>Turkish</li>
+<li>Spanish</li>
+<li>Simplified Chinese</li>
 </ul>
 
 <p><a name="core-helper"></a></p>
@@ -350,6 +352,10 @@ Validation Library - see <a href="https://codeigniter.com/user_guide/libraries/f
 <li>last_update: datetimestamp of when the settings field was updated</li>
 <li>updated_by: reference to the 'users'.'id'</li>
 </ul>
+
+<p>Settings are loaded in MY_Controller and are accessible in every controller, model and view file. </p>
+
+<p>Example: $this-&gt;settings-&gt;site_version</p>
 
 <p><img src="http://s4.postimg.org/3ltmgpt5p/ci3_fire_starter_setttings_screen.png?raw=true" alt="Settings Screen"></p>
 
@@ -563,6 +569,24 @@ working on a complete rewrite, but it's been slow going</li>
 <a id="whats-new" class="anchor" href="#whats-new" aria-hidden="true"><span class="octicon octicon-link"></span></a>WHAT'S NEW</h2>
 
 <h4>
+<a id="version-316" class="anchor" href="#version-316" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 3.1.6</h4>
+
+<p>12/11/2015</p>
+
+<p>Thanks <a href="https://github.com/TowerX" title="TowerX">TowerX</a> for your Spanish translation.
+Thanks <a href="https://github.com/yinlianwei" title="yinlianwei">yinlianwei</a> for your Simplified Chinese translation.</p>
+
+<ul>
+<li>Included pull requests
+
+<ul>
+<li>Spanish translation</li>
+<li>Simplified Chinese translation</li>
+</ul>
+</li>
+</ul>
+
+<h4>
 <a id="version-315" class="anchor" href="#version-315" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 3.1.5</h4>
 
 <p>11/10/2015</p>
@@ -609,7 +633,8 @@ working on a complete rewrite, but it's been slow going</li>
 <li>Included pull requests
 
 <ul>
-<li>Turkish &amp; Dutch translations</li>
+<li>Turkish translation</li>
+<li>Dutch translation</li>
 </ul>
 </li>
 <li>Upgraded to CI 3.0.1</li>
