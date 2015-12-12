@@ -414,6 +414,16 @@ working on a complete rewrite, but it's been slow going
 <a name="whats-new"></a>
 ## WHAT'S NEW
 
+#### Version 3.1.6
+12/11/2015
+
+Thanks [TowerX](https://github.com/TowerX "TowerX") for your Spanish translation.
+Thanks [yinlianwei](https://github.com/yinlianwei "yinlianwei") for your Simplified Chinese translation.
+
+* Included pull requests
+    + Spanish translation
+    + Simplified Chinese translation
+
 #### Version 3.1.5
 11/10/2015
 
@@ -440,7 +450,8 @@ working on a complete rewrite, but it's been slow going
 Thanks [DeeJaVu](https://github.com/DeeJaVu "DeeJaVu") for your Turkish and Dutch translations.
 
 * Included pull requests
-    + Turkish & Dutch translations
+    + Turkish translation
+    + Dutch translation
 * Upgraded to CI 3.0.1
 
 #### Version 3.1.1
