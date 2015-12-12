@@ -156,6 +156,8 @@ In addition to English, the following languages have been contributed by the com
 * Dutch
 * Indonesian
 * Turkish
+* Spanish
+* Simplified Chinese
 
 <a name="core-helper"></a>
 #### Core Helper
