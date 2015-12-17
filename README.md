@@ -247,6 +247,7 @@ Validation Library - see [Rule Reference](https://codeigniter.com/user_guide/lib
 * updated\_by: reference to the 'users'.'id'
 
 Settings are loaded in MY_Controller and are accessible in every controller, model and view file.
+
 Example: $this->settings->site_version
 
 ![Settings Screen](http://s4.postimg.org/3ltmgpt5p/ci3_fire_starter_setttings_screen.png?raw=true)
