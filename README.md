@@ -246,7 +246,7 @@ Validation Library - see [Rule Reference](https://codeigniter.com/user_guide/lib
 * last\_update: datetimestamp of when the settings field was updated
 * updated\_by: reference to the 'users'.'id'
 
-Settings are loaded in MY_Controller and are accessible in every controller, model and view file. 
+Settings are loaded in MY_Controller and are accessible in every controller, model and view file.
 Example: $this->settings->site_version
 
 ![Settings Screen](http://s4.postimg.org/3ltmgpt5p/ci3_fire_starter_setttings_screen.png?raw=true)
@@ -418,6 +418,11 @@ working on a complete rewrite, but it's been slow going
 
 <a name="whats-new"></a>
 ## WHAT'S NEW
+
+#### Version 3.1.7
+12/17/2015
+
+* Added pagination config file
 
 #### Version 3.1.6
 12/11/2015

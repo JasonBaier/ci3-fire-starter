@@ -132,7 +132,7 @@ class Users extends Admin_Controller {
 		$this
 			->add_js_theme( "users_i18n.js", TRUE )
 			->set_title( lang('users title user_list') );
-		
+
         $data = $this->includes;
 
         // set content data
@@ -191,7 +191,7 @@ class Users extends Admin_Controller {
 
         // setup page header data
         $this->set_title( lang('users title user_add') );
-		
+
         $data = $this->includes;
 
         // set content data
@@ -260,7 +260,7 @@ class Users extends Admin_Controller {
 
         // setup page header data
         $this->set_title( lang('users title user_edit') );
-		
+
         $data = $this->includes;
 
         // set content data

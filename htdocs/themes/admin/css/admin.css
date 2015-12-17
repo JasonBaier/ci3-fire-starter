@@ -27,6 +27,10 @@ td.sorted {
     line-height: 60px;
 }
 
+.pagination {
+    margin: 0 !important;
+}
+
 
 /*****************************************************************************/
 /*  Additional color classes for striped tables (Bootstrap Standard Colors)  */
