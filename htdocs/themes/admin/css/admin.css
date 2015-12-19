@@ -31,6 +31,30 @@ td.sorted {
     margin: 0 !important;
 }
 
+#session-language {
+    margin: 8px 15px 0 20px;
+}
+
+#session-language-dropdown {
+    margin: 13px 15px 0 0;
+}
+
+#session-language-dropdown li {
+    position: relative;
+}
+
+.selected-session-language {
+    position: absolute;
+    top: 6px;
+    left: 4px;
+}
+
+@media (max-width:767px) {
+    #session-language {
+        margin: 12px 0 0 15px;
+    }
+}
+
 
 /*****************************************************************************/
 /*  Additional color classes for striped tables (Bootstrap Standard Colors)  */

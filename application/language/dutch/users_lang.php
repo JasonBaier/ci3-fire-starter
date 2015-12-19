@@ -36,6 +36,7 @@ $lang['users col username']                   = "Gebruikersnaam";
 $lang['users input email']                    = "E-mail";
 $lang['users input first_name']               = "Voornaam";
 $lang['users input is_admin']                 = "Is Admin";
+$lang['users input language']                 = "Taal";
 $lang['users input last_name']                = "Achternaam";
 $lang['users input password']                 = "Wachtwoord";
 $lang['users input password_repeat']          = "Herhaal wachtwoord";

@@ -38,6 +38,7 @@ $lang['users col username']                   = "用户名";
 $lang['users input email']                    = "邮箱";
 $lang['users input first_name']               = "名字";
 $lang['users input is_admin']                 = "是管理员";
+$lang['users input language']                 = "语言";
 $lang['users input last_name']                = "姓";
 $lang['users input password']                 = "密码";
 $lang['users input password_repeat']          = "确认密码";

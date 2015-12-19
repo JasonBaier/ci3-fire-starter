@@ -36,6 +36,7 @@ $lang['users col username']                   = "Username";
 $lang['users input email']                    = "Email";
 $lang['users input first_name']               = "Nama Depan";
 $lang['users input is_admin']                 = "Apakah Admin?";
+$lang['users input language']                 = "Bahasa";
 $lang['users input last_name']                = "Nama Belakang";
 $lang['users input password']                 = "Password";
 $lang['users input password_repeat']          = "Repeat Password";
@@ -56,10 +57,10 @@ $lang['users msg register_success']           = "Terima kasih sudah mendaftar, %
                                                  akun anda diverifikasi, anda akan dapat masuk dengan informasi rahasia yang anda buat.";
 $lang['users msg password_reset_success']     = "Password anda telah direset, %s! Silakan periksa email anda untuk password sementara anda yang baru.";
 $lang['users msg validate_success']           = "Akun anda telah diverifikasi. Anda sekarang bisa login ke akun anda.";
-$lang['users msg email_new_account']          = "<p>Terima kasih sudah membuat akun di %s. Klik ltautan di bawah ini untuk melakukan validasi 
+$lang['users msg email_new_account']          = "<p>Terima kasih sudah membuat akun di %s. Klik ltautan di bawah ini untuk melakukan validasi
                                                  alamat email anda dan mengaktifkan akun anda.<br /><br /><a href=\"%s\">%s</a></p>";
 $lang['users msg email_new_account_title']    = "Akun Baru untuk %s";
-$lang['users msg email_password_reset']       = "<p>Password anda di %s telah direset. Klik tautan di bawah ini untuk login dengan 
+$lang['users msg email_password_reset']       = "<p>Password anda di %s telah direset. Klik tautan di bawah ini untuk login dengan
                                                  menggunakan password baru anda:<br /><br /><strong>%s</strong><br /><br /><a href=\"%s\">%s</a>
                                                  Sekali anda login, pastikan untuk merubah password anda dengan yang dapat anda ingat.</p>";
 $lang['users msg email_password_reset_title'] = "Reset Password untuk %s";

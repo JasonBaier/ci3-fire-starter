@@ -3,9 +3,6 @@
  * Core Language File
  */
 
-// Titles
-$lang['core title welcome'] 				= "Welkom bij %s";
-
 // Buttons
 $lang['core button admin']                  = "Admin";
 $lang['core button cancel']              	= "Annuleren";
@@ -24,6 +21,7 @@ $lang['core button toggle_nav']          	= "Schakel navigatie";
 // Text
 $lang['core text no']                    	= "Nee";
 $lang['core text yes']                   	= "Ja";
+$lang['core text page_rendered']            = "Page rendered in <strong>{elapsed_time}</strong> seconden";
 
 // Emails
 $lang['core email start']                	= "<!DOCTYPE html><html><head><style>
@@ -36,3 +34,4 @@ $lang['UM75']	                         	= "(UTC -7:00) Arizona tijd";
 
 // Errors
 $lang['core error no_results']              = "Geen resultaten gevonden!";
+$lang['core error session_language']        = "Er was een probleem het instellen van de taal!";

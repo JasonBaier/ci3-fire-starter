@@ -166,6 +166,7 @@ class Users extends Admin_Controller {
         $this->form_validation->set_rules('first_name', lang('users input first_name'), 'required|trim|min_length[2]|max_length[32]');
         $this->form_validation->set_rules('last_name', lang('users input last_name'), 'required|trim|min_length[2]|max_length[32]');
         $this->form_validation->set_rules('email', lang('users input email'), 'required|trim|max_length[128]|valid_email|callback__check_email[]');
+        $this->form_validation->set_rules('language', lang('users input language'), 'required|trim');
         $this->form_validation->set_rules('status', lang('users input status'), 'required|numeric');
         $this->form_validation->set_rules('is_admin', lang('users input is_admin'), 'required|numeric');
         $this->form_validation->set_rules('password', lang('users input password'), 'required|trim|min_length[5]');
@@ -235,6 +236,7 @@ class Users extends Admin_Controller {
         $this->form_validation->set_rules('first_name', lang('users input first_name'), 'required|trim|min_length[2]|max_length[32]');
         $this->form_validation->set_rules('last_name', lang('users input last_name'), 'required|trim|min_length[2]|max_length[32]');
         $this->form_validation->set_rules('email', lang('users input email'), 'required|trim|max_length[128]|valid_email|callback__check_email[' . $user['email'] . ']');
+        $this->form_validation->set_rules('language', lang('users input language'), 'required|trim');
         $this->form_validation->set_rules('status', lang('users input status'), 'required|numeric');
         $this->form_validation->set_rules('is_admin', lang('users input is_admin'), 'required|numeric');
         $this->form_validation->set_rules('password', lang('users input password'), 'min_length[5]|matches[password_repeat]');

@@ -33,6 +33,7 @@ class Profile extends Private_Controller {
         $this->form_validation->set_rules('first_name', lang('users input first_name'), 'required|trim|min_length[2]|max_length[32]');
         $this->form_validation->set_rules('last_name', lang('users input last_name'), 'required|trim|min_length[2]|max_length[32]');
         $this->form_validation->set_rules('email', lang('users input email'), 'required|trim|max_length[128]|valid_email|callback__check_email');
+        $this->form_validation->set_rules('language', lang('users input language'), 'required|trim');
         $this->form_validation->set_rules('password_repeat', lang('users input password_repeat'), 'min_length[5]');
         $this->form_validation->set_rules('password', lang('users input password'), 'min_length[5]|matches[password_repeat]');
 
@@ -43,13 +44,15 @@ class Profile extends Private_Controller {
 
             if ($saved)
             {
-                $this->session->set_flashdata('message', lang('users msg edit_profile_success'));
-
                 // reload the new user data and store in session
                 $this->user = $this->users_model->get_user($this->user['id']);
                 unset($this->user['password']);
                 unset($this->user['salt']);
+
                 $this->session->set_userdata('logged_in', $this->user);
+                $this->session->language = $this->user['language'];
+                $this->lang->load('users', $this->user['language']);
+                $this->session->set_flashdata('message', lang('users msg edit_profile_success'));
             }
             else
             {
@@ -62,7 +65,7 @@ class Profile extends Private_Controller {
 
         // setup page header data
 		$this->set_title( lang('users title profile') );
-		
+
         $data = $this->includes;
 
         // set content data

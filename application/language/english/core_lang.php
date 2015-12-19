@@ -3,9 +3,6 @@
  * Core Language File
  */
 
-// Titles
-$lang['core title welcome'] 				= "Welcome to %s";
-
 // Buttons
 $lang['core button admin']                  = "Admin";
 $lang['core button cancel']              	= "Cancel";
@@ -24,6 +21,7 @@ $lang['core button toggle_nav']          	= "Toggle navigation";
 // Text
 $lang['core text no']                    	= "No";
 $lang['core text yes']                   	= "Yes";
+$lang['core text page_rendered']            = "Page rendered in <strong>{elapsed_time}</strong> seconds";
 
 // Emails
 $lang['core email start']                	= "<!DOCTYPE html><html><head><style>
@@ -36,3 +34,4 @@ $lang['UM75']	                         	= "(UTC -7:00) Arizona Time";
 
 // Errors
 $lang['core error no_results']              = "No results found!";
+$lang['core error session_language']        = "There was a problem setting the language!";

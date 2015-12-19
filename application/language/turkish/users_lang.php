@@ -36,6 +36,7 @@ $lang['users col username']                   = "Kullanıcı adı";
 $lang['users input email']                    = "E-posta";
 $lang['users input first_name']               = "İlk ad";
 $lang['users input is_admin']                 = "Admin";
+$lang['users input language']                 = "Dil";
 $lang['users input last_name']                = "Soyadı";
 $lang['users input password']                 = "Şifre";
 $lang['users input password_repeat']          = "Şifreyi tekrarla";

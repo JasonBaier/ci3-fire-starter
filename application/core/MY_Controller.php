@@ -10,6 +10,7 @@ class MY_Controller extends CI_Controller {
      */
     public $user;
     public $settings;
+    public $languages;
     public $includes;
     public $current_uri;
     public $theme;
@@ -36,31 +37,60 @@ class MY_Controller extends CI_Controller {
         // get current uri
         $this->current_uri = "/" . uri_string();
 
-        // set global header data - can be merged with or overwritten in controllers
-		$this
-			->add_external_css(
-				array(
-					"//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css",
-					"//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css",
-					"//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css",
-					"/themes/core/css/core.css"
-				))
-			->add_external_js(
-				array(
-					"//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
-					"//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"
-				));
-
-        $this->includes[ 'js_files_i18n' ] = array(
-            $this->jsi18n->translate("/themes/core/js/core_i18n.js")
-        );
-
         // set the time zone
         $timezones = $this->config->item('timezones');
         date_default_timezone_set($timezones[$this->settings->timezones]);
 
         // get current user
         $this->user = $this->session->userdata('logged_in');
+
+        // get languages
+        $this->languages = get_languages();
+
+        // set language according to this priority:
+        //   1) First, check session
+        //   2) If session not set, use the users language
+        //   3) Finally, if no user, use the configured languauge
+        if ($this->session->language)
+        {
+            // language selected from nav
+            $this->config->set_item('language', $this->session->language);
+        }
+        elseif ($this->user['language'])
+        {
+            // user's saved language
+            $this->config->set_item('language', $this->user['language']);
+        }
+        else
+        {
+            // default language
+            $this->config->set_item('language', $this->config->item('language'));
+        }
+
+        // save selected language to session
+        $this->session->language = $this->config->item('language');
+
+        // load the core language file
+        $this->lang->load('core');
+
+        // set global header data - can be merged with or overwritten in controllers
+        $this
+            ->add_external_css(
+                array(
+                    "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css",
+                    "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css",
+                    "//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css",
+                    "/themes/core/css/core.css"
+                ))
+            ->add_external_js(
+                array(
+                    "//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
+                    "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"
+                ));
+
+        $this->includes[ 'js_files_i18n' ] = array(
+            $this->jsi18n->translate("/themes/core/js/core_i18n.js")
+        );
 
         // enable the profiler?
         $this->output->enable_profiler($this->config->item('profiler'));

@@ -3,9 +3,6 @@
  * Core Language File
  */
 
-// Titles
-$lang['core title welcome'] 				= "%s hoş geldiniz";
-
 // Buttons
 $lang['core button admin']                  = "Admin";
 $lang['core button cancel']              	= "İptal";
@@ -24,6 +21,7 @@ $lang['core button toggle_nav']          	= "İki durumlu gezinti";
 // Text
 $lang['core text no']                    	= "Hayır";
 $lang['core text yes']                   	= "Evet";
+$lang['core text page_rendered']            = "Page <strong>{elapsed_time}</strong> saniyede render";
 
 // Emails
 $lang['core email start']                	= "<!DOCTYPE html><html><head><style>
@@ -36,3 +34,4 @@ $lang['UM75']	                         	= "(UTC -7:00) Arizona zaman";
 
 // Errors
 $lang['core error no_results']              = "Hiçbir sonuç bulunamadı!";
+$lang['core error session_language']        = "Dil ayarı bir sorun oldu!";

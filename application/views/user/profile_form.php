@@ -37,6 +37,15 @@
     </div>
 
     <div class="row">
+        <?php // language ?>
+        <div class="form-group col-sm-6<?php echo form_error('language') ? ' has-error' : ''; ?>">
+            <?php echo form_label(lang('users input language'), 'language', array('class'=>'control-label')); ?>
+            <span class="required">*</span>
+            <?php echo form_dropdown('language', $this->languages, (isset($user['language']) ? $user['language'] : $this->config->item('language')), 'id="language" class="form-control"'); ?>
+        </div>
+    </div>
+
+    <div class="row">
         <?php // password ?>
         <div class="form-group col-sm-4<?php echo form_error('password') ? ' has-error' : ''; ?>">
             <?php echo form_label(lang('users input password'), 'password', array('class'=>'control-label')); ?>

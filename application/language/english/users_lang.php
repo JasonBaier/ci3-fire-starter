@@ -36,6 +36,7 @@ $lang['users col username']                   = "Username";
 $lang['users input email']                    = "Email";
 $lang['users input first_name']               = "First Name";
 $lang['users input is_admin']                 = "Is Admin";
+$lang['users input language']                 = "Language";
 $lang['users input last_name']                = "Last Name";
 $lang['users input password']                 = "Password";
 $lang['users input password_repeat']          = "Repeat Password";

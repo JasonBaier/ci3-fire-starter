@@ -188,3 +188,43 @@ if ( ! function_exists('generate_random_password'))
         return implode($pass);
     }
 }
+
+
+/**
+ * Retrieves list of language folders
+ *
+ * @return array
+ */
+if ( ! function_exists('get_languages'))
+{
+    function get_languages()
+    {
+        $CI = get_instance();
+
+        if ($CI->session->languages)
+        {
+            return $CI->session->languages;
+        }
+
+        $CI->load->helper('directory');
+
+        $language_directories = directory_map(APPPATH . '/language/', 1);
+        if ( ! $language_directories)
+        {
+            $language_directories = directory_map(BASEPATH . '/language/', 1);
+        }
+
+        $languages = array();
+        foreach ($language_directories as $language)
+        {
+            if (substr($language, -1) == "/")
+            {
+                $languages[substr($language, 0, -1)] = ucwords(str_replace(array('-', '_'), ' ', substr($language, 0, -1)));
+            }
+        }
+
+        $CI->session->languages = $languages;
+
+        return $languages;
+    }
+}

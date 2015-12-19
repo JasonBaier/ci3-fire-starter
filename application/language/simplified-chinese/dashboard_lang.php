@@ -5,5 +5,11 @@
  * www.evenvi.com
  */
 
+// Text
+$lang['admin dashboard text welcome']  = "您好，欢迎到仪表板!";
+
+// Buttons
+$lang['admin dashboard btn demo']      = "点击Jsi18n演示";
+
 // Jsi18n Demo
-$lang['admin dashboard jsi18n-sample'] = "This is a demonstration of the Jsi18n library. It takes text from a language file and inserts it into your Javascripts. See the jsi18n.php library and dashboard_i18n.js for usage.";
+$lang['admin dashboard jsi18n-sample'] = "这是Jsi18n库​​的演示. 它需要文本从一种语言文件，并将其插入到你的Javascript. 见jsi18n.php库和dashboard_i18n.js的使用.";

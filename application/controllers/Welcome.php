@@ -8,6 +8,9 @@ class Welcome extends Public_Controller {
     function __construct()
     {
         parent::__construct();
+
+        // load the language file
+        $this->lang->load('welcome');
     }
 
 
@@ -17,8 +20,8 @@ class Welcome extends Public_Controller {
 	function index()
 	{
         // setup page header data
-        $this->set_title( sprintf(lang('core title welcome'), $this->settings->site_name) );
- 
+        $this->set_title(sprintf(lang('welcome title'), $this->settings->site_name));
+
         $data = $this->includes;
 
         // set content data

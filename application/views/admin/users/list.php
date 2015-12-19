@@ -4,7 +4,7 @@
     <div class="panel-heading">
         <div class="row">
             <div class="col-md-6 text-left">
-                <h3 class="panel-title"></h3>
+                <h3 class="panel-title"><?php echo lang('users title user_list'); ?></h3>
             </div>
             <div class="col-md-6 text-right">
                 <a class="btn btn-success tooltips" href="<?php echo base_url('admin/users/add'); ?>" title="<?php echo lang('users tooltip add_new_user') ?>" data-toggle="tooltip"><span class="glyphicon glyphicon-plus-sign"></span> <?php echo lang('users button add_new_user'); ?></a>

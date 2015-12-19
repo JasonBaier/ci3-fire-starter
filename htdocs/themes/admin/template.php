@@ -58,6 +58,26 @@
                 <?php // Nav bar right ?>
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="<?php echo base_url('logout'); ?>"><?php echo lang('core button logout'); ?></a></li>
+                    <li>
+                        <span class="dropdown">
+                            <button id="session-language" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="btn btn-default">
+                                <i class="fa fa-language"></i>
+                                <span class="caret"></span>
+                            </button>
+                            <ul id="session-language-dropdown" class="dropdown-menu" role="menu" aria-labelledby="session-language">
+                                <?php foreach ($this->languages as $key=>$name) : ?>
+                                    <li>
+                                        <a href="#" rel="<?php echo $key; ?>">
+                                            <?php if ($key == $this->session->language) : ?>
+                                                <i class="fa fa-check selected-session-language"></i>
+                                            <?php endif; ?>
+                                            <?php echo $name; ?>
+                                        </a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </span>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -103,7 +123,7 @@
     <footer class="sticky-footer">
         <div class="container">
             <p class="text-muted">
-                Page rendered in <strong>{elapsed_time}</strong> seconds
+                <?php echo lang('core text page_rendered'); ?>
                 | CodeIgniter v<?php echo CI_VERSION; ?>
                 | <?php echo $this->settings->site_name; ?> v<?php echo $this->settings->site_version; ?>
                 | <a href="http://jasonbaier.github.io/ci3-fire-starter/" target="_blank">Github.com</a>

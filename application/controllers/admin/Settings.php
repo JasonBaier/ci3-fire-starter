@@ -65,7 +65,7 @@ class Settings extends Admin_Controller {
 			->add_js_theme( 'summernote.min.js' )
 			->add_js_theme( 'settings_i18n.js', TRUE )
 			->set_title( lang('admin settings title') );
-		
+
         $data = $this->includes;
 
         // set content data

@@ -70,7 +70,7 @@ NOTE: This documentation assumes you are already familiar with PHP and CodeIgnit
 visit [php.net](http://php.net/). If you need to learn more about CodeIgniter, visit the
 [CodeIgniter User Guide](http://www.codeigniter.com/userguide3/index.html).
 
-![Welcome Screen](http://s3.postimg.org/7vxaw3b2b/ci3_fire_starter_welcome_screen.png?raw=true)
+![Welcome Screen](http://s13.postimg.org/ci5nj384n/Screen_Shot_2015_12_19_at_9_47_56_AM.png?raw=true)
 
 <a name="not-modular"></a>
 ## (NOT) MODULAR
@@ -108,7 +108,7 @@ This extends MY\_Controller and drives all your private pages (user profile, etc
 extends Private\_Controller will require authentication. Specific page requests are stored in session
 and will redirect upon successful authentication.
 
-![Profile Screen](http://s8.postimg.org/xpcn4kuud/ci3_fire_starter_profile_screen.png?raw=true)
+![Profile Screen](http://s14.postimg.org/3xmw5l4f5/Screen_Shot_2015_12_19_at_9_51_23_AM.png?raw=true)
 
 <a name="admin-controller"></a>
 #### Admin_Controller
@@ -219,7 +219,7 @@ table called 'users'. This tool demonstrates a lot of basic but important functi
 * Form validation
 * Harnessing the power of Twitter Bootstrap to accelerate development
 
-![User Administration](http://s27.postimg.org/udwfwrtqb/ci3_fire_starter_user_list.png?raw=true)
+![User Administration](http://s27.postimg.org/orbhgea1f/Screen_Shot_2015_12_19_at_9_52_44_AM.png?raw=true)
 
 IMPORTANT NOTE: user id 1 is the main administrator - DO NOT MANUALLY DELETE. You can not delete this
 user from within the admin tool.
@@ -250,7 +250,7 @@ Settings are loaded in MY_Controller and are accessible in every controller, mod
 
 Example: $this->settings->site_version
 
-![Settings Screen](http://s4.postimg.org/3ltmgpt5p/ci3_fire_starter_setttings_screen.png?raw=true)
+![Settings Screen](http://s30.postimg.org/4m0a8lgwh/Screen_Shot_2015_12_19_at_9_54_39_AM.png?raw=true)
 
 <a name="themes"></a>
 ## THEMES
@@ -419,6 +419,12 @@ working on a complete rewrite, but it's been slow going
 
 <a name="whats-new"></a>
 ## WHAT'S NEW
+
+#### Version 3.2.0
+12/19/2015
+
+* Added language selector
+* Users are now assigned a language (requires update to users table)
 
 #### Version 3.1.7
 12/17/2015

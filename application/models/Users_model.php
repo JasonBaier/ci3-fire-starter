@@ -124,6 +124,7 @@ class Users_model extends CI_Model {
                     first_name,
                     last_name,
                     email,
+                    language,
                     is_admin,
                     status,
                     deleted,
@@ -136,6 +137,7 @@ class Users_model extends CI_Model {
                     " . $this->db->escape($data['first_name']) . ",
                     " . $this->db->escape($data['last_name']) . ",
                     " . $this->db->escape($data['email']) . ",
+                    " . $this->db->escape($this->config->item('language')) . ",
                     " . $this->db->escape($data['is_admin']) . ",
                     " . $this->db->escape($data['status']) . ",
                     '0',
@@ -179,6 +181,7 @@ class Users_model extends CI_Model {
                     first_name,
                     last_name,
                     email,
+                    language,
                     is_admin,
                     status,
                     deleted,
@@ -192,6 +195,7 @@ class Users_model extends CI_Model {
                     " . $this->db->escape($data['first_name']) . ",
                     " . $this->db->escape($data['last_name']) . ",
                     " . $this->db->escape($data['email']) . ",
+                    " . $this->db->escape($data['language']) . ",
                     '0',
                     '0',
                     '0',
@@ -245,6 +249,7 @@ class Users_model extends CI_Model {
                     first_name = " . $this->db->escape($data['first_name']) . ",
                     last_name = " . $this->db->escape($data['last_name']) . ",
                     email = " . $this->db->escape($data['email']) . ",
+                    language = " . $this->db->escape($data['language']) . ",
                     is_admin = " . $this->db->escape($data['is_admin']) . ",
                     status = " . $this->db->escape($data['status']) . ",
                     updated = '" . date('Y-m-d H:i:s') . "'
@@ -297,6 +302,7 @@ class Users_model extends CI_Model {
                     first_name = " . $this->db->escape($data['first_name']) . ",
                     last_name = " . $this->db->escape($data['last_name']) . ",
                     email = " . $this->db->escape($data['email']) . ",
+                    language = " . $this->db->escape($data['language']) . ",
                     updated = '" . date('Y-m-d H:i:s') . "'
                 WHERE id = " . $this->db->escape($user_id) . "
                     AND deleted = '0'
@@ -367,6 +373,7 @@ class Users_model extends CI_Model {
                     first_name,
                     last_name,
                     email,
+                    language,
                     is_admin,
                     status,
                     created,

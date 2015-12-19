@@ -5,9 +5,6 @@
  * www.evenvi.com
  */
 
-// Titles
-$lang['core title welcome'] 				= "欢迎 %s";
-
 // Buttons
 $lang['core button admin']                  = "管理";
 $lang['core button cancel']              	= "取消";
@@ -26,6 +23,7 @@ $lang['core button toggle_nav']          	= "切换导航";
 // Text
 $lang['core text no']                    	= "否";
 $lang['core text yes']                   	= "是";
+$lang['core text page_rendered']            = "页面在<strong>{elapsed_time}</strong>秒内呈现";
 
 // Emails
 $lang['core email start']                	= "<!DOCTYPE html><html><head><style>
@@ -38,3 +36,4 @@ $lang['UM75']	                         	= "(UTC -7:00) Arizona Time";
 
 // Errors
 $lang['core error no_results']              = "没有数据!";
+$lang['core error session_language']        = "有一个问题，设置语言";
