@@ -15,8 +15,8 @@
   * [Core Config](#core-config)
   * [Core Language](#core-language)
   * [Core Helper](#core-helper)
-* [Libraries](#libraries)
-  * [JSi18n](#jsi18n-library)
+* [Internationalization](#i18n)
+  * [Jsi18n Library](#jsi18n-library)
 * [User Management](#user-management)
 * [Settings](#settings)
 * [Themes](#themes)
@@ -38,25 +38,27 @@ a simple, easy platform for learning CodeIgniter.
 
 * CodeIgniter 3.x
 * Base controllers for Public, Private, Admin and API classes
-* JSi18n Library to support internationalization in your JS files
+* Internationalization (translations) support
+    + Jsi18n Library to support internationalization in your JS files
 * The latest version of [jQuery](https://jquery.com/)
 * The latest version of [Twitter Bootstrap](http://getbootstrap.com/)
 * The latest version of [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
 * Independent responsive admin and frontend themes
 * [Summernote](http://summernote.org/ "Summernote") WYSIWYG editor
 * Auto-loaded core config file
-* Auto-loaded core language file
+* Auto-loaded core language file (based on selected language)
 * Auto-loaded core helper files
     + Human-readable JSON string output for API functions
     + Array to CSV exporting
     + Enhanced CAPTCHA
     + Random password generator
+    + Available languages fetcher
 * Simple user authentication with registration, forgot password and profile editor
 * Contact Us page with enhanced CAPTCHA
 * Basic admin tool with dashboard, user management, settings and Contact Us message list
 * File-based sessions
 
-That should be all you need to kickstart many CodeIgniter projects. While there are many great
+That should be the least needed to kickstart many CodeIgniter 3 projects. While there are many great
 CodeIgniter CMS applications ([see below](#conclusion)), sometimes you don't need a full CMS, or you need
 something much simpler than what's available, or you need a completely customizable solution. That's
 why I created CI3 Fire Starter. I was tired of always having to do the same things over and over again.
@@ -77,8 +79,8 @@ visit [php.net](http://php.net/). If you need to learn more about CodeIgniter, v
 
 The former versions of CI Fire Starter (prior to v3.0.0) used to utilize wiredesign's
 [Modular Extensions](https://bitbucket.org/wiredesignz/codeigniter-modular-extensions-hmvc). At this
-time I have opted not to include it, however, if you have an argument in support of reimplementing it,
-I'm all ears... just let me know.
+time I have opted not to include it, however, if you have an argument in support of reimplementing it, just let me know and
+we can open it up for discussion.
 
 <a name="base-classes"></a>
 ## BASE CLASSES
@@ -151,14 +153,6 @@ default form validation error delimiters.
 In /application/language/english is a file core\_lang.php. This file allows you to set language
 variables that could be used throughout the entire site (such as the words Home or Logout).
 
-In addition to English, the following languages have been contributed by the community:
-
-* Dutch
-* Indonesian
-* Turkish
-* Spanish
-* Simplified Chinese
-
 <a name="core-helper"></a>
 #### Core Helper
 
@@ -169,16 +163,25 @@ In /application/helper is a file core\_helper.php. This includes the following u
 * array\_to\_csv($array, $filename) - exports an array into a CSV file (see admin user list)
 * generate\_random\_pasword() - used to reset password for users who forgot password
 
-<a name="libraries"></a>
-## LIBRARIES
+<a name="i18n"></a>
+## INTERNATIONALIZATION
 
-The following libraries have been included in /application/libraries:
+Thanks to contributions from the community, the list of language translations is growing:
+
+* English
+* Dutch
+* Indonesian
+* Turkish
+* Spanish
+* Simplified Chinese
+
+Registered users can set their own preferred language, admins can set preferred languauges for each user, and non-registered users can use the language selector to render the site in their preferred language. The application looks for a session variable ($this->session->langauge) to determine which language to show. If one is not found in the session, the default defined in the main config file is used. If the user is logged in, then their assigned language is used instead. If a user selects a different languauge other than what is configured, the selected languauge will be used during their session.
 
 <a name="jsi18n-library"></a>
-#### JSi18n
+#### Jsi18n Library
 
 This library allows you to internationalize your JavaScript files through CI language files and was
-inspired by Alexandros D on [coderwall.com](https://coderwall.com/p/j88iog).
+inspired by Alexandros D on [coderwall.com](https://coderwall.com/p/j88iog). It is included in /application/libraries.
 
 Load this library in the autoload.php file or manually in your controller:
 
@@ -227,7 +230,7 @@ user from within the admin tool.
 <a name="settings"></a>
 ## SETTINGS
 
-Adding additional setting fields couldn't be any easier. Simply add a new entry in the 'settings'
+Adding additional site owner-configurable setting fields couldn't be any easier. Simply add a new entry in the 'settings'
 table of the database with the information below. The script then does all the work and adds the
 setting fields to the form automatically. There's no need to modify the form yourself!
 
@@ -402,9 +405,9 @@ for the complete list.
 <a name="conclusion"></a>
 ##CONCLUSION
 
-As I said before, CI3 Fire Starter does not attempt to be a full-blown CMS. You would need
+As I mentioned earlier, CI3 Fire Starter does not attempt to be a full-blown CMS. You would need
 to build that functionality yourself. If you're looking for a great CMS built on CodeIgniter,
-or need a more robust starting point, then check out one of these awesome applications:
+or need a more robust starting point, then check out one of these great applications:
 
 * [HeroFramework](https://github.com/electricfunction/hero/): this was my favorite, but sadly, this
 project appears to no longer be active since their website went down - but the source is still available
