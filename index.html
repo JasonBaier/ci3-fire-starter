@@ -272,12 +272,17 @@ variables that could be used throughout the entire site (such as the words Home 
 
 <p>Registered users can set their own preferred language, admins can set preferred languauges for each user, and
 non-registered users can use the language selector to render the site in their preferred language. The application
-looks for a session variable ($this-&gt;session-&gt;langauge) to determine which language to show. If one is not found in the
+looks for a session variable (<em>$this-&gt;session-&gt;langauge</em>) to determine which language to show. If one is not found in the
 session, the default defined in the main config file is used. If the user is logged in, then their assigned language is
 used instead. If a user selects a different languauge other than what is configured, the selected languauge will be used
 during their session.</p>
 
-<p>All available languages are also stored in the session to improve performance. They are available in $this-&gt;session-&gt;languages.</p>
+<p>All available languages are also stored in the session to improve performance. 
+They are available in <em>$this-&gt;session-&gt;languages</em>.</p>
+
+<blockquote>
+<p>If a translated language file is missing, the application will use English as the fall back using the extended MY_Lang class.</p>
+</blockquote>
 
 <p><a name="jsi18n-library"></a></p>
 
@@ -609,6 +614,7 @@ working on a complete rewrite, but it's been slow going</li>
 <ul>
 <li>Added language selector</li>
 <li>Users are now assigned a language (requires update to users table)</li>
+<li>Setup English as a fall back when translated language files are missing</li>
 </ul>
 
 <h4>
