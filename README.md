@@ -177,12 +177,16 @@ Thanks to contributions from the community, the list of language translations is
 
 Registered users can set their own preferred language, admins can set preferred languauges for each user, and
 non-registered users can use the language selector to render the site in their preferred language. The application
-looks for a session variable ($this->session->langauge) to determine which language to show. If one is not found in the
+looks for a session variable (_$this->session->langauge_) to determine which language to show. If one is not found in the
 session, the default defined in the main config file is used. If the user is logged in, then their assigned language is
 used instead. If a user selects a different languauge other than what is configured, the selected languauge will be used
 during their session.
 
-All available languages are also stored in the session to improve performance. They are available in $this->session->languages.
+All available languages are also stored in the session to improve performance. 
+
+They are available in _$this->session->languages_.
+
+> If a translated language file is missing, the application will use English as the fall back using the extended MY_Lang class.
 
 <a name="jsi18n-library"></a>
 #### Jsi18n Library
