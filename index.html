@@ -270,7 +270,14 @@ variables that could be used throughout the entire site (such as the words Home 
 <li>Simplified Chinese</li>
 </ul>
 
-<p>Registered users can set their own preferred language, admins can set preferred languauges for each user, and non-registered users can use the language selector to render the site in their preferred language. The application looks for a session variable ($this-&gt;session-&gt;langauge) to determine which language to show. If one is not found in the session, the default defined in the main config file is used. If the user is logged in, then their assigned language is used instead. If a user selects a different languauge other than what is configured, the selected languauge will be used during their session.</p>
+<p>Registered users can set their own preferred language, admins can set preferred languauges for each user, and
+non-registered users can use the language selector to render the site in their preferred language. The application
+looks for a session variable ($this-&gt;session-&gt;langauge) to determine which language to show. If one is not found in the
+session, the default defined in the main config file is used. If the user is logged in, then their assigned language is
+used instead. If a user selects a different languauge other than what is configured, the selected languauge will be used
+during their session.</p>
+
+<p>All available languages are also stored in the session to improve performance. They are available in $this-&gt;session-&gt;languages.</p>
 
 <p><a name="jsi18n-library"></a></p>
 
@@ -349,22 +356,32 @@ setting fields to the form automatically. There's no need to modify the form you
 <li>is_numeric: 0 or 1 - forces numeric keypad on mobile devices and validates numbers only on form submission</li>
 <li>show_editor: 0 or 1 - use only on textarea field types to utilize the WYSIWYG editor</li>
 <li>input_size: use to specify width of input field - options are: small, medium, large</li>
+<li>translate: 0 or 1 - set to 1 if you want inputs for each language - multiple translated values are then stored as a serialized array</li>
 <li>help_text: optional field for displaying help/info about the input</li>
 <li>validation: specifies how to validate the input values - uses the pipe-delimited rules from CI's Form
 Validation Library - see <a href="https://codeigniter.com/user_guide/libraries/form_validation.html#rule-reference">Rule Reference</a>
 </li>
 <li>sort_order: use to sort the order of input fields</li>
 <li>label: text to display as the input's label</li>
-<li>value: this is the actual value stored for this setting - be sure to set something as the default value</li>
+<li>value: this is the actual value stored for this setting - be sure to set something as the default value - NOTE: if you enable translation,
+just enter a non-serialized value for your default language - the script will handle the rest</li>
 <li>last_update: datetimestamp of when the settings field was updated</li>
 <li>updated_by: reference to the 'users'.'id'</li>
 </ul>
 
 <p>Settings are loaded in MY_Controller and are accessible in every controller, model and view file.</p>
 
-<p>Example: $this-&gt;settings-&gt;site_version</p>
+<p><strong>Non-translated Example:</strong></p>
 
-<p><img src="http://s30.postimg.org/4m0a8lgwh/Screen_Shot_2015_12_19_at_9_54_39_AM.png?raw=true" alt="Settings Screen"></p>
+<pre><code>$this-&gt;settings-&gt;site_version
+</code></pre>
+
+<p><strong>Translated Example:</strong></p>
+
+<pre><code>$this-&gt;settings-&gt;welcome_message[$this-&gt;session-&gt;language]
+</code></pre>
+
+<p><img src="http://s22.postimg.org/9wq5ngx01/Screen_Shot_2015_12_22_at_10_46_23_AM.png?raw=true" alt="Settings Screen"></p>
 
 <p><a name="themes"></a></p>
 
@@ -574,6 +591,15 @@ working on a complete rewrite, but it's been slow going</li>
 
 <h2>
 <a id="whats-new" class="anchor" href="#whats-new" aria-hidden="true"><span class="octicon octicon-link"></span></a>WHAT'S NEW</h2>
+
+<h4>
+<a id="version-321" class="anchor" href="#version-321" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 3.2.1</h4>
+
+<p>12/22/2015</p>
+
+<ul>
+<li>Site owner-configurable settings now translatable (requires update to settings table)</li>
+</ul>
 
 <h4>
 <a id="version-320" class="anchor" href="#version-320" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 3.2.0</h4>
