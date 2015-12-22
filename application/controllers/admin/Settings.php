@@ -28,7 +28,19 @@ class Settings extends Admin_Controller {
         {
             if ($setting['validation'])
             {
-                $this->form_validation->set_rules($setting['name'], $setting['label'], $setting['validation']);
+                if ($setting['translate'])
+                {
+                    // setup a validation for each translation
+                    foreach ($this->session->languages as $language_key=>$language_name)
+                    {
+                        $this->form_validation->set_rules($setting['name'] . "[" . $language_key . "]", $setting['label'] . " [" . $language_name . "]", $setting['validation']);
+                    }
+                }
+                else
+                {
+                    // single validation
+                    $this->form_validation->set_rules($setting['name'], $setting['label'], $setting['validation']);
+                }
             }
         }
 
@@ -47,7 +59,7 @@ class Settings extends Admin_Controller {
                 $settings = $this->settings_model->get_settings();
                 foreach ($settings as $setting)
                 {
-                    $this->settings->{$setting['name']} = $setting['value'];
+                    $this->settings->{$setting['name']} = @unserialize($setting['value']);
                 }
             }
             else
@@ -61,10 +73,10 @@ class Settings extends Admin_Controller {
 
         // setup page header data
 		$this
-			->add_css_theme( 'summernote.css' )
-			->add_js_theme( 'summernote.min.js' )
-			->add_js_theme( 'settings_i18n.js', TRUE )
-			->set_title( lang('admin settings title') );
+			->add_css_theme('summernote.css')
+			->add_js_theme('summernote.min.js')
+			->add_js_theme('settings_i18n.js', TRUE)
+			->set_title(lang('admin settings title'));
 
         $data = $this->includes;
 

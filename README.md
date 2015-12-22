@@ -175,7 +175,14 @@ Thanks to contributions from the community, the list of language translations is
 * Spanish
 * Simplified Chinese
 
-Registered users can set their own preferred language, admins can set preferred languauges for each user, and non-registered users can use the language selector to render the site in their preferred language. The application looks for a session variable ($this->session->langauge) to determine which language to show. If one is not found in the session, the default defined in the main config file is used. If the user is logged in, then their assigned language is used instead. If a user selects a different languauge other than what is configured, the selected languauge will be used during their session.
+Registered users can set their own preferred language, admins can set preferred languauges for each user, and
+non-registered users can use the language selector to render the site in their preferred language. The application
+looks for a session variable ($this->session->langauge) to determine which language to show. If one is not found in the
+session, the default defined in the main config file is used. If the user is logged in, then their assigned language is
+used instead. If a user selects a different languauge other than what is configured, the selected languauge will be used
+during their session.
+
+All available languages are also stored in the session to improve performance. They are available in $this->session->languages.
 
 <a name="jsi18n-library"></a>
 #### Jsi18n Library
@@ -240,20 +247,28 @@ setting fields to the form automatically. There's no need to modify the form you
 * is\_numeric: 0 or 1 - forces numeric keypad on mobile devices and validates numbers only on form submission
 * show\_editor: 0 or 1 - use only on textarea field types to utilize the WYSIWYG editor
 * input\_size: use to specify width of input field - options are: small, medium, large
+* translate: 0 or 1 - set to 1 if you want inputs for each language - multiple translated values are then stored as a serialized array
 * help\_text: optional field for displaying help/info about the input
 * validation: specifies how to validate the input values - uses the pipe-delimited rules from CI's Form
 Validation Library - see [Rule Reference](https://codeigniter.com/user_guide/libraries/form_validation.html#rule-reference)
 * sort\_order: use to sort the order of input fields
 * label: text to display as the input's label
-* value: this is the actual value stored for this setting - be sure to set something as the default value
+* value: this is the actual value stored for this setting - be sure to set something as the default value - NOTE: if you enable translation,
+just enter a non-serialized value for your default language - the script will handle the rest
 * last\_update: datetimestamp of when the settings field was updated
 * updated\_by: reference to the 'users'.'id'
 
 Settings are loaded in MY_Controller and are accessible in every controller, model and view file.
 
-Example: $this->settings->site_version
+**Non-translated Example:**
 
-![Settings Screen](http://s30.postimg.org/4m0a8lgwh/Screen_Shot_2015_12_19_at_9_54_39_AM.png?raw=true)
+    $this->settings->site_version
+
+**Translated Example:**
+
+    $this->settings->welcome_message[$this->session->language]
+
+![Settings Screen](http://s22.postimg.org/9wq5ngx01/Screen_Shot_2015_12_22_at_10_46_23_AM.png?raw=true)
 
 <a name="themes"></a>
 ## THEMES
@@ -422,6 +437,11 @@ working on a complete rewrite, but it's been slow going
 
 <a name="whats-new"></a>
 ## WHAT'S NEW
+
+#### Version 3.2.1
+12/22/2015
+
+* Site owner-configurable settings now translatable (requires update to settings table)
 
 #### Version 3.2.0
 12/19/2015

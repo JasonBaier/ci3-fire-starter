@@ -30,7 +30,7 @@ class MY_Controller extends CI_Controller {
         $this->settings = new stdClass();
         foreach ($settings as $setting)
         {
-            $this->settings->{$setting['name']} = $setting['value'];
+            $this->settings->{$setting['name']} = (@unserialize($setting['value']) !== FALSE) ? unserialize($setting['value']) : $setting['value'];
         }
         $this->settings->site_version = $this->config->item('site_version');
 

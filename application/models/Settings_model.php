@@ -63,7 +63,7 @@ class Settings_model extends CI_Model {
             {
                 $sql = "
                     UPDATE {$this->_db}
-                    SET value = " . $this->db->escape($value) . ",
+                    SET value = " . ((is_array($value)) ? $this->db->escape(serialize($value)) : $this->db->escape($value)) . ",
                         last_update = '" . date('Y-m-d H:i:s') . "',
                         updated_by = " . $this->db->escape($user_id) . "
                     WHERE name = " . $this->db->escape($key) . "

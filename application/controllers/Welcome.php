@@ -26,7 +26,7 @@ class Welcome extends Public_Controller {
 
         // set content data
         $content_data = array(
-            'welcome_message' => $this->settings->welcome_message
+            'welcome_message' => $this->settings->welcome_message[$this->session->language]
         );
 
         // load views

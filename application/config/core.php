@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 
 // Site Details
-$config['site_version']          = "3.2.0";
+$config['site_version']          = "3.2.1";
 $config['public_theme']          = "Default";
 $config['admin_theme']           = "Admin";
 

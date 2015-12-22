@@ -5,12 +5,7 @@
     <?php foreach ($settings as $setting) : ?>
 
         <?php // prepare field settings
-        $field_data = array(
-            'name'  => $setting['name'],
-            'id'    => $setting['name'],
-            'class' => "form-control" . (($setting['show_editor']) ? " editor" : ""),
-            'value' => $setting['value']
-        );
+        $field_data = array();
 
         if ($setting['is_numeric'])
         {
@@ -54,47 +49,134 @@
         }
         ?>
 
-        <div class="row">
-            <div class="form-group <?php echo $col_size; ?><?php echo form_error($setting['name']) ? ' has-error' : ''; ?>">
-                <?php echo form_label($setting['label'], $setting['name'], array('class'=>'control-label')); ?>
-                <?php if (strpos($setting['validation'], 'required')) : ?>
-                    <span class="required">*</span>
-                <?php endif; ?>
+        <?php if ($setting['translate'] && $this->session->languages && $this->session->language) : ?>
 
-                <?php // render the correct input method
-                if ($setting['input_type'] == 'input')
+            <?php // has translations ?>
+            <?php
+            $setting['value'] = (@unserialize($setting['value']) !== FALSE) ? unserialize($setting['value']) : $setting['value'];
+            if ( ! is_array($setting['value']))
+            {
+                $old_value = $setting['value'];
+                $setting['value'] = array();
+                foreach ($this->session->languages as $language_key=>$language_name)
                 {
-                    echo form_input($field_data);
+                    $setting['value'][$language_key] = ($language_key == $this->session->language) ? $old_value : "";
                 }
-                elseif ($setting['input_type'] == 'textarea')
-                {
-                    echo form_textarea($field_data);
-                }
-                elseif ($setting['input_type'] == 'radio')
-                {
-                    echo "<br />";
-                    foreach ($field_options as $value=>$label)
-                    {
-                        echo form_radio(array('name'=>$field_data['name'], 'id'=>$field_data['id'] . "-" . $value, 'value'=>$value, 'checked'=>(($value == $field_data['value']) ? 'checked' : FALSE)));
-                        echo $label;
-                    }
-                }
-                elseif ($setting['input_type'] == 'dropdown')
-                {
-                    echo form_dropdown($setting['name'], $field_options, $field_data['value'], 'id="' . $field_data['id'] . '" class="' . $field_data['class'] . '"');
-                }
-                elseif ($setting['input_type'] == 'timezones')
-                {
-                    echo "<br />";
-                    echo timezone_menu($field_data['value']);
-                }
-                ?>
+            }
+            ?>
+            <div class="row">
+                <div class="form-group <?php echo $col_size; ?><?php echo form_error($setting['name']) ? ' has-error' : ''; ?>">
+                    <?php echo form_label($setting['label'], $setting['name'], array('class'=>'control-label')); ?>
+                    <?php if (strpos($setting['validation'], 'required') !== FALSE) : ?>
+                        <span class="required">*</span>
+                    <?php endif; ?>
+                    <div role="tabpanel">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <?php foreach ($this->session->languages as $language_key=>$language_name) : ?>
+                                <li role="presentation" class="<?php echo ($language_key == $this->session->language) ? 'active' : ''; ?>"><a href="#<?php echo $language_key; ?>" aria-controls="<?php echo $language_key; ?>" role="tab" data-toggle="tab"><?php echo $language_name; ?></a></li>
+                            <?php endforeach; ?>
+                        </ul>
 
-                <?php if ($setting['help_text']) : ?>
-                    <span class="help-block"><?php echo $setting['help_text']; ?></span>
-                <?php endif; ?>
+                        <div class="tab-content">
+                            <?php foreach ($this->session->languages as $language_key=>$language_name) : ?>
+                                <div role="tabpanel" class="tab-pane<?php echo ($language_key == $this->session->language) ? ' active' : ''; ?>" id="<?php echo $language_key; ?>">
+                                    <br />
+                                    <?php
+                                    $field_data['name']  = $setting['name'] . "[" . $language_key . "]";
+                                    $field_data['id']    = $setting['name'] . "-" . $language_key;
+                                    $field_data['class'] = "form-control" . (($setting['show_editor']) ? " editor" : "");
+                                    $field_data['value'] = (@$setting['value'][$language_key]) ? $setting['value'][$language_key] : "";
+
+                                    // render the correct input method
+                                    if ($setting['input_type'] == 'input')
+                                    {
+                                        echo form_input($field_data);
+                                    }
+                                    elseif ($setting['input_type'] == 'textarea')
+                                    {
+                                        echo form_textarea($field_data);
+                                    }
+                                    elseif ($setting['input_type'] == 'radio')
+                                    {
+                                        echo "<br />";
+                                        foreach ($field_options as $value=>$label)
+                                        {
+                                            echo form_radio(array('name'=>$field_data['name'], 'id'=>$field_data['id'] . "-" . $value, 'value'=>$value, 'checked'=>(($value == $field_data['value']) ? 'checked' : FALSE)));
+                                            echo $label;
+                                        }
+                                    }
+                                    elseif ($setting['input_type'] == 'dropdown')
+                                    {
+                                        echo form_dropdown($setting['name'], $field_options, $field_data['value'], 'id="' . $field_data['id'] . '" class="' . $field_data['class'] . '"');
+                                    }
+                                    elseif ($setting['input_type'] == 'timezones')
+                                    {
+                                        echo "<br />";
+                                        echo timezone_menu($field_data['value']);
+                                    }
+                                    ?>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+
+                    <?php if ($setting['help_text']) : ?>
+                        <span class="help-block"><?php echo $setting['help_text']; ?></span>
+                    <?php endif; ?>
+                </div>
             </div>
-        </div>
+
+        <?php else : ?>
+
+            <?php // no translations
+            $field_data['name']  = $setting['name'];
+            $field_data['id']    = $setting['name'];
+            $field_data['class'] = "form-control" . (($setting['show_editor']) ? " editor" : "");
+            $field_data['value'] = $setting['value'];
+            ?>
+            <div class="row">
+                <div class="form-group <?php echo $col_size; ?><?php echo form_error($setting['name']) ? ' has-error' : ''; ?>">
+                    <?php echo form_label($setting['label'], $setting['name'], array('class'=>'control-label')); ?>
+                    <?php if (strpos($setting['validation'], 'required') !== FALSE) : ?>
+                        <span class="required">*</span>
+                    <?php endif; ?>
+
+                    <?php // render the correct input method
+                    if ($setting['input_type'] == 'input')
+                    {
+                        echo form_input($field_data);
+                    }
+                    elseif ($setting['input_type'] == 'textarea')
+                    {
+                        echo form_textarea($field_data);
+                    }
+                    elseif ($setting['input_type'] == 'radio')
+                    {
+                        echo "<br />";
+                        foreach ($field_options as $value=>$label)
+                        {
+                            echo form_radio(array('name'=>$field_data['name'], 'id'=>$field_data['id'] . "-" . $value, 'value'=>$value, 'checked'=>(($value == $field_data['value']) ? 'checked' : FALSE)));
+                            echo $label;
+                        }
+                    }
+                    elseif ($setting['input_type'] == 'dropdown')
+                    {
+                        echo form_dropdown($setting['name'], $field_options, $field_data['value'], 'id="' . $field_data['id'] . '" class="' . $field_data['class'] . '"');
+                    }
+                    elseif ($setting['input_type'] == 'timezones')
+                    {
+                        echo "<br />";
+                        echo timezone_menu($field_data['value']);
+                    }
+                    ?>
+
+                    <?php if ($setting['help_text']) : ?>
+                        <span class="help-block"><?php echo $setting['help_text']; ?></span>
+                    <?php endif; ?>
+                </div>
+            </div>
+
+        <?php endif; ?>
 
     <?php endforeach; ?>
 
