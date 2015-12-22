@@ -183,7 +183,6 @@ used instead. If a user selects a different languauge other than what is configu
 during their session.
 
 All available languages are also stored in the session to improve performance. 
-
 They are available in _$this->session->languages_.
 
 > If a translated language file is missing, the application will use English as the fall back using the extended MY_Lang class.
