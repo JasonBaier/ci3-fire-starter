@@ -451,6 +451,7 @@ working on a complete rewrite, but it's been slow going
 
 * Added language selector
 * Users are now assigned a language (requires update to users table)
+* Setup English as a fall back when translated language files are missing
 
 #### Version 3.1.7
 12/17/2015
