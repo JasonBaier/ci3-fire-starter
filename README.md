@@ -182,7 +182,7 @@ session, the default defined in the main config file is used. If the user is log
 used instead. If a user selects a different languauge other than what is configured, the selected languauge will be used
 during their session.
 
-All available languages are also stored in the session to improve performance. 
+All available languages are also stored in the session to improve performance.
 They are available in _$this->session->languages_.
 
 > If a translated language file is missing, the application will use English as the fall back using the extended MY_Lang class.
@@ -412,10 +412,10 @@ for the complete list.
     + line 220: set your log threshold - I usually set it to 1 for production environments
     + line 314: set your encryption key using the [recommended method](http://www.codeigniter.com/user_guide/libraries/encryption.html#setting-your-encryption-key "Encryption Library: Setting your encryption key")
 * Modify /application/config/database.php and connect to your database
-* Upload all files to your server
-* Make sure the /captcha folder has write permission
+* Modify /application/config/core.php and set $config['root_folder'] to match your server's webroot (htdocs, public_html, etc.)
+* Upload all files to your server - for security, /application and /system must go above your webroot and all the files and subfolders in /htdocs will go inside your webroot
+* Make sure the /captcha folder inside your webroot has write permission
 * Set /application/sessions permission to 0600
-* Configure your path to use /htdocs
 * Visit your new URL
 * The default welcome page includes links to the admin tool and the private user profile page
 * Make sure you log in to admin and change the administrator password!
@@ -427,19 +427,21 @@ As I mentioned earlier, CI3 Fire Starter does not attempt to be a full-blown CMS
 to build that functionality yourself. If you're looking for a great CMS built on CodeIgniter,
 or need a more robust starting point, then check out one of these great applications:
 
-* [HeroFramework](https://github.com/electricfunction/hero/): this was my favorite, but sadly, this
-project appears to no longer be active since their website went down - but the source is still available
+* [HeroFramework](https://github.com/electricfunction/hero/): this project appears to no longer be active, however, the source is still available
 * [Halogy](http://www.halogy.com/): not sure if development is still active on this project
 * [Expression Engine](http://ellislab.com/expressionengine/): from the original creators of CodeIgniter
 * [GoCart](http://gocartdv.com/): shopping cart
-* [Open-Blog](http://www.open-blog.org/): this is another one of my opensource projects - currently
-working on a complete rewrite, but it's been slow going
-* [Bonfire](http://cibonfire.com/): this is more of an application builder than a full CMS
+* [Bonfire](http://cibonfire.com/)
 * [FuelCMS](http://getfuelcms.com/)
 * [CMS Canvas](http://www.cmscanvas.com/)
 
 <a name="whats-new"></a>
 ## WHAT'S NEW
+
+#### Version 3.2.2
+12/23/2015
+
+* Added configurable webroot in core.php config file
 
 #### Version 3.2.1
 12/22/2015

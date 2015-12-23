@@ -33,6 +33,7 @@ class MY_Controller extends CI_Controller {
             $this->settings->{$setting['name']} = (@unserialize($setting['value']) !== FALSE) ? unserialize($setting['value']) : $setting['value'];
         }
         $this->settings->site_version = $this->config->item('site_version');
+        $this->settings->root_folder  = $this->config->item('root_folder');
 
         // get current uri
         $this->current_uri = "/" . uri_string();
@@ -421,7 +422,7 @@ class MY_Controller extends CI_Controller {
         // make sure that $template_file has .php extension
         $template_file = substr( $template_file, -4 ) == '.php' ? $template_file : ( $template_file . ".php" );
 
-        $this->template = "../../htdocs/themes/{$this->settings->theme}/{$template_file}";
+        $this->template = "../../{$this->settings->root_folder}/themes/{$this->settings->theme}/{$template_file}";
     }
 
 }

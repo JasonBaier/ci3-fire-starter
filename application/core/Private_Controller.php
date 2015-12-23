@@ -34,7 +34,7 @@ class Private_Controller extends MY_Controller {
             ->add_js_theme( "{$this->settings->theme}_i18n.js", TRUE );
 
         // declare main template
-        $this->template = "../../htdocs/themes/{$this->settings->theme}/template.php";
+        $this->template = "../../{$this->settings->root_folder}/themes/{$this->settings->theme}/template.php";
     }
 
 }
