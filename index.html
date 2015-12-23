@@ -277,7 +277,7 @@ session, the default defined in the main config file is used. If the user is log
 used instead. If a user selects a different languauge other than what is configured, the selected languauge will be used
 during their session.</p>
 
-<p>All available languages are also stored in the session to improve performance. 
+<p>All available languages are also stored in the session to improve performance.
 They are available in <em>$this-&gt;session-&gt;languages</em>.</p>
 
 <blockquote>
@@ -555,10 +555,10 @@ for the complete list.</p>
 </ul>
 </li>
 <li>Modify /application/config/database.php and connect to your database</li>
-<li>Upload all files to your server</li>
-<li>Make sure the /captcha folder has write permission</li>
+<li>Modify /application/config/core.php and set $config['root_folder'] to match your server's webroot (htdocs, public_html, etc.)</li>
+<li>Upload all files to your server - for security, /application and /system must go above your webroot and all the files and subfolders in /htdocs will go inside your webroot</li>
+<li>Make sure the /captcha folder inside your webroot has write permission</li>
 <li>Set /application/sessions permission to 0600</li>
-<li>Configure your path to use /htdocs</li>
 <li>Visit your new URL</li>
 <li>The default welcome page includes links to the admin tool and the private user profile page</li>
 <li>Make sure you log in to admin and change the administrator password!</li>
@@ -575,19 +575,14 @@ or need a more robust starting point, then check out one of these great applicat
 
 <ul>
 <li>
-<a href="https://github.com/electricfunction/hero/">HeroFramework</a>: this was my favorite, but sadly, this
-project appears to no longer be active since their website went down - but the source is still available</li>
+<a href="https://github.com/electricfunction/hero/">HeroFramework</a>: this project appears to no longer be active, however, the source is still available</li>
 <li>
 <a href="http://www.halogy.com/">Halogy</a>: not sure if development is still active on this project</li>
 <li>
 <a href="http://ellislab.com/expressionengine/">Expression Engine</a>: from the original creators of CodeIgniter</li>
 <li>
 <a href="http://gocartdv.com/">GoCart</a>: shopping cart</li>
-<li>
-<a href="http://www.open-blog.org/">Open-Blog</a>: this is another one of my opensource projects - currently
-working on a complete rewrite, but it's been slow going</li>
-<li>
-<a href="http://cibonfire.com/">Bonfire</a>: this is more of an application builder than a full CMS</li>
+<li><a href="http://cibonfire.com/">Bonfire</a></li>
 <li><a href="http://getfuelcms.com/">FuelCMS</a></li>
 <li><a href="http://www.cmscanvas.com/">CMS Canvas</a></li>
 </ul>
@@ -596,6 +591,15 @@ working on a complete rewrite, but it's been slow going</li>
 
 <h2>
 <a id="whats-new" class="anchor" href="#whats-new" aria-hidden="true"><span class="octicon octicon-link"></span></a>WHAT'S NEW</h2>
+
+<h4>
+<a id="version-322" class="anchor" href="#version-322" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 3.2.2</h4>
+
+<p>12/23/2015</p>
+
+<ul>
+<li>Added configurable webroot in core.php config file</li>
+</ul>
 
 <h4>
 <a id="version-321" class="anchor" href="#version-321" aria-hidden="true"><span class="octicon octicon-link"></span></a>Version 3.2.1</h4>
