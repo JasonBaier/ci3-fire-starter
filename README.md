@@ -174,6 +174,7 @@ Thanks to contributions from the community, the list of language translations is
 * Turkish
 * Spanish
 * Simplified Chinese
+* Russian
 
 Registered users can set their own preferred language, admins can set preferred languauges for each user, and
 non-registered users can use the language selector to render the site in their preferred language. The application
