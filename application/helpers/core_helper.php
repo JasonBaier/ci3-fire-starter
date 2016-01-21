@@ -217,7 +217,7 @@ if ( ! function_exists('get_languages'))
         $languages = array();
         foreach ($language_directories as $language)
         {
-            if (substr($language, -1) == "/")
+            if (substr($language, -1) == "/" || substr($language, -1) == "\\")
             {
                 $languages[substr($language, 0, -1)] = ucwords(str_replace(array('-', '_'), ' ', substr($language, 0, -1)));
             }

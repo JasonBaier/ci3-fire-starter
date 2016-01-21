@@ -439,6 +439,16 @@ or need a more robust starting point, then check out one of these great applicat
 <a name="whats-new"></a>
 ## WHAT'S NEW
 
+#### Version 3.2.3
+01/20/2016
+
+Thanks [klavatron](https://github.com/klavatron "klavatron") for your Russian translation.
+
+* Upgraded to CI 3.0.4
+* Included pull requests
+    + Russian translation
+* Fixed Issue #21 for locating translation folders on Windows (thanks [Everterstraat](https://github.com/Everterstraat "Everterstraat") for finding the source of the problem)
+
 #### Version 3.2.2
 12/23/2015
 
