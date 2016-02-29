@@ -17,6 +17,7 @@ $lang['users title user_list']                = "Gebruikerslijst";
 $lang['users button add_new_user']            = "Nieuwe gebruiker toevoegen";
 $lang['users button register']                = "Account aanmaken";
 $lang['users button reset_password']          = "Reset wachtwoord";
+$lang['users button login_try_again']         = "Probeer het nog eens";
 
 // Tooltips
 $lang['users tooltip add_new_user']           = "Maak een nieuwe gebruiker.";
@@ -81,3 +82,5 @@ $lang['users error user_id_required']         = "Een numerieke gebruikers-ID is 
 $lang['users error user_not_exist']           = "Die gebruiker bestaat niet!";
 $lang['users error username_exists']          = "De gebruikersnaam <strong>%s</strong> bestaat al!";
 $lang['users error validate_failed']          = "Er was een probleem voor het valideren van uw account. Probeer het opnieuw.";
+$lang['users error too_many_login_attempts']  = "Je hebt te vaak geprobeerd om in te loggen te snel gemaakt. Gelieve wacht %s seconden en probeer het opnieuw.";
+

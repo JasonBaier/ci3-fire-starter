@@ -24,6 +24,7 @@
 * [APIs](#apis)
 * [System Requirements](#system-requirements)
 * [Installation](#installation)
+* [Updates](#updates)
 * [Conclusion](#conclusion)
 * [What's New](#whats-new)
 * [Fork It!](#forkit)
@@ -33,8 +34,8 @@
 
 CI3 Fire Starter is a CodeIgniter3 skeleton application that includes [jQuery](https://jquery.com/) and
 [Twitter Bootstrap](http://getbootstrap.com/). It is intended to be light weight, minimalistic and not
-get in your way of building great CodeIgniter 3 applications. It is also intended for newbies who want
-a simple, easy platform for learning CodeIgniter.
+get in your way of building great CodeIgniter 3 applications. It is also intended for new CodeIgniter
+developers who want a simple, easy platform for learning the framework.
 
 * CodeIgniter 3.x
 * Base controllers for Public, Private, Admin and API classes
@@ -58,12 +59,11 @@ a simple, easy platform for learning CodeIgniter.
 * Basic admin tool with dashboard, user management, settings and Contact Us message list
 * File-based sessions
 
-That should be the least needed to kickstart many CodeIgniter 3 projects. While there are many great
-CodeIgniter CMS applications ([see below](#conclusion)), sometimes you don't need a full CMS, or you need
-something much simpler than what's available, or you need a completely customizable solution. That's
-why I created CI3 Fire Starter. I was tired of always having to do the same things over and over again.
-So I took some best practices, included all the addons and functions I most commonly use, and this
-was the end result, which I now use to start the majority of my projects.
+That should cover the basic needs for kickstarting many small CodeIgniter 3 projects. While there are some
+great CodeIgniter CMS applications ([see below](#conclusion)), sometimes you don't need a full CMS or you
+need a completely customizable solution. That's why I created CI3 Fire Starter. I was tired of always
+having to do the same things over and over again. So I took some best practices, included all the addons and
+functions I most commonly use, and this was the end result, which I use to start many of my smaller projects.
 
 I hope you find it useful. **Please [fork it on Github](https://github.com/JasonBaier/ci3-fire-starter/fork "Fork It")
 and help make it better!**
@@ -79,8 +79,8 @@ visit [php.net](http://php.net/). If you need to learn more about CodeIgniter, v
 
 The former versions of CI Fire Starter (prior to v3.0.0) used to utilize wiredesign's
 [Modular Extensions](https://bitbucket.org/wiredesignz/codeigniter-modular-extensions-hmvc). At this
-time I have opted not to include it, however, if you have an argument in support of reimplementing it, just let me know and
-we can open it up for discussion.
+time I have opted not to include it, however, if you have an argument in support of reimplementing it,
+just let me know and we can open it up for discussion.
 
 <a name="base-classes"></a>
 ## BASE CLASSES
@@ -144,8 +144,8 @@ Several core files have been included to simplify customizations:
 #### Core Config
 
 In /application/config there is a file core.php. This file allows you to set site-wide variables. It
-is set up with site version, default templates, pagination settings, enable/disable the profiler and
-default form validation error delimiters.
+is set up with site version, default templates, pagination settings, login attempt settings,
+enable/disable the profiler and default form validation error delimiters.
 
 <a name="core-language"></a>
 #### Core Language
@@ -156,25 +156,26 @@ variables that could be used throughout the entire site (such as the words Home 
 <a name="core-helper"></a>
 #### Core Helper
 
-In /application/helper is a file core\_helper.php. This includes the following useful functions:
+In /application/helpers is a file core\_helper.php. This includes the following useful functions:
 
 * display\_json($array) - used to output an array as JSON in a human-readable format - used by the API
 * json\_indent($array) - this is the function that actually creates the human-readable JSON string
 * array\_to\_csv($array, $filename) - exports an array into a CSV file (see admin user list)
 * generate\_random\_pasword() - used to reset password for users who forgot password
+* get\_languages() - retrieves a list of all language folders
 
 <a name="i18n"></a>
 ## INTERNATIONALIZATION
 
 Thanks to contributions from the community, the list of language translations is growing:
 
-* English
+* Chinese (Simplified)
 * Dutch
+* English (default)
 * Indonesian
-* Turkish
-* Spanish
-* Simplified Chinese
 * Russian
+* Spanish
+* Turkish
 
 Registered users can set their own preferred language, admins can set preferred languauges for each user, and
 non-registered users can use the language selector to render the site in their preferred language. The application
@@ -421,6 +422,11 @@ for the complete list.
 * The default welcome page includes links to the admin tool and the private user profile page
 * Make sure you log in to admin and change the administrator password!
 
+<a name="updates"></a>
+## UPDATES
+
+Since version 3.2.4, anytime changes to the database are required, you'll find SQL files in /assets/schema\_updates.
+
 <a name="conclusion"></a>
 ##CONCLUSION
 
@@ -438,6 +444,16 @@ or need a more robust starting point, then check out one of these great applicat
 
 <a name="whats-new"></a>
 ## WHAT'S NEW
+
+#### Version 3.2.4
+02/29/2016
+
+* Security Updates
+    + Limit login requests
+    + Improved encryption key (you still should replace it with your own)
+    + Set username and password lengths
+* Added 'email' form input fields where applicable for better mobile support
+* Added new 'schema\_updates' folder in the 'assets' folder - includes SQL for new 'login\_attempt' table
 
 #### Version 3.2.3
 01/20/2016

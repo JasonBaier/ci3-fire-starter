@@ -17,6 +17,7 @@ $lang['users title user_list']                = "Daftar User";
 $lang['users button add_new_user']            = "Tambah User Baru";
 $lang['users button register']                = "Buat Akun";
 $lang['users button reset_password']          = "Reset Password";
+$lang['users button login_try_again']         = "Coba lagi";
 
 // Tooltips
 $lang['users tooltip add_new_user']           = "Buat user baru.";
@@ -78,3 +79,4 @@ $lang['users error user_id_required']         = "User ID harus berisi angka!";
 $lang['users error user_not_exist']           = "User tersebut tidak ada!";
 $lang['users error username_exists']          = "Username <strong>%s</strong> sudah ada!";
 $lang['users error validate_failed']          = "Terdapat masalah dalam upaya validasi akun anda. Silakan coba lagi.";
+$lang['users error too_many_login_attempts']  = "Anda sudah membuat terlalu banyak upaya untuk log in terlalu cepat. Silahkan tunggu %s detik dan coba lagi.";

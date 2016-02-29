@@ -17,6 +17,7 @@ $lang['users title user_list']                = "Kullanıcı listesi";
 $lang['users button add_new_user']            = "Yeni Kullanıcı Ekle";
 $lang['users button register']                = "Hesap oluşturma";
 $lang['users button reset_password']          = "Parola sıfırlama";
+$lang['users button login_try_again']         = "Tekrar dene";
 
 // Tooltips
 $lang['users tooltip add_new_user']           = "Yeni bir kullanıcı oluşturun.";
@@ -80,3 +81,4 @@ $lang['users error user_id_required']         = "Bir sayısal kullanıcı kimli�
 $lang['users error user_not_exist']           = "Bu kullanıcı yok!";
 $lang['users error username_exists']          = "Kullanıcı adı <strong>%s</strong> zaten!";
 $lang['users error validate_failed']          = "Hesabınızı doğrulanırken bir hata oluştu. Lütfen yeniden deneyin.";
+$lang['users error too_many_login_attempts']  = "Çok hızlı giriş için çok fazla deneme yaptık. %s saniye bekleyin ve tekrar deneyin.";

@@ -17,6 +17,7 @@ $lang['users title user_list']                = "User List";
 $lang['users button add_new_user']            = "Add New User";
 $lang['users button register']                = "Create Account";
 $lang['users button reset_password']          = "Reset Password";
+$lang['users button login_try_again']         = "Try Again";
 
 // Tooltips
 $lang['users tooltip add_new_user']           = "Create a brand new user.";
@@ -81,3 +82,4 @@ $lang['users error user_id_required']         = "A numeric user ID is required!"
 $lang['users error user_not_exist']           = "That user does not exist!";
 $lang['users error username_exists']          = "The username <strong>%s</strong> already exists!";
 $lang['users error validate_failed']          = "There was a problem validating your account. Please try again.";
+$lang['users error too_many_login_attempts']  = "You've made too many attempts to log in too quickly. Please wait %s seconds and try again.";

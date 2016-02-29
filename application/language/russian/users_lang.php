@@ -17,6 +17,7 @@ $lang['users title user_list']                = "Список пользоват
 $lang['users button add_new_user']            = "Добавить нового пользователя";
 $lang['users button register']                = "Создать аккаунт";
 $lang['users button reset_password']          = "Сбросить пароль";
+$lang['users button login_try_again']         = "Попробуй еще раз";
 
 // Tooltips
 $lang['users tooltip add_new_user']           = "Создать нового пользователя.";
@@ -80,3 +81,4 @@ $lang['users error user_id_required']         = "Необходим числов
 $lang['users error user_not_exist']           = "Такого пользователя не существует!";
 $lang['users error username_exists']          = "Имя пользователя <strong>%s</strong> уже существует!";
 $lang['users error validate_failed']          = "Возникла проблема при проверке аккаунта. Попробуйте снова.";
+$lang['users error too_many_login_attempts']  = "Вы сделали слишком много попыток входа в систему слишком быстро. Пожалуйста, подождите %s секунд и повторите попытку.";

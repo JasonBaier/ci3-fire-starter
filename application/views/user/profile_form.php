@@ -32,7 +32,7 @@
         <div class="form-group col-sm-6<?php echo form_error('email') ? ' has-error' : ''; ?>">
             <?php echo form_label(lang('users input email'), 'email', array('class'=>'control-label')); ?>
             <span class="required">*</span>
-            <?php echo form_input(array('name'=>'email', 'value'=>set_value('email', (isset($user['email']) ? $user['email'] : '')), 'class'=>'form-control')); ?>
+            <?php echo form_input(array('name'=>'email', 'value'=>set_value('email', (isset($user['email']) ? $user['email'] : '')), 'class'=>'form-control', 'type'=>'email')); ?>
         </div>
     </div>
 

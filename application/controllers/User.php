@@ -48,40 +48,54 @@ class User extends Public_Controller {
 
         // set form validation rules
         $this->form_validation->set_error_delimiters($this->config->item('error_delimeter_left'), $this->config->item('error_delimeter_right'));
-        $this->form_validation->set_rules('username', lang('users input username_email'), 'required|trim');
-        $this->form_validation->set_rules('password', lang('users input password'), 'required|trim|callback__check_login');
+        $this->form_validation->set_rules('username', lang('users input username_email'), 'required|trim|max_length[256]');
+        $this->form_validation->set_rules('password', lang('users input password'), 'required|trim|max_length[72]|callback__check_login');
 
-        if ($this->form_validation->run() == TRUE)
+        $ok_to_login = $this->users_model->login_attempts();
+
+        // limit number of login attempts
+        if ($ok_to_login)
         {
-            if ($this->session->userdata('redirect'))
+            if ($this->form_validation->run() == TRUE)
             {
-                $redirect = $this->session->userdata('redirect');
-                $this->session->unset_userdata('redirect');
-                redirect($redirect);
-            }
-            else
-            {
-                $logged_in_user = $this->session->userdata('logged_in');
-                if ($logged_in_user['is_admin'])
+                if ($this->session->userdata('redirect'))
                 {
-                    redirect('admin');
+                    // redirect to desired page
+                    $redirect = $this->session->userdata('redirect');
+                    $this->session->unset_userdata('redirect');
+                    redirect($redirect);
                 }
                 else
                 {
-                    redirect(base_url());
+                    $logged_in_user = $this->session->userdata('logged_in');
+                    if ($logged_in_user['is_admin'])
+                    {
+                        // redirect to admin dashboard
+                        redirect('admin');
+                    }
+                    else
+                    {
+                        // redirect to landing page
+                        redirect(base_url());
+                    }
                 }
             }
         }
 
         // setup page header data
-		$this->add_css_theme( 'login.css' );
+        $this->set_title(lang('users title login'));
 
-        $this->set_title( lang('users title login') );
+		$this->add_css_theme('login.css');
 
         $data = $this->includes;
 
+        // set content data
+        $content_data = array(
+            'ok_to_login' => $ok_to_login
+        );
+
         // load views
-        $data['content'] = $this->load->view('user/login', NULL, TRUE);
+        $data['content'] = $this->load->view('user/login', $content_data, TRUE);
         $this->load->view($this->template, $data);
     }
 
@@ -107,7 +121,7 @@ class User extends Public_Controller {
         $this->form_validation->set_rules('username', lang('users input username'), 'required|trim|min_length[5]|max_length[30]|callback__check_username');
         $this->form_validation->set_rules('first_name', lang('users input first_name'), 'required|trim|min_length[2]|max_length[32]');
         $this->form_validation->set_rules('last_name', lang('users input last_name'), 'required|trim|min_length[2]|max_length[32]');
-        $this->form_validation->set_rules('email', lang('users input email'), 'required|trim|max_length[128]|valid_email|callback__check_email');
+        $this->form_validation->set_rules('email', lang('users input email'), 'required|trim|max_length[256]|valid_email|callback__check_email');
         $this->form_validation->set_rules('language', lang('users input language'), 'required|trim');
         $this->form_validation->set_rules('password', lang('users input password'), 'required|trim|min_length[5]');
         $this->form_validation->set_rules('password_repeat', lang('users input password_repeat'), 'required|trim|matches[password]');
@@ -149,6 +163,7 @@ class User extends Public_Controller {
             else
             {
                 $this->session->set_flashdata('error', lang('users error register_failed'));
+                redirect($_SERVER['REQUEST_URI'], 'refresh');
             }
 
             // redirect home and display message
@@ -199,13 +214,13 @@ class User extends Public_Controller {
 
 
     /**
-	 * Default
+	 * Forgot password
      */
 	function forgot()
 	{
         // validators
         $this->form_validation->set_error_delimiters($this->config->item('error_delimeter_left'), $this->config->item('error_delimeter_right'));
-        $this->form_validation->set_rules('email', lang('users input email'), 'required|trim|valid_email|callback__check_email_exists');
+        $this->form_validation->set_rules('email', lang('users input email'), 'required|trim|max_length[256]|valid_email|callback__check_email_exists');
 
         if ($this->form_validation->run() == TRUE)
         {

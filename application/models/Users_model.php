@@ -408,6 +408,61 @@ class Users_model extends CI_Model {
 
 
     /**
+     * Handle user login attempts
+     *
+     * @return boolean
+     */
+    function login_attempts()
+    {
+        // delete older attempts
+        $older_time = date('Y-m-d H:i:s', strtotime('-' . $this->config->item('login_max_time') . ' seconds'));
+
+        $sql = "
+            DELETE FROM login_attempts
+            WHERE attempt < '{$older_time}'
+        ";
+
+        $query = $this->db->query($sql);
+
+        // insert the new attempt
+        $sql = "
+            INSERT INTO login_attempts (
+                ip,
+                attempt
+            ) VALUES (
+                " . $this->db->escape($_SERVER['REMOTE_ADDR']) . ",
+                '" . date("Y-m-d H:i:s") . "'
+            )
+        ";
+
+        $query = $this->db->query($sql);
+
+        // get count of attempts from this IP
+        $sql = "
+            SELECT
+                COUNT(*) AS attempts
+            FROM login_attempts
+            WHERE ip = " . $this->db->escape($_SERVER['REMOTE_ADDR'])
+        ;
+
+        $query = $this->db->query($sql);
+
+        if ($query->num_rows())
+        {
+            $results = $query->row_array();
+            $login_attempts = $results['attempts'];
+            if ($login_attempts > $this->config->item('login_max_attempts'))
+            {
+                // too many attempts
+                return FALSE;
+            }
+        }
+
+        return TRUE;
+    }
+
+
+    /**
      * Validate a user-created account
      *
      * @param  string $encrypted_email

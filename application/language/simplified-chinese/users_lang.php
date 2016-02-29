@@ -19,6 +19,7 @@ $lang['users title user_list']                = "用户列表";
 $lang['users button add_new_user']            = "添加新用户";
 $lang['users button register']                = "创建新账号";
 $lang['users button reset_password']          = "重置密码";
+$lang['users button login_try_again']         = "再试一次";
 
 // Tooltips
 $lang['users tooltip add_new_user']           = "创建一个全新的用户。";
@@ -78,3 +79,4 @@ $lang['users error user_id_required']         = "ID必须为数字!";
 $lang['users error user_not_exist']           = "该用户不存在!";
 $lang['users error username_exists']          = "用户名 <strong>%s</strong> 已经存在!";
 $lang['users error validate_failed']          = "用户激活失败!请重试.";
+$lang['users error too_many_login_attempts']  = "你做了太多的登录尝试太. 请等待%s秒，然后重试.";
