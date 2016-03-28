@@ -445,6 +445,11 @@ or need a more robust starting point, then check out one of these great applicat
 <a name="whats-new"></a>
 ## WHAT'S NEW
 
+#### Version 3.2.5
+03/28/2016
+
+* Upgraded to CI 3.0.5
+
 #### Version 3.2.4
 02/29/2016
 
