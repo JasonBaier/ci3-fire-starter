@@ -6,10 +6,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 
 // Site Details
-$config['site_version']          = "3.2.6";     // this is CI3 Fire Starter version - set it to 1.0.0 for your new project
+$config['site_version']          = "3.3.0";     // this is CI3 Fire Starter version - set it to 1.0.0 for your new project
 $config['root_folder']           = "htdocs";    // set to whatever your webroot is (htdocs, public_html, etc.) - MAKE SURE you physically rename the /htdocs folder
-$config['public_theme']          = "Default";   // folder containing your public theme
-$config['admin_theme']           = "Admin";     // folder containing your admin theme
+$config['public_theme']          = "default";   // folder containing your public theme
+$config['admin_theme']           = "admin";     // folder containing your admin theme
 
 // Pagination
 $config['num_links']             = 8;
