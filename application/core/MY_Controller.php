@@ -40,7 +40,10 @@ class MY_Controller extends CI_Controller {
 
         // set the time zone
         $timezones = $this->config->item('timezones');
-        date_default_timezone_set($timezones[$this->settings->timezones]);
+        if (function_exists('date_default_timezone_set'))
+        {
+            date_default_timezone_set($timezones[$this->settings->timezones]);
+        }
 
         // get current user
         $this->user = $this->session->userdata('logged_in');

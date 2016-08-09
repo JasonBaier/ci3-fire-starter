@@ -396,7 +396,7 @@ could also just set your own request authentication headers to the code that's a
 <a name="system-requirements"></a>
 ## SYSTEM REQUIREMENTS
 
-* PHP version 5.6+
+* PHP version 5.6+ (successfully tested on PHP 7.0.x)
 * MySQL 5.1+
 * PHP GD extension for CAPTCHA to work
 * PHP Mcrypt extension if you want to use the Encryption class
@@ -431,19 +431,31 @@ Since version 3.2.4, anytime changes to the database are required, you'll find S
 ##CONCLUSION
 
 As I mentioned earlier, CI3 Fire Starter does not attempt to be a full-blown CMS. You would need
-to build that functionality yourself. If you're looking for a great CMS built on CodeIgniter,
-or need a more robust starting point, then check out one of these great applications:
+to build that functionality yourself. If you're looking for a full CMS built on CodeIgniter,
+or need a more robust starting point, then check out one of these applications:
 
-* [HeroFramework](https://github.com/electricfunction/hero/): this project appears to no longer be active, however, the source is still available
-* [Halogy](http://www.halogy.com/): not sure if development is still active on this project
-* [Expression Engine](http://ellislab.com/expressionengine/): from the original creators of CodeIgniter
-* [GoCart](http://gocartdv.com/): shopping cart
+* [GoCart](http://gocartdv.com/)
 * [Bonfire](http://cibonfire.com/)
 * [FuelCMS](http://getfuelcms.com/)
-* [CMS Canvas](http://www.cmscanvas.com/)
+* [Hoosk](http://hoosk.org/)
+* [Ionize](http://ionizecms.com/)
+* [NodCMS](www.nodcms.com)
+* [Codefight](http://codefight.org/)
+* [No-CMS](http://getnocms.com/)
+* [Expression Engine](http://ellislab.com/expressionengine/)
+* [Halogy](http://www.halogy.com/)
+* [HeroFramework](https://github.com/electricfunction/hero/)
+
+_This list is provided only as an alternative resource. It is not an endorsement for any of the applications listed._
 
 <a name="whats-new"></a>
 ## WHAT'S NEW
+
+#### Version 3.3.1
+08/09/2016
+
+* Display PHP version in footer
+* Updated README file CMS listing
 
 #### Version 3.3.0
 07/26/2016
