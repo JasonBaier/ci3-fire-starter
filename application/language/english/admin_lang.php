@@ -16,6 +16,10 @@ $lang['admin button settings']            = "Settings";
 $lang['admin button users']               = "Users";
 $lang['admin button users_add']           = "Add New User";
 $lang['admin button users_list']          = "List Users";
+$lang['admin button finance']		  = "Finance";
+$lang['admin button finance_list']		  = "List Records";
+$lang['admin button finance_add']   	      = "Add a Record";
+$lang['admin button manage_catven']               = "Manage Finance Opts.";
 
 // Tooltips
 $lang['admin tooltip csv_export']         = "Export a CSV file of all results with filters applied.";

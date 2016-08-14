@@ -41,6 +41,7 @@ class Admin_Controller extends MY_Controller {
         $this
             ->add_css_theme( "{$this->settings->theme}.css,summernote-bs3.css" )
             ->add_js_theme( "summernote.min.js" )
+            ->add_js_theme( "copyme.js" )
             ->add_js_theme( "{$this->settings->theme}_i18n.js", TRUE );
 
         // declare main template

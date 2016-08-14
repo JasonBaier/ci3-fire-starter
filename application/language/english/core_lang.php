@@ -9,6 +9,7 @@ $lang['core button cancel']              	= "Cancel";
 $lang['core button close']               	= "Close";
 $lang['core button contact']               	= "Contact";
 $lang['core button filter']              	= "Filter";
+$lang['core button go']              		= "Go";
 $lang['core button home']                	= "Home";
 $lang['core button login']               	= "Login";
 $lang['core button logout']              	= "Logout";
@@ -30,7 +31,7 @@ $lang['core email start']                	= "<!DOCTYPE html><html><head><style>
 $lang['core email end']                  	= "</body></html>";
 
 // Additional date_lang
-$lang['UM75']	                         	= "(UTC -7:00) Arizona Time";
+$lang['UM75']	                         	= "(UTC 10:00) Australia";
 
 // Errors
 $lang['core error no_results']              = "No results found!";

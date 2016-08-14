@@ -62,7 +62,7 @@ if ( ! function_exists('array_column'))
 	 * array_column()
 	 *
 	 * @link	http://php.net/array_column
-	 * @param	array	$array
+	 * @param	string	$array
 	 * @param	mixed	$column_key
 	 * @param	mixed	$index_key
 	 * @return	array

@@ -72,7 +72,7 @@ NOTE: This documentation assumes you are already familiar with PHP and CodeIgnit
 visit [php.net](http://php.net/). If you need to learn more about CodeIgniter, visit the
 [CodeIgniter User Guide](http://www.codeigniter.com/userguide3/index.html).
 
-![Welcome Screen](https://s32.postimg.org/oq5fugrgl/Screen_Shot_2016_07_26_at_3_13_15_PM.png?raw=true)
+![Welcome Screen](http://s13.postimg.org/ci5nj384n/Screen_Shot_2015_12_19_at_9_47_56_AM.png?raw=true)
 
 <a name="not-modular"></a>
 ## (NOT) MODULAR
@@ -273,7 +273,7 @@ Settings are loaded in MY_Controller and are accessible in every controller, mod
 
     $this->settings->welcome_message[$this->session->language]
 
-![Settings Screen](https://s32.postimg.org/4dn4nvo5x/Screen_Shot_2016_07_26_at_3_12_17_PM.png?raw=true)
+![Settings Screen](http://s22.postimg.org/9wq5ngx01/Screen_Shot_2015_12_22_at_10_46_23_AM.png?raw=true)
 
 <a name="themes"></a>
 ## THEMES
@@ -396,7 +396,7 @@ could also just set your own request authentication headers to the code that's a
 <a name="system-requirements"></a>
 ## SYSTEM REQUIREMENTS
 
-* PHP version 5.6+ (successfully tested on PHP 7.0.x)
+* PHP version 5.4+
 * MySQL 5.1+
 * PHP GD extension for CAPTCHA to work
 * PHP Mcrypt extension if you want to use the Encryption class
@@ -431,38 +431,19 @@ Since version 3.2.4, anytime changes to the database are required, you'll find S
 ##CONCLUSION
 
 As I mentioned earlier, CI3 Fire Starter does not attempt to be a full-blown CMS. You would need
-to build that functionality yourself. If you're looking for a full CMS built on CodeIgniter,
-or need a more robust starting point, then check out one of these applications:
+to build that functionality yourself. If you're looking for a great CMS built on CodeIgniter,
+or need a more robust starting point, then check out one of these great applications:
 
-* [GoCart](http://gocartdv.com/)
+* [HeroFramework](https://github.com/electricfunction/hero/): this project appears to no longer be active, however, the source is still available
+* [Halogy](http://www.halogy.com/): not sure if development is still active on this project
+* [Expression Engine](http://ellislab.com/expressionengine/): from the original creators of CodeIgniter
+* [GoCart](http://gocartdv.com/): shopping cart
 * [Bonfire](http://cibonfire.com/)
 * [FuelCMS](http://getfuelcms.com/)
-* [Hoosk](http://hoosk.org/)
-* [Ionize](http://ionizecms.com/)
-* [NodCMS](www.nodcms.com)
-* [Codefight](http://codefight.org/)
-* [No-CMS](http://getnocms.com/)
-* [Expression Engine](http://ellislab.com/expressionengine/)
-* [Halogy](http://www.halogy.com/)
-* [HeroFramework](https://github.com/electricfunction/hero/)
-
-_This list is provided only as an alternative resource. It is not an endorsement for any of the applications listed._
+* [CMS Canvas](http://www.cmscanvas.com/)
 
 <a name="whats-new"></a>
 ## WHAT'S NEW
-
-#### Version 3.3.1
-08/09/2016
-
-* Display PHP version in footer
-* Updated README file CMS listing
-
-#### Version 3.3.0
-07/26/2016
-
-* Upgraded to CI 3.1.0
-* Fixed date search issue on Messages list
-* Changed CI3 Fire Starter logo to comply with the [CodeIgniter Logo Guidelines and Usage](https://codeigniter.com/help/legal)
 
 #### Version 3.2.6
 04/02/2016

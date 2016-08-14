@@ -64,10 +64,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => '127.0.0.1',
 	'username' => 'root',
-	'password' => 'password',
-	'database' => 'ci3-fire-starter',
+	'password' => '',
+	'database' => 'ci_db',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

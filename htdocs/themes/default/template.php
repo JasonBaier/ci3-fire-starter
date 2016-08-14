@@ -41,7 +41,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><?php echo $this->settings->site_name; ?></a>
+                <a class="navbar-brand" href="<?php echo base_url('/'); ?>"><?php echo $this->settings->site_name; ?></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <?php // Nav bar left ?>
@@ -135,7 +135,6 @@
             <div class="clearfix"><hr /></div>
             <p class="text-muted">
                 <?php echo lang('core text page_rendered'); ?>
-                | PHP v<?php echo phpversion(); ?>
                 | CodeIgniter v<?php echo CI_VERSION; ?>
                 | <?php echo $this->settings->site_name; ?> v<?php echo $this->settings->site_version; ?>
                 | <a href="http://jasonbaier.github.io/ci3-fire-starter/" target="_blank">Github.com</a>

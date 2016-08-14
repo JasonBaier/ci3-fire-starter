@@ -39,7 +39,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><?php echo $this->settings->site_name; ?></a>
+                <a class="navbar-brand" href="<?php echo base_url('/'); ?>"><?php echo $this->settings->site_name; ?></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <?php // Nav bar left ?>
@@ -50,6 +50,14 @@
                         <ul class="dropdown-menu" role="menu">
                             <li class="<?php echo (uri_string() == 'admin/users') ? 'active' : ''; ?>"><a href="<?php echo base_url('/admin/users'); ?>"><?php echo lang('admin button users_list'); ?></a></li>
                             <li class="<?php echo (uri_string() == 'admin/users/add') ? 'active' : ''; ?>"><a href="<?php echo base_url('/admin/users/add'); ?>"><?php echo lang('admin button users_add'); ?></a></li>
+                        </ul>
+                    </li>
+					<li class="dropdown<?php echo (strstr(uri_string(), 'admin/finance')) ? ' active' : ''; ?>">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo lang('admin button finance'); ?> <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="<?php echo (uri_string() == 'admin/finance') ? 'active' : ''; ?>"><a href="<?php echo base_url('/admin/finance'); ?>"><?php echo lang('admin button finance_list'); ?></a></li>
+                            <li class="<?php echo (uri_string() == 'admin/finance/add') ? 'active' : ''; ?>"><a href="<?php echo base_url('/admin/finance/add'); ?>"><?php echo lang('admin button finance_add'); ?></a></li>
+							<li class="<?php echo (uri_string() == 'admin/finance/manage') ? 'active' : ''; ?>"><a href="<?php echo base_url('/admin/finance/manage'); ?>"><?php echo lang('admin button manage_catven'); ?></a></li>
                         </ul>
                     </li>
                     <li class="<?php echo (uri_string() == 'admin/contact') ? 'active' : ''; ?>"><a href="<?php echo base_url('/admin/contact'); ?>"><?php echo lang('admin button messages'); ?></a></li>
@@ -124,7 +132,6 @@
         <div class="container">
             <p class="text-muted">
                 <?php echo lang('core text page_rendered'); ?>
-                | PHP v<?php echo phpversion(); ?>
                 | CodeIgniter v<?php echo CI_VERSION; ?>
                 | <?php echo $this->settings->site_name; ?> v<?php echo $this->settings->site_version; ?>
                 | <a href="http://jasonbaier.github.io/ci3-fire-starter/" target="_blank">Github.com</a>

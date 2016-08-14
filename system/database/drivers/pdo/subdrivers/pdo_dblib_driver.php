@@ -126,12 +126,7 @@ class CI_DB_pdo_dblib_driver extends CI_DB_pdo_driver {
 	 */
 	public function db_connect($persistent = FALSE)
 	{
-		if ($persistent === TRUE)
-		{
-			log_message('debug', "dblib driver doesn't support persistent connections");
-		}
-
-		$this->conn_id = parent::db_connect(FALSE);
+		$this->conn_id = parent::db_connect($persistent);
 
 		if ( ! is_object($this->conn_id))
 		{
