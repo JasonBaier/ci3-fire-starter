@@ -131,12 +131,12 @@ class Finance extends Admin_Controller {
         }
 
         // get list
-        $users = $this->finance_model->get_all($limit, $offset, $filters, $sort, $dir);
+        $finances = $this->finance_model->get_all($limit, $offset, $filters, $sort, $dir);
 
         // build pagination
         $this->pagination->initialize(array(
             'base_url'   => THIS_URL . "?sort={$sort}&dir={$dir}&limit={$limit}{$filter}",
-            'total_rows' => $users['total'],
+            'total_rows' => $finances['total'],
             'per_page'   => $limit
         ));
 
@@ -155,8 +155,8 @@ class Finance extends Admin_Controller {
 			'vendor_list'					=> $this->finance_model->get_vendor(),
 			'username_list'					=> $this->finance_model->get_userslist(),
             'this_url'   => THIS_URL,
-            'users'      => $users['results'],
-            'total'      => $users['total'],
+            'finances'      => $finances['results'],
+            'total'      => $finances['total'],
             'filters'    => $filters,
             'filter'     => $filter,
             'pagination' => $this->pagination->create_links(),
@@ -258,10 +258,10 @@ class Finance extends Admin_Controller {
         }
 
         // get the data
-        $user = $this->finance_model->get_record($id);
+        $finance = $this->finance_model->get_record($id);
 
         // if empty results, return to list
-        if ( ! $user)
+        if ( ! $finance)
         {
             redirect($this->_redirect_url);
         }
@@ -309,7 +309,7 @@ class Finance extends Admin_Controller {
             redirect($this->_redirect_url);
         }
 
-		$user = $this->finance_model->get_record($id);
+		$finance = $this->finance_model->get_record($id);
         // setup page header data
         $this->set_title( lang('finance title finance_edit') );
 
@@ -324,9 +324,9 @@ class Finance extends Admin_Controller {
 			'fiscal_list'					=> $this->finance_model->get_fiscallist(),
 			'site_email_cc'					=> $this->settings->efs_email, 
 			'delete_after_upload'					=> $this->settings->delete_after_upload, 
-			'site_email_subject'					=> 'R'.$user["id"].' - Title:'.$user['title'].', Filename:'.$user["filename"].', Category:'.$user['category'].', Vendor:'.$user['vendor'].', Updated:' . date('Y-m-d H:i:s'), 
-			'site_email_to'					=> $this->finance_model->get_email($user['assigned_user']), 
-            'user'              => $user,
+			'site_email_subject'					=> 'R'.$finance["id"].' - Title:'.$finance['title'].', Filename:'.$finance["filename"].', Category:'.$finance['category'].', Vendor:'.$finance['vendor'].', Updated:' . date('Y-m-d H:i:s'), 
+			'site_email_to'					=> $this->finance_model->get_email($finance['assigned_user']), 
+            'finance'              => $finance,
             'user_id'           => $id,
             'password_required' => FALSE
         );
@@ -349,20 +349,20 @@ class Finance extends Admin_Controller {
         if ( ! is_null($id) OR ! is_numeric($id))
         {
             // get user details
-            $user = $this->finance_model->get_record($id);
+            $finance = $this->finance_model->get_record($id);
 
-            if ($user)
+            if ($finance)
             {
                 // soft-delete the user
                 $delete = $this->finance_model->delete_record($id);
 
                 if ($delete)
                 {
-                    $this->session->set_flashdata('message', sprintf(lang('users msg delete_user'), $user['category'] . " " . $user['description']));
+                    $this->session->set_flashdata('message', sprintf(lang('users msg delete_user'), $finance['category'] . " " . $finance['description']));
                 }
                 else
                 {
-                    $this->session->set_flashdata('error', sprintf(lang('users error delete_user'), $user['category'] . " " . $user['description']));
+                    $this->session->set_flashdata('error', sprintf(lang('users error delete_user'), $finance['category'] . " " . $finance['description']));
                 }
             }
             else
@@ -390,20 +390,20 @@ class Finance extends Admin_Controller {
         if ( ! is_null($id) OR ! is_numeric($id))
         {
             // get catdetails details
-            $user = $this->finance_model->get_catven_record($id);
+            $finance = $this->finance_model->get_catven_record($id);
 
-            if ($user)
+            if ($finance)
             {
                 // soft-delete the user
                 $delete = $this->finance_model->delete_catven($id);
 
                 if ($delete)
                 {
-                    $this->session->set_flashdata('message', sprintf(lang('users msg delete_user'), $user['category'] . " " . $user['description']));
+                    $this->session->set_flashdata('message', sprintf(lang('users msg delete_user'), $finance['category'] . " " . $finance['description']));
                 }
                 else
                 {
-                    $this->session->set_flashdata('error', sprintf(lang('users error delete_user'), $user['category'] . " " . $user['description']));
+                    $this->session->set_flashdata('error', sprintf(lang('users error delete_user'), $finance['category'] . " " . $finance['description']));
                 }
             }
             else
@@ -448,28 +448,28 @@ class Finance extends Admin_Controller {
         }
 
         // get all users
-        $users = $this->finance_model->get_all(0, 0, $filters, $sort, $dir);
+        $finances = $this->finance_model->get_all(0, 0, $filters, $sort, $dir);
 
-        if ($users['total'] > 0)
+        if ($finances['total'] > 0)
         {
             // manipulate the output array
-            foreach ($users['results'] as $key=>$user)
+            foreach ($finances['results'] as $key=>$finance)
             {
-                unset($users['results'][$key]['password']);
-                unset($users['results'][$key]['deleted']);
+                unset($finances['results'][$key]['password']);
+                unset($finances['results'][$key]['deleted']);
 
-                if ($user['value'] == 0)
+                if ($finance['value'] == 0)
                 {
-                    $users['results'][$key]['value'] = lang('admin input inactive');
+                    $finances['results'][$key]['value'] = lang('admin input inactive');
                 }
                 else
                 {
-                    $users['results'][$key]['value'] = lang('admin input active');
+                    $finances['results'][$key]['value'] = lang('admin input active');
                 }
             }
 
             // export the file
-            array_to_csv($users['results'], "users");
+            array_to_csv($finances['results'], "users");
         }
         else
         {
@@ -545,12 +545,12 @@ class Finance extends Admin_Controller {
         }
 
         // get list
-        $users = $this->finance_model->get_catvenall($limit, $offset, $filters, $sort, $dir);
+        $finances = $this->finance_model->get_catvenall($limit, $offset, $filters, $sort, $dir);
 
         // build pagination
         $this->pagination->initialize(array(
             'base_url'   => THIS_URL . "/manage?sort={$sort}&dir={$dir}&limit={$limit}{$filter}",
-            'total_rows' => $users['total'],
+            'total_rows' => $finances['total'],
             'per_page'   => $limit
         ));
 
@@ -569,8 +569,8 @@ class Finance extends Admin_Controller {
 			'category_names'					=> $this->finance_model->get_category_name(),
 			'users_list'					=> $this->finance_model->get_userlist(),
             'this_url'   => THIS_URL,
-            'users'      => $users['results'],
-            'total'      => $users['total'],
+            'finances'      => $finances['results'],
+            'total'      => $finances['total'],
             'filters'    => $filters,
             'filter'     => $filter,
             'pagination' => $this->pagination->create_links(),
@@ -601,10 +601,10 @@ class Finance extends Admin_Controller {
         }
 
         // get the data
-        $user = $this->finance_model->get_catven_record($id);
+        $finance = $this->finance_model->get_catven_record($id);
 
         // if empty results, return to list
-        if ( ! $user)
+        if ( ! $finance)
         {
             redirect($this->_redirect_url);
         }
@@ -639,7 +639,7 @@ class Finance extends Admin_Controller {
         // set content data
         $content_data = array(
             'cancel_url'        => $this->_redirect_url,
-            'user'              => $user,
+            'finances'              => $finance,
             'user_id'           => $id,
             'password_required' => FALSE
         );
@@ -687,7 +687,7 @@ class Finance extends Admin_Controller {
         // set content data
         $content_data = array(
 			'cancel_url'        => $this->_redirect_url,
-            'user'              => NULL,
+            'finance'              => NULL,
             'password_required' => TRUE
         );
 		

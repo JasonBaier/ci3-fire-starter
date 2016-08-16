@@ -3,8 +3,8 @@
 <?php echo form_open('', array('role'=>'form','enctype'=>'multipart/form-data')); //  ?>
 
     <?php // hidden id ?>
-    <?php if (isset($user['id'])) : ?>
-        <?php echo form_hidden('id', $user['id']); ?>
+    <?php if (isset($finance['id'])) : ?>
+        <?php echo form_hidden('id', $finance['id']); ?>
     <?php endif; ?>
 
     <div class="row">
@@ -12,7 +12,7 @@
         <div class="form-group col-sm-4<?php echo form_error('title') ? ' has-error' : ''; ?>">
             <?php echo form_label(lang('finance input title'), 'title', array('class'=>'control-label')); ?>
             <span class="required">*</span>
-            <?php echo form_input(array('name'=>'title', 'value'=>set_value('title', (isset($user['title']) ? $user['title'] : '')), 'class'=>'form-control')); ?>
+            <?php echo form_input(array('name'=>'title', 'value'=>set_value('title', (isset($finance['title']) ? $finance['title'] : '')), 'class'=>'form-control')); ?>
         </div>
 		
 		 <div class="form-group col-sm-4">
@@ -44,7 +44,7 @@
         <div class="form-group col-sm-4<?php echo form_error('description') ? ' has-error' : ''; ?>">
             <?php echo form_label(lang('finance input description'), 'description', array('class'=>'control-label')); ?>
             <span class="required">*</span>
-            <?php echo form_input(array('name'=>'description', 'value'=>set_value('description', (isset($user['description']) ? $user['description'] : '')), 'class'=>'form-control')); ?>
+            <?php echo form_input(array('name'=>'description', 'value'=>set_value('description', (isset($finance['description']) ? $finance['description'] : '')), 'class'=>'form-control')); ?>
 			
 			</div>
 			
@@ -52,7 +52,7 @@
         <div class="form-group col-sm-4<?php echo form_error('costprice') ? ' has-error' : ''; ?>">
             <?php echo form_label(lang('finance input costprice'), 'value', array('class'=>'control-label')); ?>
             <span class="required">*</span>
-            <?php echo form_input(array('name'=>'costprice', 'value'=>set_value('title', (isset($user['value']) ? $user['value'] : '')), 'class'=>'form-control'));  ?>
+            <?php echo form_input(array('name'=>'costprice', 'value'=>set_value('title', (isset($finance['value']) ? $finance['value'] : '')), 'class'=>'form-control'));  ?>
         </div>
 			
         </div>
@@ -64,13 +64,13 @@
             <?php echo form_label(lang('finance input filename'), 'filename', array('class'=>'control-label')); ?>
             <span class="required">*</span>
             <input type="file" name="userfile" />
-			 <?php echo form_hidden(array('name'=>'hiddenFile', 'value'=>set_value('value', (isset($user['filename']) ? $user['filename'] : '')), 'class'=>'form-control')); ?>
+			 <?php echo form_hidden(array('name'=>'hiddenFile', 'value'=>set_value('value', (isset($finance['filename']) ? $finance['filename'] : '')), 'class'=>'form-control')); ?>
         </div>
 <?php if (isset($delete_after_upload)) { 
- if ($delete_after_upload == 0 and is_file("./uploads/".$user['filename']) ) { ?>
+ if ($delete_after_upload == 0 and is_file("./uploads/".$finance['filename']) ) { ?>
 		<div class="form-group col-sm-10">
 		
-		<strong>Open current record</strong> - <a href="<?php echo base_url('/uploads/'.$user['filename']); ?>"><?php echo $user['filename']; ?></a>
+		<strong>Open current record</strong> - <a href="<?php echo base_url('/uploads/'.$finance['filename']); ?>"><?php echo $finance['filename']; ?></a>
 		</div>
 
 <?php } } ?>
@@ -85,7 +85,7 @@
         <div class="form-group col-sm-6<?php echo form_error('language') ? ' has-error' : ''; ?>">
             <?php echo form_label(lang('finance input language'), 'language', array('class'=>'control-label')); ?>
             <span class="required">*</span>
-            <?php echo form_dropdown('language', $this->languages, (isset($user['language']) ? $user['language'] : $this->config->item('language')), 'id="language" class="form-control"'); ?>
+            <?php echo form_dropdown('language', $this->languages, (isset($finance['language']) ? $finance['language'] : $this->config->item('language')), 'id="language" class="form-control"'); ?>
         </div>
     </div>  -->
 	
@@ -105,7 +105,7 @@
 			// $sl_val = $this->input->post($category_id);
 
 			
-			echo form_dropdown('category_id', $category_list, (isset($user['category'])) ? $user['category'] : '','id="category-list-dropdown" class="form-control chosen-select" data-placeholder="Choose a Category..."');
+			echo form_dropdown('category_id', $category_list, (isset($finance['category'])) ? $finance['category'] : '','id="category-list-dropdown" class="form-control chosen-select" data-placeholder="Choose a Category..."');
 			?> 
 			 
         </div>
@@ -121,7 +121,7 @@
 			// $sl_val = $this->input->post($category_id);
 
 			
-			echo form_dropdown('vendor_id', $vendor_list, (isset($user['vendor'])) ? $user['vendor'] : '','id="vendor-list-dropdown" class="form-control chosen-select" data-placeholder="Choose a Vendor..."');
+			echo form_dropdown('vendor_id', $vendor_list, (isset($finance['vendor'])) ? $finance['vendor'] : '','id="vendor-list-dropdown" class="form-control chosen-select" data-placeholder="Choose a Vendor..."');
 			?> 
 			 
         </div>
@@ -140,7 +140,7 @@
 			// $sl_val = $this->input->post($category_id);
 
 			
-			echo form_dropdown('fiscal_y', $fiscal_list, (isset($user['fiscal_yr'])) ? $user['fiscal_yr'] : '77','id="user-list-dropdown" class="form-control chosen-select" data-placeholder="Fiscal years?..."');
+			echo form_dropdown('fiscal_y', $fiscal_list, (isset($finance['fiscal_yr'])) ? $finance['fiscal_yr'] : '77','id="user-list-dropdown" class="form-control chosen-select" data-placeholder="Fiscal years?..."');
 			?> 
 			 
         </div>
@@ -155,12 +155,12 @@
 			// $sl_val = $this->input->post($category_id);
 
 			
-			echo form_dropdown('username_id', $users_list, (isset($user['assigned_user'])) ? $user['assigned_user'] : '4','id="user-list-dropdown" class="form-control chosen-select" data-placeholder="Who?..."');
+			echo form_dropdown('username_id', $users_list, (isset($finance['assigned_user'])) ? $finance['assigned_user'] : '4','id="user-list-dropdown" class="form-control chosen-select" data-placeholder="Who?..."');
 			?> 
 			 
         </div>
 		</div>
-<?php if (isset($user['title'])) { ?>	
+<?php if (isset($finance['title'])) { ?>	
 		<div class="row">
 <div class="form-group col-sm-10">
 <?php echo form_label("How to email in a record from your SmartPhone - Open the attachment in a new Email and copy/paste the following. Make required changes on this page, then click save and re-open the record.", 'language', array('class'=>'control-label')); ?><br />	

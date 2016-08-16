@@ -13,7 +13,7 @@
         <div class="form-group col-sm-4<?php echo form_error('categories') ? ' has-error' : ''; ?>">
             <?php echo form_label(lang('finance input catven category'), 'username', array('class'=>'control-label')); ?>
             <span class="required">*</span>
-            <?php echo form_input(array('name'=>'categories', 'value'=>set_value('categories', (isset($user['categories']) ? $user['categories'] : '')), 'class'=>'form-control')); ?>
+            <?php echo form_input(array('name'=>'categories', 'value'=>set_value('categories', (isset($finance['categories']) ? $finance['categories'] : '')), 'class'=>'form-control')); ?>
         </div>
     </div>
 
@@ -24,24 +24,24 @@
             <span class="required">*</span>
             <div class="radio">
                 <label>
-                    <?php echo form_radio(array('name'=>'locked', 'id'=>'radio-status-1', 'value'=>'1', 'checked'=>(( ! isset($user['locked']) OR (isset($user['locked']) && (int)$user['locked'] == 1) OR $user['id'] == 1) ? 'checked' : FALSE))); ?>
+                    <?php echo form_radio(array('name'=>'locked', 'id'=>'radio-status-1', 'value'=>'1', 'checked'=>(( ! isset($finance['locked']) OR (isset($finance['locked']) && (int)$finance['locked'] == 1) OR $finance['id'] == 1) ? 'checked' : FALSE))); ?>
                     <?php echo lang('finance input category'); ?>
                 </label>
             </div>
-            <?php if ( ! $user['id'] OR $user['id'] > 1) : ?>
+            <?php if ( ! $finance['id'] OR $finance['id'] > 1) : ?>
                 <div class="radio">
                     <label>
-                        <?php echo form_radio(array('name'=>'locked', 'id'=>'radio-status-2', 'value'=>'2', 'checked'=>((isset($user['locked']) && (int)$user['locked'] == 2) ? 'checked' : FALSE))); ?>
+                        <?php echo form_radio(array('name'=>'locked', 'id'=>'radio-status-2', 'value'=>'2', 'checked'=>((isset($finance['locked']) && (int)$finance['locked'] == 2) ? 'checked' : FALSE))); ?>
                         <?php echo lang('finance input vendor'); ?>
                     </label>
                 </div>
 			
             <?php endif; ?>
 			
-			<?php if ( ! $user['id'] OR $user['id'] > 1) : ?>
+			<?php if ( ! $finance['id'] OR $finance['id'] > 1) : ?>
                 <div class="radio">
                     <label>
-                        <?php echo form_radio(array('name'=>'locked', 'id'=>'radio-status-3', 'value'=>'3', 'checked'=>((isset($user['locked']) && (int)$user['locked'] == 3) ? 'checked' : FALSE))); ?>
+                        <?php echo form_radio(array('name'=>'locked', 'id'=>'radio-status-3', 'value'=>'3', 'checked'=>((isset($finance['locked']) && (int)$finance['locked'] == 3) ? 'checked' : FALSE))); ?>
                         <?php echo lang('finance input fy'); ?>
                     </label>
                 </div>
