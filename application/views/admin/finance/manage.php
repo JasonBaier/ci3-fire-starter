@@ -86,42 +86,42 @@
 
             <?php // data rows ?>
             <?php if ($total) : ?>
-                <?php foreach ($users as $user) : ?>
+                <?php foreach ($finances as $finance) : ?>
                     <tr>
                         <td<?php echo (($sort == 'id') ? ' class="sorted"' : ''); ?>>
-                            <?php echo $user['id']; ?>
+                            <?php echo $finance['id']; ?>
                         </td>
                         <td<?php echo (($sort == 'title') ? ' class="sorted"' : ''); ?>>
-                            <?php echo $user['categories']; ?>
+                            <?php echo $finance['categories']; ?>
                         </td>
                         <td<?php echo (($sort == 'category') ? ' class="sorted"' : ''); ?>>
-                            <?php echo $user['locked'] . ' - ';
+                            <?php echo $finance['locked'] . ' - ';
 							$cats = array("","Categories", "Vendors / Suppliers", "Financial Year");
-							echo $cats[$user['locked']]; ?>
+							echo $cats[$finance['locked']]; ?>
                         </td>
  <!--                        <td<?php echo (($sort == 'value') ? ' class="sorted"' : ''); ?>>
                             
-							<php if ($user['value'] > 0): ?>
+							<php if ($finance['value'] > 0): ?>
 
-							<php echo '<span class="active">$' . $user['value'] . '</span>'; ?>
+							<php echo '<span class="active">$' . $finance['value'] . '</span>'; ?>
 
 							<php else: ?>
 
-							<php echo '<span class="inactive">$' . $user['value'] . '</span>'; ?>
+							<php echo '<span class="inactive">$' . $finance['value'] . '</span>'; ?>
 
 							<php endif; ?>
 							
                         </td>
                         <td<php echo (($sort == 'assigned_user') ? ' class="sorted"' : ''); ?>>
-                            <php echo ($user['assigned_user']) ? lang('core text yes') : lang('core text no'); ?>
+                            <php echo ($finance['assigned_user']) ? lang('core text yes') : lang('core text no'); ?>
                         </td> -->
                         <td>
                             <div class="text-right">
                                 <div class="btn-group">
-                                    <?php if ($user['id'] > 1) : ?>
-                                        <a href="#modal-<?php echo $user['id']; ?>" data-toggle="modal" class="btn btn-danger" title="<?php echo lang('admin button delete'); ?>"><span class="glyphicon glyphicon-trash"></span></a>
+                                    <?php if ($finance['id'] > 1) : ?>
+                                        <a href="#modal-<?php echo $finance['id']; ?>" data-toggle="modal" class="btn btn-danger" title="<?php echo lang('admin button delete'); ?>"><span class="glyphicon glyphicon-trash"></span></a>
                                     <?php endif; ?>
-                                    <a href="<?php echo $this_url; ?>/manage_form/<?php echo $user['id']; ?>" class="btn btn-warning" title="<?php echo lang('admin button edit'); ?>"><span class="glyphicon glyphicon-pencil"></span></a>
+                                    <a href="<?php echo $this_url; ?>/manage_form/<?php echo $finance['id']; ?>" class="btn btn-warning" title="<?php echo lang('admin button edit'); ?>"><span class="glyphicon glyphicon-pencil"></span></a>
                                 </div>
                             </div>
                         </td>
@@ -170,20 +170,20 @@
 
 <?php // delete modal ?>
 <?php if ($total) : ?>
-    <?php foreach ($users as $user) : ?>
-        <div class="modal fade" id="modal-<?php echo $user['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modal-label-<?php echo $user['id']; ?>" aria-hidden="true">
+    <?php foreach ($finances as $finance) : ?>
+        <div class="modal fade" id="modal-<?php echo $finance['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modal-label-<?php echo $finance['id']; ?>" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;0</button>
-                        <h4 id="modal-label-<?php echo $user['id']; ?>"><?php echo lang('finance title finance_delete');  ?></h4>
+                        <h4 id="modal-label-<?php echo $finance['id']; ?>"><?php echo lang('finance title finance_delete');  ?></h4>
                     </div>
                     <div class="modal-body">
-                        <p><?php echo sprintf(lang('finance msg delete_confirm'), $user['categories'] . "."); ?></p>
+                        <p><?php echo sprintf(lang('finance msg delete_confirm'), $finance['categories'] . "."); ?></p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo lang('core button cancel'); ?></button>
-                        <button type="button" class="btn btn-primary btn-delete-catven" data-id="<?php echo $user['id']; ?>"><?php echo lang('admin button delete'); ?></button>
+                        <button type="button" class="btn btn-primary btn-delete-catven" data-id="<?php echo $finance['id']; ?>"><?php echo lang('admin button delete'); ?></button>
                     </div>
                 </div>
             </div>
