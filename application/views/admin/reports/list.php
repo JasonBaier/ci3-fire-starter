@@ -1,18 +1,35 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
+               
+
+             <?php echo form_open("{$this_url}?sort={$sort}&dir={$dir}&limit={$limit}&offset=0{$filter}", array('role'=>'form', 'id'=>"filters")); ?>
+			
+			<label class="control-label">Financial Year:</label>
+			
+			<?php if(isset($fiscal_list)) { ?>
+					<select name="fiscal_yr" id="fiscal_yr-list-dropdown" class="form-control chosen-select" data-placeholder="Choose a Category...">
+<?php 
+		
+		echo '<option value="">None</option>';
+
+foreach($fiscal_list as $row) { ?>
+
+<option <?php if($this->input->get('fiscal_yr')==$row->id){echo "selected='selected' "; }?> value="<?=$row->id?>"><?=$row->categories?></option>
+						<?php }} ?>	
+
+							</select>
+<br /><br />							
 <div class="panel panel-default">
     <div class="panel-heading">
-        <div class="row">
+        
+		<div class="row">
             <div class="col-md-6 text-left">
-                <h3 class="panel-title"><?php echo lang('finance title finance_list'); ?></h3>
+                <h3 class="panel-title"><?php echo lang('reports title'); ?></h3>
             </div>
+			
             <div class="col-md-6 text-right">
 
                 <a href="<?php echo $this_url; ?>" class="btn btn-danger tooltips" data-toggle="tooltip" title="<?php echo lang('admin tooltip filter_reset'); ?>"><span class="glyphicon glyphicon-refresh"></span> <?php echo lang('core button reset'); ?></a>
-			
-				<a href="<?php echo $this_url; ?>?sort=id&dir=desc&limit=25&offset=0&category=110" class="btn btn-info tooltips" data-toggle="tooltip" title="<?php echo lang('admin tooltip filter_reset'); ?>"><span class="glyphicon glyphicon-refresh"></span> Incoming</a>
-				
-				<a class="btn btn-success tooltips" href="<?php echo base_url('admin/finance/add'); ?>" title="<?php echo lang('finance tooltip add_new_record') ?>" data-toggle="tooltip"><span class="glyphicon glyphicon-plus-sign"></span> <?php echo lang('finance button add_new_record'); ?></a>
 				
             </div>
         </div>
@@ -24,27 +41,27 @@
             <?php // sortable headers ?>
             <tr>
                 <td>
-                    <a href="<?php echo current_url(); ?>?sort=id&dir=<?php echo (($dir == 'asc' ) ? 'desc' : 'asc'); ?>&limit=<?php echo $limit; ?>&offset=<?php echo $offset; ?><?php echo $filter; ?>"><?php echo lang('finance col finance_id'); ?></a>
+                    <a href="<?php echo current_url(); ?>?sort=id&dir=<?php echo (($dir == 'asc' ) ? 'desc' : 'asc'); ?>&limit=<?php echo $limit; ?>&offset=<?php echo $offset; ?><?php echo $filter; ?>"><?php echo lang('reports col finance_id'); ?></a>
                     <?php if ($sort == 'id') : ?><span class="glyphicon glyphicon-arrow-<?php echo (($dir == 'asc') ? 'up' : 'down'); ?>"></span><?php endif; ?>
                 </td>
                 <td>
-                    <a href="<?php echo current_url(); ?>?sort=title&dir=<?php echo (($dir == 'asc' ) ? 'desc' : 'asc'); ?>&limit=<?php echo $limit; ?>&offset=<?php echo $offset; ?><?php echo $filter; ?>"><?php echo lang('finance col title'); ?></a>
+                    <a href="<?php echo current_url(); ?>?sort=title&dir=<?php echo (($dir == 'asc' ) ? 'desc' : 'asc'); ?>&limit=<?php echo $limit; ?>&offset=<?php echo $offset; ?><?php echo $filter; ?>"><?php echo lang('reports col title'); ?></a>
                     <?php if ($sort == 'title') : ?><span class="glyphicon glyphicon-arrow-<?php echo (($dir == 'asc') ? 'up' : 'down'); ?>"></span><?php endif; ?>
                 </td>
                 <td>
-                    <a href="<?php echo current_url(); ?>?sort=category&dir=<?php echo (($dir == 'asc' ) ? 'desc' : 'asc'); ?>&limit=<?php echo $limit; ?>&offset=<?php echo $offset; ?><?php echo $filter; ?>"><?php echo lang('finance col category'); ?></a>
+                    <a href="<?php echo current_url(); ?>?sort=category&dir=<?php echo (($dir == 'asc' ) ? 'desc' : 'asc'); ?>&limit=<?php echo $limit; ?>&offset=<?php echo $offset; ?><?php echo $filter; ?>"><?php echo lang('reports col category'); ?></a>
                     <?php if ($sort == 'category') : ?><span class="glyphicon glyphicon-arrow-<?php echo (($dir == 'asc') ? 'up' : 'down'); ?>"></span><?php endif; ?>
                 </td>
                 <td>
-                    <a href="<?php echo current_url(); ?>?sort=description&dir=<?php echo (($dir == 'asc' ) ? 'desc' : 'asc'); ?>&limit=<?php echo $limit; ?>&offset=<?php echo $offset; ?><?php echo $filter; ?>"><?php echo lang('finance col description'); ?></a>
+                    <a href="<?php echo current_url(); ?>?sort=description&dir=<?php echo (($dir == 'asc' ) ? 'desc' : 'asc'); ?>&limit=<?php echo $limit; ?>&offset=<?php echo $offset; ?><?php echo $filter; ?>"><?php echo lang('reports col description'); ?></a>
                     <?php if ($sort == 'description') : ?><span class="glyphicon glyphicon-arrow-<?php echo (($dir == 'asc') ? 'up' : 'down'); ?>"></span><?php endif; ?>
                 </td>
                 <td>
-                    <a href="<?php echo current_url(); ?>?sort=value&dir=<?php echo (($dir == 'asc' ) ? 'desc' : 'asc'); ?>&limit=<?php echo $limit; ?>&offset=<?php echo $offset; ?><?php echo $filter; ?>"><?php echo lang('finance col value'); ?></a>
+                    <a href="<?php echo current_url(); ?>?sort=value&dir=<?php echo (($dir == 'asc' ) ? 'desc' : 'asc'); ?>&limit=<?php echo $limit; ?>&offset=<?php echo $offset; ?><?php echo $filter; ?>"><?php echo lang('reports col value'); ?></a>
                     <?php if ($sort == 'value') : ?><span class="glyphicon glyphicon-arrow-<?php echo (($dir == 'asc') ? 'up' : 'down'); ?>"></span><?php endif; ?>
                 </td>
                 <td>
-                    <a href="<?php echo current_url(); ?>?sort=assigned_user&dir=<?php echo (($dir == 'asc' ) ? 'desc' : 'asc'); ?>&limit=<?php echo $limit; ?>&offset=<?php echo $offset; ?><?php echo $filter; ?>"><?php echo lang('finance col who'); ?></a>
+                    <a href="<?php echo current_url(); ?>?sort=assigned_user&dir=<?php echo (($dir == 'asc' ) ? 'desc' : 'asc'); ?>&limit=<?php echo $limit; ?>&offset=<?php echo $offset; ?><?php echo $filter; ?>"><?php echo lang('reports col who'); ?></a>
                     <?php if ($sort == 'assigned_user') : ?><span class="glyphicon glyphicon-arrow-<?php echo (($dir == 'asc') ? 'up' : 'down'); ?>"></span><?php endif; ?>
                 </td>
                 <td class="pull-right">
@@ -54,11 +71,10 @@
 
             <?php // search filters ?>
             <tr>
-                <?php echo form_open("{$this_url}?sort={$sort}&dir={$dir}&limit={$limit}&offset=0{$filter}", array('role'=>'form', 'id'=>"filters")); ?>
-                    <th>
+			<th>
                     </th>
                     <th<?php echo ((isset($filters['title'])) ? ' class="has-success"' : ''); ?>>
-                        <?php echo form_input(array('name'=>'title', 'id'=>'title', 'class'=>'form-control input-sm', 'placeholder'=>lang('finance input title'), 'value'=>set_value('title', ((isset($filters['title'])) ? $filters['title'] : '')))); ?>
+                        <?php echo form_input(array('name'=>'title', 'id'=>'title', 'class'=>'form-control input-sm', 'placeholder'=>lang('reports input title'), 'value'=>set_value('title', ((isset($filters['title'])) ? $filters['title'] : '')))); ?>
                     </th>
                     <th<?php echo ((isset($filters['category'])) ? ' class="has-success"' : ''); ?>>
 						
@@ -84,7 +100,7 @@ foreach($category_list as $row) { ?>
 						
                     </th>
                     <th<?php echo ((isset($filters['description'])) ? ' class="has-success"' : ''); ?>>
-                        <?php echo form_input(array('name'=>'description', 'id'=>'title', 'class'=>'form-control input-sm', 'placeholder'=>lang('finance input description'), 'value'=>set_value('description', ((isset($filters['description'])) ? $filters['description'] : '')))); ?>
+                        <?php echo form_input(array('name'=>'description', 'id'=>'title', 'class'=>'form-control input-sm', 'placeholder'=>lang('reports input description'), 'value'=>set_value('description', ((isset($filters['description'])) ? $filters['description'] : '')))); ?>
                     </th>
 					<th></th>
 					<th>
@@ -168,10 +184,7 @@ foreach($username_list as $row) { ?>
                         <td>
                             <div class="text-right">
                                 <div class="btn-group">
-                                    <?php if ($finance['id'] > 1) : ?>
-                                        <a href="#modal-<?php echo $finance['id']; ?>" data-toggle="modal" class="btn btn-danger" title="<?php echo lang('admin button delete'); ?>"><span class="glyphicon glyphicon-trash"></span></a>
-                                    <?php endif; ?>
-                                    <a href="<?php echo $this_url; ?>/edit/<?php echo $finance['id']; ?>" class="btn btn-warning" title="<?php echo lang('admin button edit'); ?>"><span class="glyphicon glyphicon-pencil"></span></a>
+                                    <a href="<?php echo $base_site; ?>admin/finance/edit/<?php echo $finance['id']; ?>" class="btn btn-warning" title="<?php echo lang('admin button edit'); ?>"><span class="glyphicon glyphicon-pencil"></span></a>
                                 </div>
                             </div>
                         </td>
@@ -217,26 +230,3 @@ foreach($username_list as $row) { ?>
     </div>
 
 </div>
-
-<?php // delete modal ?>
-<?php if ($total) : ?>
-    <?php foreach ($finances as $finance) : ?>
-        <div class="modal fade" id="modal-<?php echo $finance['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="modal-label-<?php echo $finance['id']; ?>" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 id="modal-label-<?php echo $finance['id']; ?>"><?php echo lang('finance title finance_delete');  ?></h4>
-                    </div>
-                    <div class="modal-body">
-                        <p><?php echo sprintf(lang('finance msg delete_confirm'), $finance['category'] . " " . $finance['description']); ?></p>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo lang('core button cancel'); ?></button>
-                        <button type="button" class="btn btn-primary btn-delete-record" data-id="<?php echo $finance['id']; ?>"><?php echo lang('admin button delete'); ?></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php endforeach; ?>
-<?php endif; ?>

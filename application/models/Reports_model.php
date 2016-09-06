@@ -896,6 +896,24 @@ Updated: " . date('Y-m-d H:i:s') . "";
 
     }
 	
+	function get_fiscallist_new()
+    {
+	$where_array = array('locked'=>3,'deleted'=>0);
+	$where_table = 'assets';
+	$return = array();
+	$result = $this->db->order_by('id', 'DESC')->get_where($where_table, $where_array);
+	if($result->num_rows() > 0) {
+		foreach($result->result() as $row) {
+		$return[] = $row; 
+		//foreach($result->result_array() as $row) {
+		//$return[$row['id']] = $row['id'] . " - " . $row['categories'];
+	}
+	}
+
+        return $return;
+
+    }
+	
 	function get_category_name()
     {
 	$where_array = array('deleted'=>0,'locked'=>1);
