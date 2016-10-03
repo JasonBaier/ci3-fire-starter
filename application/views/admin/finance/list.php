@@ -100,7 +100,7 @@ foreach($username_list as $row) { ?>
 </select>		
 					</th>
 					
-                    <th colspan="3">
+                    <th colspan="4">
                         <div class="text-right">
 						
                             <button type="submit" name="submit" value="<?php echo lang('core button filter'); ?>" class="btn btn-success tooltips" data-toggle="tooltip" title="<?php echo lang('admin tooltip filter'); ?>"><span class="glyphicon glyphicon-filter"></span> <?php echo lang('core button filter'); ?></button>
@@ -166,7 +166,7 @@ foreach($username_list as $row) { ?>
 						?>
                         </td>
                         <td>
-                            <div class="text-right">
+                            <div class="text-right"style="width: 80px">
                                 <div class="btn-group">
                                     <?php if ($finance['id'] > 1) : ?>
                                         <a href="#modal-<?php echo $finance['id']; ?>" data-toggle="modal" class="btn btn-danger" title="<?php echo lang('admin button delete'); ?>"><span class="glyphicon glyphicon-trash"></span></a>

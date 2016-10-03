@@ -639,7 +639,7 @@ class Finance extends Admin_Controller {
         // set content data
         $content_data = array(
             'cancel_url'        => $this->_redirect_url,
-            'finances'              => $finance,
+            'finance'              => $finance,
             'user_id'           => $id,
             'password_required' => FALSE
         );

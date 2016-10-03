@@ -44,8 +44,18 @@ class Finance_model extends CI_Model {
         {
             foreach ($filters as $key=>$value)
             {
+                  
+                if ($key == 'category') {
+                    
+                $value = $this->db->escape('' . $value . '');
+                $sql .= " AND {$key} LIKE {$value}";
+                    
+                } else { 
+                
                 $value = $this->db->escape('%' . $value . '%');
                 $sql .= " AND {$key} LIKE {$value}";
+                
+                }
             }
         }
 
