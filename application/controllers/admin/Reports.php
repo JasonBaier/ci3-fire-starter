@@ -16,7 +16,7 @@ class Reports extends Admin_Controller {
         parent::__construct();
 
         // load the language files
-        $this->lang->load('finance');
+        $this->lang->load('reports');
 
         // load the finance model
         $this->load->model('reports_model');
@@ -24,7 +24,8 @@ class Reports extends Admin_Controller {
 
         // set constants
         define('REFERRER', "referrer");
-        define('THIS_URL', base_url('admin/finance'));
+        define('THIS_URL', base_url('admin/reports'));
+        define('THIS_URL_BASE', base_url());
         define('DEFAULT_LIMIT', $this->settings->per_page_limit);
         define('DEFAULT_OFFSET', 0);
         define('DEFAULT_SORT', "id");
@@ -62,17 +63,22 @@ class Reports extends Admin_Controller {
         // get filters
         $filters = array();
 
-        if ($this->input->get('title'))
+		 if ($this->input->get('title'))
         {
             $filters['title'] = $this->input->get('title', TRUE);
         }
-
+		
         if ($this->input->get('category'))
         {
             $filters['category'] = $this->input->get('category', TRUE);
         }
-
-        if ($this->input->get('description'))
+		
+		if ($this->input->get('fiscal_yr'))
+        {
+            $filters['fiscal_yr'] = $this->input->get('fiscal_yr', TRUE);
+        }
+		
+		if ($this->input->get('description'))
         {
             $filters['description'] = $this->input->get('description', TRUE);
         }
@@ -84,6 +90,7 @@ class Reports extends Admin_Controller {
 
         // build filter string
         $filter = "";
+		
         foreach ($filters as $key => $value)
         {
             $filter .= "&{$key}={$value}";
@@ -124,39 +131,45 @@ class Reports extends Admin_Controller {
                 {
                     $filter .= "&assigned_user=" . $this->input->post('assigned_user', TRUE);
                 }
-
+				
+				if ($this->input->post('fiscal_yr'))
+                {
+                    $filter .= "&fiscal_yr=" . $this->input->post('fiscal_yr', TRUE);
+                }
+				
                 // redirect using new filter(s)
                 redirect(THIS_URL . "?sort={$sort}&dir={$dir}&limit={$limit}&offset={$offset}{$filter}");
             }
         }
 
         // get list
-        $finances = $this->reports_model->get_all($limit, $offset, $filters, $sort, $dir);
+        $reports = $this->reports_model->get_all($limit, $offset, $filters, $sort, $dir);
 
         // build pagination
         $this->pagination->initialize(array(
             'base_url'   => THIS_URL . "?sort={$sort}&dir={$dir}&limit={$limit}{$filter}",
-            'total_rows' => $finances['total'],
-            'per_page'   => $limit
+            'total_rows' => $reports['total'],
+            'per_page'   => 20000
         ));
 
         // setup page header data
 		$this
 			->add_js_theme( "users_i18n.js", TRUE )
-			->set_title( lang('finance title finance_list') );
+			->set_title( lang('reports title') );
 
         $data = $this->includes;
 
         // set content data
         $content_data = array(
 			'user_list'					=> $this->reports_model->get_userlist(),
+            'base_site' => THIS_URL_BASE,
 			'category_name'					=> $this->reports_model->get_categories(),
 			'category_list'					=> $this->reports_model->get_categories_list(),
-			'vendor_list'					=> $this->reports_model->get_vendor(),
 			'username_list'					=> $this->reports_model->get_userslist(),
+			'fiscal_list'					=> $this->reports_model->get_fiscallist_new(),
             'this_url'   => THIS_URL,
-            'finances'      => $finances['results'],
-            'total'      => $finances['total'],
+            'finances'      => $reports['results'],
+            'total'      => $reports['total'],
             'filters'    => $filters,
             'filter'     => $filter,
             'pagination' => $this->pagination->create_links(),
@@ -168,7 +181,7 @@ class Reports extends Admin_Controller {
 		
 		
         // load views
-        $data['content'] = $this->load->view('admin/finance/list', $content_data, TRUE);
+        $data['content'] = $this->load->view('admin/reports/list', $content_data, TRUE);
         $this->load->view($this->template, $data);
     }
 
@@ -448,28 +461,28 @@ class Reports extends Admin_Controller {
         }
 
         // get all users
-        $finances = $this->reports_model->get_all(0, 0, $filters, $sort, $dir);
+        $reports = $this->reports_model->get_all(0, 0, $filters, $sort, $dir);
 
-        if ($finances['total'] > 0)
+        if ($reports['total'] > 0)
         {
             // manipulate the output array
-            foreach ($finances['results'] as $key=>$finance)
+            foreach ($reports['results'] as $key=>$finance)
             {
-                unset($finances['results'][$key]['password']);
-                unset($finances['results'][$key]['deleted']);
+                unset($reports['results'][$key]['password']);
+                unset($reports['results'][$key]['deleted']);
 
                 if ($finance['value'] == 0)
                 {
-                    $finances['results'][$key]['value'] = lang('admin input inactive');
+                    $reports['results'][$key]['value'] = lang('admin input inactive');
                 }
                 else
                 {
-                    $finances['results'][$key]['value'] = lang('admin input active');
+                    $reports['results'][$key]['value'] = lang('admin input active');
                 }
             }
 
             // export the file
-            array_to_csv($finances['results'], "users");
+            array_to_csv($reports['results'], "users");
         }
         else
         {
@@ -545,12 +558,12 @@ class Reports extends Admin_Controller {
         }
 
         // get list
-        $finances = $this->reports_model->get_catvenall($limit, $offset, $filters, $sort, $dir);
+        $reports = $this->reports_model->get_catvenall($limit, $offset, $filters, $sort, $dir);
 
         // build pagination
         $this->pagination->initialize(array(
             'base_url'   => THIS_URL . "/manage?sort={$sort}&dir={$dir}&limit={$limit}{$filter}",
-            'total_rows' => $finances['total'],
+            'total_rows' => $reports['total'],
             'per_page'   => $limit
         ));
 
@@ -569,8 +582,8 @@ class Reports extends Admin_Controller {
 			'category_names'					=> $this->reports_model->get_category_name(),
 			'users_list'					=> $this->reports_model->get_userlist(),
             'this_url'   => THIS_URL,
-            'finances'      => $finances['results'],
-            'total'      => $finances['total'],
+            'finances'      => $reports['results'],
+            'total'      => $reports['total'],
             'filters'    => $filters,
             'filter'     => $filter,
             'pagination' => $this->pagination->create_links(),

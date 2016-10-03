@@ -60,6 +60,12 @@
 							<li class="<?php echo (uri_string() == 'admin/finance/manage') ? 'active' : ''; ?>"><a href="<?php echo base_url('/admin/finance/manage'); ?>"><?php echo lang('admin button manage_catven'); ?></a></li>
                         </ul>
                     </li>
+					<li class="dropdown<?php echo (strstr(uri_string(), 'admin/reports')) ? ' active' : ''; ?>">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?php echo lang('admin button reports'); ?> <span class="caret"></span></a>
+						<ul class="dropdown-menu" role="menu">
+                            <li class="<?php echo (uri_string() == 'admin/finance') ? 'active' : ''; ?>"><a href="<?php echo base_url('/admin/reports'); ?>"><?php echo lang('admin button list_reports'); ?></a></li>
+						</ul>
+					</li>
                     <li class="<?php echo (uri_string() == 'admin/contact') ? 'active' : ''; ?>"><a href="<?php echo base_url('/admin/contact'); ?>"><?php echo lang('admin button messages'); ?></a></li>
                     <li class="<?php echo (uri_string() == 'admin/settings') ? 'active' : ''; ?>"><a href="<?php echo base_url('/admin/settings'); ?>"><?php echo lang('admin button settings'); ?></a></li>
                 </ul>

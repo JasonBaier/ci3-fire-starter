@@ -17,7 +17,9 @@ $lang['admin button users']               = "Users";
 $lang['admin button users_add']           = "Add New User";
 $lang['admin button users_list']          = "List Users";
 $lang['admin button finance']		  = "Finance";
+$lang['admin button reports']		  = "Reports";
 $lang['admin button finance_list']		  = "List Records";
+$lang['admin button list_reports']		  = "List Reports";
 $lang['admin button finance_add']   	      = "Add a Record";
 $lang['admin button manage_catven']               = "Manage Finance Opts.";
 
