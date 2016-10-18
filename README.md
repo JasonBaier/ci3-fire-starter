@@ -439,7 +439,7 @@ or need a more robust starting point, then check out one of these applications:
 * [FuelCMS](http://getfuelcms.com/)
 * [Hoosk](http://hoosk.org/)
 * [Ionize](http://ionizecms.com/)
-* [NodCMS](www.nodcms.com)
+* [NodCMS](http://www.nodcms.com)
 * [Codefight](http://codefight.org/)
 * [No-CMS](http://getnocms.com/)
 * [Expression Engine](http://ellislab.com/expressionengine/)
