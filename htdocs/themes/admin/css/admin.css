@@ -27,6 +27,10 @@ td.sorted {
     line-height: 60px;
 }
 
+.sticky-footer p {
+    margin-bottom: 0;
+}
+
 .pagination {
     margin: 0 !important;
 }

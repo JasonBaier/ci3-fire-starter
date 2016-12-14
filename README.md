@@ -444,12 +444,17 @@ or need a more robust starting point, then check out one of these applications:
 * [No-CMS](http://getnocms.com/)
 * [Expression Engine](http://ellislab.com/expressionengine/)
 * [Halogy](http://www.halogy.com/)
-* [HeroFramework](https://github.com/electricfunction/hero/)
 
 _This list is provided only as an alternative resource. It is not an endorsement for any of the applications listed._
 
 <a name="whats-new"></a>
 ## WHAT'S NEW
+
+#### Version 3.3.2
+12/14/2016
+
+* Upgraded to CI 3.1.2
+* Fixed issue #34: Admin template footer bug
 
 #### Version 3.3.1
 08/09/2016
