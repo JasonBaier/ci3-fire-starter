@@ -81,15 +81,15 @@ class MY_Controller extends CI_Controller {
         $this
             ->add_external_css(
                 array(
-                    "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css",
-                    "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css",
-                    "//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css",
+                    "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",
+                    "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css",
+                    "//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
                     "/themes/core/css/core.css"
                 ))
             ->add_external_js(
                 array(
-                    "//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
-                    "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"
+                    "//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js",
+                    "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 ));
 
         $this->includes[ 'js_files_i18n' ] = array(

@@ -179,7 +179,7 @@ Thanks to contributions from the community, the list of language translations is
 
 Registered users can set their own preferred language, admins can set preferred languauges for each user, and
 non-registered users can use the language selector to render the site in their preferred language. The application
-looks for a session variable (_$this->session->langauge_) to determine which language to show. If one is not found in the
+looks for a session variable (_$this->session->language_) to determine which language to show. If one is not found in the
 session, the default defined in the main config file is used. If the user is logged in, then their assigned language is
 used instead. If a user selects a different languauge other than what is configured, the selected languauge will be used
 during their session.
@@ -224,8 +224,8 @@ OR in your includes array:
 <a name="user-management"></a>
 ## USER MANAGEMENT
 
-CI3 Fire Starter comes with a simple user management tool in the administration tool. It uses a database
-table called 'users'. This tool demonstrates a lot of basic but important functionality:
+CI3 Fire Starter comes with a simple user management tool in the administration tool. This tool demonstrates a lot of
+basic but important functionality:
 
 * Sortable list columns
 * Search filters
@@ -449,6 +449,14 @@ _This list is provided only as an alternative resource. It is not an endorsement
 
 <a name="whats-new"></a>
 ## WHAT'S NEW
+
+#### Version 3.3.3
+12/20/2016
+
+* Upgraded latest version of jQuery
+* Upgraded latest version of Bootstrap
+* Upgraded latest version of FontAwesome
+* Upgraded latest version of Summernote
 
 #### Version 3.3.2
 12/14/2016
