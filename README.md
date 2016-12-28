@@ -451,6 +451,11 @@ _This list is provided only as an alternative resource. It is not an endorsement
 ## WHAT'S NEW
 
 #### Version 3.3.3
+12/28/2016
+
+* Moved too many login attempts process
+
+#### Version 3.3.3
 12/20/2016
 
 * Upgraded latest version of jQuery
