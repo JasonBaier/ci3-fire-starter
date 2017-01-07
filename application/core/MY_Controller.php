@@ -84,7 +84,7 @@ class MY_Controller extends CI_Controller {
                     "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",
                     "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css",
                     "//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
-                    "/themes/core/css/core.css"
+                    base_url("/themes/core/css/core.css")
                 ))
             ->add_external_js(
                 array(
@@ -92,8 +92,11 @@ class MY_Controller extends CI_Controller {
                     "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 ));
 
+		$core_js = $this->jsi18n->translate("/themes/core/js/core_i18n.js");
+		$core_js = str_replace("<<base_url>>", base_url(), $core_js);
+
         $this->includes[ 'js_files_i18n' ] = array(
-            $this->jsi18n->translate("/themes/core/js/core_i18n.js")
+            $core_js
         );
 
         // enable the profiler?

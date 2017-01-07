@@ -407,7 +407,7 @@ for the complete list.
 <a name="installation"></a>
 ## INSTALLATION
 
-* Create a new database and import the included sql file from the /assets folder
+* Create a new database and import the included sql file from the /data folder
     + default administrator username/password is **admin/admin**
 * Modify the /application/config/config.php
     + line 26: set your base site URL (new requirement as of CI v3.0.3)
@@ -425,7 +425,7 @@ for the complete list.
 <a name="updates"></a>
 ## UPDATES
 
-Since version 3.2.4, anytime changes to the database are required, you'll find SQL files in /assets/schema\_updates.
+Since version 3.2.4, any login attempts will be saved to database, so changes to the database are required, you'll find SQL files in /data/schema\_updates
 
 <a name="conclusion"></a>
 ##CONCLUSION
