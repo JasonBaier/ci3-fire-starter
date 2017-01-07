@@ -3,7 +3,7 @@
  */
 var config = {
     logging : true,
-    baseURL : location.protocol + "//" + location.hostname + "/"
+    baseURL : "{{base_url}}"
 };
 
 
