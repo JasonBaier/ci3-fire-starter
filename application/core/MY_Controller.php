@@ -93,7 +93,7 @@ class MY_Controller extends CI_Controller {
                 ));
 
 		$core_js = $this->jsi18n->translate("/themes/core/js/core_i18n.js");
-		$core_js = str_replace("{{base_url}}", base_url(), $core_js);
+		$core_js = str_replace("<<base_url>>", base_url(), $core_js);
 
         $this->includes[ 'js_files_i18n' ] = array(
             $core_js

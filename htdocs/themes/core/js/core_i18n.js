@@ -3,7 +3,7 @@
  */
 var config = {
     logging : true,
-    baseURL : "{{base_url}}"
+    baseURL : "<<base_url>>"
 };
 
 
