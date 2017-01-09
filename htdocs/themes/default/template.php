@@ -61,11 +61,11 @@
                             </li>
                         <?php endif; ?>
                         <li>
-                            <a href="/logout"><?php echo lang('core button logout'); ?></a>
+                            <a href="<?php echo base_url('logout'); ?>"><?php echo lang('core button logout'); ?></a>
                         </li>
                     <?php else : ?>
                         <li class="<?php echo (uri_string() == 'login') ? 'active' : ''; ?>">
-                            <a href="<?php echo base_url('/login'); ?>"><?php echo lang('core button login'); ?></a>
+                            <a href="<?php echo base_url('login'); ?>"><?php echo lang('core button login'); ?></a>
                         </li>
                     <?php endif; ?>
                     <li>
