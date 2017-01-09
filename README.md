@@ -425,7 +425,7 @@ for the complete list.
 <a name="updates"></a>
 ## UPDATES
 
-Since version 3.2.4, any login attempts will be saved to database, so changes to the database are required, you'll find SQL files in /data/schema\_updates
+Since version 3.2.4, anytime changes to the database are required, you'll find SQL files in /data/schema\_updates
 
 <a name="conclusion"></a>
 ##CONCLUSION
@@ -450,7 +450,13 @@ _This list is provided only as an alternative resource. It is not an endorsement
 <a name="whats-new"></a>
 ## WHAT'S NEW
 
-#### Version 3.3.3
+#### Version 3.3.5
+01/09/2017
+
+* Merged some of the changes contributed by [arif-rh](https://github.com/arif-rh "Arif RH")
+* Upgraded to CI 3.1.3
+
+#### Version 3.3.4
 12/28/2016
 
 * Moved too many login attempts process

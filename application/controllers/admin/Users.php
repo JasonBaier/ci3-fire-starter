@@ -187,7 +187,7 @@ class Users extends Admin_Controller {
             }
 
             // return to list and display message
-            redirect(THIS_URL);
+            redirect($this->_redirect_url);
         }
 
         // setup page header data

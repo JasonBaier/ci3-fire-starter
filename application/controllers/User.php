@@ -288,10 +288,6 @@ class User extends Public_Controller {
 
             if ($login)
             {
-                /* set default language to user language setting */
-                $this->session->language = $login['language'];
-                $this->config->set_item('language', $this->session->language);
-                
                 $this->session->set_userdata('logged_in', $login);
                 return TRUE;
             }
