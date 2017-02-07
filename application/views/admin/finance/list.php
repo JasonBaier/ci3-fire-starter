@@ -4,7 +4,7 @@
     <div class="panel-heading">
         <div class="row">
             <div class="col-md-6 text-left">
-                <h3 class="panel-title"><?php echo lang('finance title finance_list'); ?></h3>
+                <h3 class="panel-title"><?php echo lang('finance title finance_list'); ?></h3>            
             </div>
             <div class="col-md-6 text-right">
 

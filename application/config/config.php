@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/git/ci3-email-finance-system/htdocs/';
+$config['base_url'] = 'http://localhost/github/ci3-email-finance-system/htdocs/';
 
 /*
 |--------------------------------------------------------------------------

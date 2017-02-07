@@ -6,7 +6,7 @@
     <?php if (isset($finance['id'])) : ?>
         <?php echo form_hidden('id', $finance['id']); ?>
     <?php endif; ?>
-
+    
     <div class="row">
         <?php // title ?>
         <div class="form-group col-sm-4<?php echo form_error('title') ? ' has-error' : ''; ?>">
@@ -140,7 +140,7 @@
 			// $sl_val = $this->input->post($category_id);
 
 			
-			echo form_dropdown('fiscal_y', $fiscal_list, (isset($finance['fiscal_yr'])) ? $finance['fiscal_yr'] : '77','id="user-list-dropdown" class="form-control chosen-select" data-placeholder="Fiscal years?..."');
+			echo form_dropdown('fiscal_y', $fiscal_list, (isset($finance['fiscal_yr'])) ? $finance['fiscal_yr'] : '','id="user-list-dropdown" class="form-control chosen-select" data-placeholder="Fiscal years?..."');
 			?> 
 			 
         </div>
@@ -162,7 +162,8 @@
 		</div>
 <?php if (isset($finance['title'])) { ?>	
 		<div class="row">
-<div class="form-group col-sm-10">
+
+        <!-- <div class="form-group col-sm-10">
 <?php echo form_label("How to email in a record from your SmartPhone - Open the attachment in a new Email and copy/paste the following. Make required changes on this page, then click save and re-open the record.", 'language', array('class'=>'control-label')); ?><br />	
 
 <?php echo form_label("To:", 'language', array('class'=>'control-label')); ?><br />
@@ -174,7 +175,7 @@
 <?php echo form_label("Subject:", 'language', array('class'=>'control-label')); ?><br />
 <input type="text" id="lookup" value='<?php echo $site_email_subject; ?>"' size="52" readonly />
 
-		</div></div>
+		</div> --></div>
 		
 		
 <?php } // buttons ?>

@@ -668,11 +668,11 @@ class Finance extends Admin_Controller {
 			
             if ($saved)
             {
-                $this->session->set_flashdata('message', sprintf(lang('finance msg add_record_success'), $this->input->post('category') . " " . $this->input->post('description')));
+                $this->session->set_flashdata('message', sprintf(lang('finance msg add_record_success'), $this->input->post('categories') . " " . $this->input->post('description')));
             }
             else
             {
-                $this->session->set_flashdata('error', sprintf(lang('finance error add_record_failed'), $this->input->post('category') . " " . $this->input->post('description')));
+                $this->session->set_flashdata('error', sprintf(lang('finance error add_record_failed'), $this->input->post('categories') . " " . $this->input->post('description')));
             }
 
             // return to list and display message
