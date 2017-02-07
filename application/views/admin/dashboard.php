@@ -30,6 +30,13 @@
                           <a href="#" class="btn btn-primary btn-lg" role="button"><span class="glyphicon glyphicon-tag"></span> <br/>Tags</a> -->
                         </div>
                     </div>
+                    
+                    <div class="alert alert-info">
+  <strong>Tip:</strong> Easily send scanned documents from your Android or iOS device by scanning your receipt and attaching in an email. Just make sure the subject is in the following format: 
+  <br /><br />
+  Title, -111, Description <span style="padding-left:2em">(for an expense or remove the '-' for a debit)</span>
+  <br /><br />
+  <strong>Do not include quoations or '&' symbols.</strong></div>                    
                     <!-- <a href="http://www.jquery2dotnet.com/" class="btn btn-success btn-lg btn-block" role="button"><span class="glyphicon glyphicon-globe"></span> Website</a> -->
                 </div>
             </div>

@@ -846,7 +846,7 @@ Updated: " . date('Y-m-d H:i:s') . "";
 	$result = $this->db->order_by('categories', 'ASC')->get_where($where_table, $where_array);
 	if($result->num_rows() > 0) { 
 		foreach($result->result_array() as $row) {
-		$return[$row['id']] = $row['id'] . " - " . $row['categories'];
+		$return[$row['id']] = /*$row['id'] . " - " . */$row['categories'];
 	}
 	}
 
@@ -892,7 +892,7 @@ Updated: " . date('Y-m-d H:i:s') . "";
     {
 	$where_array = array('locked'=>3,'deleted'=>0);
 	$where_table = 'assets';
-	$result = $this->db->order_by('id', 'ASC')->get_where($where_table, $where_array);
+	$result = $this->db->order_by('id', 'DESC')->get_where($where_table, $where_array);
 	$return = array();
 	
 	if($result->num_rows() > 0) {
@@ -928,7 +928,7 @@ Updated: " . date('Y-m-d H:i:s') . "";
     {
 	$where_array = array('locked'=>2,'deleted'=>0);
 	$where_table = 'assets';
-	$result = $this->db->order_by('id', 'ASC')->get_where($where_table, $where_array);
+	$result = $this->db->order_by('categories', 'ASC')->get_where($where_table, $where_array);
 	$return = array();
 	
 	if($result->num_rows() > 0) {

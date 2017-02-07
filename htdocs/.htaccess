@@ -1,5 +1,5 @@
 RewriteEngine on
-RewriteBase /git/ci3-email-finance-system/htdocs 
+RewriteBase /github/ci3-email-finance-system/htdocs 
     RewriteCond $1 !^(index\.php|assets|img|css|js|robots\.txt|favicon\.ico)
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
