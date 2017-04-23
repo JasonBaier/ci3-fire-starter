@@ -428,7 +428,7 @@ for the complete list.
 Since version 3.2.4, anytime changes to the database are required, you'll find SQL files in /data/schema\_updates
 
 <a name="conclusion"></a>
-##CONCLUSION
+## CONCLUSION
 
 As I mentioned earlier, CI3 Fire Starter does not attempt to be a full-blown CMS. You would need
 to build that functionality yourself. If you're looking for a full CMS built on CodeIgniter,
