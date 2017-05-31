@@ -450,6 +450,11 @@ _This list is provided only as an alternative resource. It is not an endorsement
 <a name="whats-new"></a>
 ## WHAT'S NEW
 
+#### Version 3.3.6
+05/30/2017
+* Upgraded to CI 3.1.4 contributed by [afrastgeek](https://github.com/afrastgeek "AFR")
+* Fix broken headings in Markdown files contributed by [bryant1410](https://github.com/bryant1410 "Santiago Castro")
+
 #### Version 3.3.5
 01/09/2017
 
