@@ -450,6 +450,12 @@ _This list is provided only as an alternative resource. It is not an endorsement
 <a name="whats-new"></a>
 ## WHAT'S NEW
 
+#### Version 3.3.7
+08/08/2017
+
+* Upgraded to CI 3.1.5
+* Added environment-specific config files for main config and database
+
 #### Version 3.3.6
 05/30/2017
 * Upgraded to CI 3.1.4 contributed by [afrastgeek](https://github.com/afrastgeek "AFR")
