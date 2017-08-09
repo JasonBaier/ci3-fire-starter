@@ -53,7 +53,17 @@
  *
  * NOTE: If you change these, also change the error_reporting() code below
  */
-	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
+$domain = (! empty($_SERVER['HTTP_HOST'])) ? strtolower($_SERVER['HTTP_HOST']) : 'cli';
+
+if (strpos($domain, '.dev') !== false || strpos($domain, '.local') !== false || $domain == 'cli')
+{
+   define('ENVIRONMENT', 'development');
+}
+else
+{
+   define('ENVIRONMENT', 'production');
+}
+
 
 /*
  *---------------------------------------------------------------

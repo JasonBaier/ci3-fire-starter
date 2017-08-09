@@ -451,6 +451,12 @@ _This list is provided only as an alternative resource. It is not an endorsement
 <a name="whats-new"></a>
 ## WHAT'S NEW
 
+#### Version 3.4.1
+08/08/2017
+* Changed environment auto-detection in root index.php
+* Minor change to .htaccess
+* Launched demo at http://ci3-fire-starter.jasonbaier.com
+
 #### Version 3.4.0
 08/08/2017
 
