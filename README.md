@@ -59,6 +59,8 @@ developers who want a simple, easy platform for learning the framework.
 * Basic admin tool with dashboard, user management, settings and Contact Us message list
 * File-based sessions
 
+*VIEW THE DEMO*: http://ci3-fire-starter.jasonbaier.com
+
 That should cover the basic needs for kickstarting many small CodeIgniter 3 projects. While there are some
 great CodeIgniter CMS applications ([see below](#conclusion)), sometimes you don't need a full CMS or you
 need a completely customizable solution. That's why I created CI3 Fire Starter. I was tired of always
