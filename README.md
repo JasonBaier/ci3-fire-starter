@@ -1,5 +1,7 @@
 # CI3 Fire Starter (ci3-fire-starter)
 
+**VIEW THE DEMO**: http://ci3-fire-starter.jasonbaier.com
+
 <a name="toc"></a>
 ## TABLE OF CONTENTS
 * [Introduction](#introduction)
@@ -58,8 +60,6 @@ developers who want a simple, easy platform for learning the framework.
 * Contact Us page with enhanced CAPTCHA
 * Basic admin tool with dashboard, user management, settings and Contact Us message list
 * File-based sessions
-
-*VIEW THE DEMO*: http://ci3-fire-starter.jasonbaier.com
 
 That should cover the basic needs for kickstarting many small CodeIgniter 3 projects. While there are some
 great CodeIgniter CMS applications ([see below](#conclusion)), sometimes you don't need a full CMS or you
