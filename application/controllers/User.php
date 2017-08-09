@@ -160,7 +160,7 @@ class User extends Public_Controller {
         }
 
         // setup page header data
-        $this->set_title( lang('users title register') );
+        $this->set_title(lang('users title register'));
 
         $data = $this->includes;
 

@@ -28,7 +28,7 @@ if ( ! function_exists('display_json'))
  */
 if ( ! function_exists('json_indent'))
 {
-    function json_indent($array = array())
+    function json_indent($array=array())
     {
         // make sure array is provided
         if (empty($array))
@@ -104,7 +104,7 @@ if ( ! function_exists('json_indent'))
  */
 if ( ! function_exists('array_to_csv'))
 {
-    function array_to_csv($array = array(), $filename = "export.csv")
+    function array_to_csv($array=array(), $filename="export.csv")
     {
         $CI = get_instance();
 

@@ -6,10 +6,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 
 // Site Details
-$config['site_version']          = "3.3.7";     // this is CI3 Fire Starter version - set it to 1.0.0 for your new project
-$config['root_folder']           = "htdocs";    // set to whatever your webroot is (htdocs, public_html, etc.) - MAKE SURE you physically rename the /htdocs folder if you change this value!
-$config['public_theme']          = "default";   // folder containing your public theme
-$config['admin_theme']           = "admin";     // folder containing your admin theme
+$config['site_version']          = "3.4.0";          // this is CI3 Fire Starter version - set it to 1.0.0 for your new project
+$config['themes_folder']         = "assets/themes";  // folder containing your themes
+$config['public_theme']          = "default";        // folder containing your public theme
+$config['admin_theme']           = "admin";          // folder containing your admin theme
+$config['captcha_folder']        = "assets/captcha"; // folder to save CAPTCHA images - must have write permission
 
 // Pagination
 $config['num_links']             = 8;
@@ -17,7 +18,7 @@ $config['full_tag_open']         = "<div class=\"pagination\">";
 $config['full_tag_close']        = "</div>";
 
 // Login Attempts
-$config['login_max_time']        = 10;          // in seconds
+$config['login_max_time']        = 10;               // in seconds
 $config['login_max_attempts']    = 3;
 
 // Miscellaneous

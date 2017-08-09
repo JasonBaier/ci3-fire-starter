@@ -140,10 +140,10 @@ class Contact extends Admin_Controller {
 
         // setup page header data
 		$this
-			->add_css_theme( 'bootstrap-datepicker.css' )
-			->add_js_theme( 'bootstrap-datepicker.js' )
-			->add_js_theme( 'contact_i18n.js', TRUE )
-			->set_title( lang('contact title messages_list') );
+			->add_css_theme('bootstrap-datepicker.css')
+			->add_js_theme('bootstrap-datepicker.js')
+			->add_js_theme('contact_i18n.js', TRUE)
+			->set_title(lang('contact title messages_list'));
 
         $data = $this->includes;
 
@@ -229,7 +229,7 @@ class Contact extends Admin_Controller {
      * @param  int $id
      * @return boolean
      */
-    public function read($id)
+    public function read($id=NULL)
     {
         if ($id)
         {

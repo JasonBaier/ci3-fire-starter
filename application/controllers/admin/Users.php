@@ -130,8 +130,8 @@ class Users extends Admin_Controller {
 
         // setup page header data
 		$this
-			->add_js_theme( "users_i18n.js", TRUE )
-			->set_title( lang('users title user_list') );
+			->add_js_theme('users_i18n.js', TRUE )
+			->set_title(lang('users title user_list'));
 
         $data = $this->includes;
 
@@ -191,7 +191,7 @@ class Users extends Admin_Controller {
         }
 
         // setup page header data
-        $this->set_title( lang('users title user_add') );
+        $this->set_title(lang('users title user_add'));
 
         $data = $this->includes;
 
@@ -213,7 +213,7 @@ class Users extends Admin_Controller {
      *
      * @param  int $id
      */
-    function edit($id = NULL)
+    function edit($id=NULL)
     {
         // make sure we have a numeric id
         if (is_null($id) OR ! is_numeric($id))
@@ -261,7 +261,7 @@ class Users extends Admin_Controller {
         }
 
         // setup page header data
-        $this->set_title( lang('users title user_edit') );
+        $this->set_title(lang('users title user_edit'));
 
         $data = $this->includes;
 
@@ -284,7 +284,7 @@ class Users extends Admin_Controller {
      *
      * @param  int $id
      */
-    function delete($id = NULL)
+    function delete($id=NULL)
     {
         // make sure we have a numeric id
         if ( ! is_null($id) OR ! is_numeric($id))

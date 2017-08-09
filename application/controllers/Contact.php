@@ -59,9 +59,9 @@ class Contact extends Public_Controller {
 
         // create captcha image
         $captcha = create_captcha(array(
-            'img_path'   => "./captcha/",
-            'img_url'    => base_url('/captcha') . "/",
-            'font_path'  => FCPATH . "themes/core/fonts/bromine/Bromine.ttf",
+            'img_path'   => "./{$this->settings->captcha_folder}/",
+            'img_url'    => base_url("/{$this->settings->captcha_folder}/"),
+            'font_path'  => FCPATH . "{$this->settings->themes_folder}/core/fonts/bromine/Bromine.ttf",
             'img_width'	 => 170,
             'img_height' => 50
         ));
@@ -76,7 +76,7 @@ class Contact extends Public_Controller {
         $this->contact_model->save_captcha($captcha_data);
 
         // setup page header data
-        $this->set_title( lang('contact title') );
+        $this->set_title(lang('contact title'));
 
         $data = $this->includes;
 

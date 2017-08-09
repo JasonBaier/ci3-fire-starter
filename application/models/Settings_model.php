@@ -53,7 +53,7 @@ class Settings_model extends CI_Model {
      * @param  int $user_id
      * @return boolean
      */
-    function save_settings($data = array(), $user_id = NULL)
+    function save_settings($data=array(), $user_id=NULL)
     {
         if ($data && $user_id)
         {

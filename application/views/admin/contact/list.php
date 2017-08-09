@@ -63,8 +63,8 @@
                     </th>
                     <th>
                         <div class="text-right">
-                            <a href="<?php echo $this_url; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-refresh"></span> <?php echo lang('core button reset'); ?></a>
-                            <button type="submit" name="submit" value="<?php echo lang('core button filter'); ?>" class="btn btn-success"><span class="glyphicon glyphicon-filter"></span> <?php echo lang('core button filter'); ?></button>
+                            <a href="<?php echo $this_url; ?>" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-refresh"></span> <?php echo lang('core button reset'); ?></a>
+                            <button type="submit" name="submit" value="<?php echo lang('core button filter'); ?>" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-filter"></span> <?php echo lang('core button filter'); ?></button>
                         </div>
                     </th>
                 <?php echo form_close(); ?>
@@ -96,9 +96,9 @@
                             <div class="text-right">
                                 <div class="btn-group">
                                     <?php if ($message['read']) : ?>
-                                        <a href="#modal-<?php echo $message['id']; ?>" data-toggle="modal" data-read="true" class="btn btn-default" title="<?php echo lang('contact button read'); ?>"><span class="glyphicon glyphicon-envelope"></span></a>
+                                        <a href="#modal-<?php echo $message['id']; ?>" data-toggle="modal" data-read="true" class="btn btn-default btn-xs" title="<?php echo lang('contact button read'); ?>"><span class="glyphicon glyphicon-envelope"></span></a>
                                     <?php else : ?>
-                                        <a href="#modal-<?php echo $message['id']; ?>" data-toggle="modal" data-read="false" class="btn btn-primary" title="<?php echo lang('contact button read'); ?>"><span class="glyphicon glyphicon-envelope"></span></a>
+                                        <a href="#modal-<?php echo $message['id']; ?>" data-toggle="modal" data-read="false" class="btn btn-primary btn-xs" title="<?php echo lang('contact button read'); ?>"><span class="glyphicon glyphicon-envelope"></span></a>
                                     <?php endif; ?>
                                 </div>
                             </div>
@@ -138,7 +138,7 @@
             </div>
             <div class="col-md-2 text-right">
                 <?php if ($total) : ?>
-                    <a href="<?php echo $this_url; ?>/export?sort=<?php echo $sort; ?>&dir=<?php echo $dir; ?><?php echo $filter; ?>" class="btn btn-success"><span class="glyphicon glyphicon-export"></span> <?php echo lang('admin button csv_export'); ?></a>
+                    <a href="<?php echo $this_url; ?>/export?sort=<?php echo $sort; ?>&dir=<?php echo $dir; ?><?php echo $filter; ?>" class="btn btn-success btn-sm"><span class="glyphicon glyphicon-export"></span> <?php echo lang('admin button csv_export'); ?></a>
                 <?php endif; ?>
             </div>
         </div>

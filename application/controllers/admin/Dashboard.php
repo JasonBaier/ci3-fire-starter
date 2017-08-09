@@ -21,9 +21,9 @@ class Dashboard extends Admin_Controller {
     {
         // setup page header data
 		$this
-			->add_js_theme( "dashboard_i18n.js", TRUE )
-			->set_title( lang('admin title admin') );
-		
+			->add_js_theme('dashboard_i18n.js', TRUE)
+			->set_title(lang('admin title admin'));
+
         $data = $this->includes;
 
         // load views

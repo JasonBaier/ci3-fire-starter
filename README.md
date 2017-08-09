@@ -40,7 +40,7 @@ developers who want a simple, easy platform for learning the framework.
 * CodeIgniter 3.x
 * Base controllers for Public, Private, Admin and API classes
 * Internationalization (translations) support
-    + Jsi18n Library to support internationalization in your JS files
+    + Jsi18n Library to support internationalization in your Javascript files
 * The latest version of [jQuery](https://jquery.com/)
 * The latest version of [Twitter Bootstrap](http://getbootstrap.com/)
 * The latest version of [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
@@ -397,7 +397,7 @@ could also just set your own request authentication headers to the code that's a
 ## SYSTEM REQUIREMENTS
 
 * PHP version 5.6+ (successfully tested on PHP 7.0.x)
-* MySQL 5.1+
+* MySQL 5.1+ (successfully tested on MySQL 5.7)
 * PHP GD extension for CAPTCHA to work
 * PHP Mcrypt extension if you want to use the Encryption class
 
@@ -409,14 +409,15 @@ for the complete list.
 
 * Create a new database and import the included sql file from the /data folder
     + default administrator username/password is **admin/admin**
-* Modify the /application/config/config.php
-    + line 26: set your base site URL (new requirement as of CI v3.0.3)
+* Modify /application/config/[ENVIRONMENT]/config.php
+    + line 26: set your base site URL (requirement as of CI v3.0.3)
+* Modify /application/config/config.php
     + line 220: set your log threshold - I usually set it to 1 for production environments
     + line 314: set your encryption key using the [recommended method](http://www.codeigniter.com/user_guide/libraries/encryption.html#setting-your-encryption-key "Encryption Library: Setting your encryption key")
-* Modify /application/config/database.php and connect to your database
-* Modify /application/config/core.php and set $config['root_folder'] to match your server's webroot (htdocs, public_html, etc.)
-* Upload all files to your server - for security, /application and /system must go above your webroot and all the files and subfolders in /htdocs will go inside your webroot
-* Make sure the /captcha folder inside your webroot has write permission
+* Modify /application/config/[ENVIRONMENT]/database.php to connect to your database
+* Modify /application/config/core.php and set your preferences
+* Upload all files to your server
+* Make sure the /assets/captcha folder has write permission
 * Set /application/sessions permission to 0600
 * Visit your new URL
 * The default welcome page includes links to the admin tool and the private user profile page
@@ -450,11 +451,22 @@ _This list is provided only as an alternative resource. It is not an endorsement
 <a name="whats-new"></a>
 ## WHAT'S NEW
 
+#### Version 3.4.0
+08/08/2017
+
+* Since some system configurations won't allow file placement outside webroot, I removed the
+  /webroot sublevel and moved index.php to the project root. Themes and captcha have been
+  moved to the new /assets folder.
+* Added CAPTCHA folder configuration to /application/settings/core.php
+* Updated jQuery to latest v3.2.1
+* Updated Summernote WYSIWYG editor to latest v0.8.6
+* Some code cleanup
+
 #### Version 3.3.7
 08/08/2017
 
 * Upgraded to CI 3.1.5
-* Added environment-specific config files for main config and database
+* Added environment-specific config files for main config and database files
 
 #### Version 3.3.6
 05/30/2017

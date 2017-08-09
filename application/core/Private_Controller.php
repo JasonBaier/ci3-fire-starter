@@ -30,11 +30,11 @@ class Private_Controller extends MY_Controller {
 
         // set up global header data
         $this
-            ->add_css_theme( "{$this->settings->theme}.css" )
-            ->add_js_theme( "{$this->settings->theme}_i18n.js", TRUE );
+            ->add_css_theme("{$this->settings->theme}.css")
+            ->add_js_theme("{$this->settings->theme}_i18n.js", TRUE);
 
         // declare main template
-        $this->template = "../../{$this->settings->root_folder}/themes/{$this->settings->theme}/template.php";
+        $this->template = "../../{$this->settings->themes_folder}/{$this->settings->theme}/template.php";
     }
 
 }

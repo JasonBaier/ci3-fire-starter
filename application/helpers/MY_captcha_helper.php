@@ -1,6 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
+ * Enhanced CAPTCHA
+ */
+
+/**
  * Create CAPTCHA
  *
  * @access	public

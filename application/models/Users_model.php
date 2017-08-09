@@ -30,7 +30,7 @@ class Users_model extends CI_Model {
      * @param  string $dir
      * @return array|boolean
      */
-    function get_all($limit = 0, $offset = 0, $filters = array(), $sort = 'last_name', $dir = 'ASC')
+    function get_all($limit=0, $offset=0, $filters=array(), $sort='last_name', $dir='ASC')
     {
         $sql = "
             SELECT SQL_CALC_FOUND_ROWS *
@@ -79,7 +79,7 @@ class Users_model extends CI_Model {
      * @param  int $id
      * @return array|boolean
      */
-    function get_user($id = NULL)
+    function get_user($id=NULL)
     {
         if ($id)
         {
@@ -108,7 +108,7 @@ class Users_model extends CI_Model {
      * @param  array $data
      * @return mixed|boolean
      */
-    function add_user($data = array())
+    function add_user($data=array())
     {
         if ($data)
         {
@@ -164,7 +164,7 @@ class Users_model extends CI_Model {
      * @param  array $data
      * @return mixed|boolean
      */
-    function create_profile($data = array())
+    function create_profile($data=array())
     {
         if ($data)
         {
@@ -223,7 +223,7 @@ class Users_model extends CI_Model {
      * @param  array $data
      * @return boolean
      */
-    function edit_user($data = array())
+    function edit_user($data=array())
     {
         if ($data)
         {
@@ -276,7 +276,7 @@ class Users_model extends CI_Model {
      * @param  int $user_id
      * @return boolean
      */
-    function edit_profile($data = array(), $user_id = NULL)
+    function edit_profile($data=array(), $user_id=NULL)
     {
         if ($data && $user_id)
         {
@@ -326,7 +326,7 @@ class Users_model extends CI_Model {
      * @param  int $id
      * @return boolean
      */
-    function delete_user($id = NULL)
+    function delete_user($id=NULL)
     {
         if ($id)
         {
@@ -360,7 +360,7 @@ class Users_model extends CI_Model {
      * @param  string $password
      * @return array|boolean
      */
-    function login($username = NULL, $password = NULL)
+    function login($username=NULL, $password=NULL)
     {
         if ($username && $password)
         {
@@ -469,7 +469,7 @@ class Users_model extends CI_Model {
      * @param  string $validation_code
      * @return boolean
      */
-    function validate_account($encrypted_email = NULL, $validation_code = NULL)
+    function validate_account($encrypted_email=NULL, $validation_code=NULL)
     {
         if ($encrypted_email && $validation_code)
         {
@@ -515,7 +515,7 @@ class Users_model extends CI_Model {
      * @param  array $data
      * @return mixed|boolean
      */
-    function reset_password($data = array())
+    function reset_password($data=array())
     {
         if ($data)
         {
