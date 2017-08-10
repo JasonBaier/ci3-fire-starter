@@ -1,6 +1,6 @@
 # CI3 Fire Starter (ci3-fire-starter)
 
-**VIEW THE DEMO**: http://ci3-fire-starter.jasonbaier.com
+**[VIEW THE DEMO](http://ci3-fire-starter.jasonbaier.com)**
 
 <a name="toc"></a>
 ## TABLE OF CONTENTS
@@ -49,7 +49,7 @@ developers who want a simple, easy platform for learning the framework.
 * Independent responsive admin and frontend themes
 * [Summernote](http://summernote.org/ "Summernote") WYSIWYG editor
 * Auto-loaded core config file
-* Auto-loaded core language file (based on selected language)
+* Auto-loaded core language file (based on selected language) with English fallback
 * Auto-loaded core helper files
     + Human-readable JSON string output for API functions
     + Array to CSV exporting
@@ -59,7 +59,7 @@ developers who want a simple, easy platform for learning the framework.
 * Simple user authentication with registration, forgot password and profile editor
 * Contact Us page with enhanced CAPTCHA
 * Basic admin tool with dashboard, user management, settings and Contact Us message list
-* File-based sessions
+* Database sessions
 
 That should cover the basic needs for kickstarting many small CodeIgniter 3 projects. While there are some
 great CodeIgniter CMS applications ([see below](#conclusion)), sometimes you don't need a full CMS or you
@@ -462,7 +462,7 @@ _This list is provided only as an alternative resource. It is not an endorsement
 08/09/2017
 * Changed environment auto-detection in root index.php
 * Minor change to .htaccess
-* Launched demo at http://ci3-fire-starter.jasonbaier.com
+* [Launched demo](http://ci3-fire-starter.jasonbaier.com)
 
 #### Version 3.4.0
 08/09/2017
