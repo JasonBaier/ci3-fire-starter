@@ -359,10 +359,11 @@ $config['encryption_key'] = hex2bin('c5cbd013b4a1eaf8654ecf26944faf66');
 | except for 'cookie_prefix' and 'cookie_httponly', which are ignored here.
 |
 */
-$config['sess_driver'] = 'files';
+$config['sess_driver'] = 'database';
+$config['sess_save_path'] = 'ci_sessions'; // table name for database sessions
+//$config['sess_save_path'] = APPPATH . 'sessions'; // file location for file sessions
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = APPPATH . 'sessions';
 $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;

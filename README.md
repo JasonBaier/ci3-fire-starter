@@ -412,15 +412,15 @@ for the complete list.
 * Create a new database and import the included sql file from the /data folder
     + default administrator username/password is **admin/admin**
 * Modify /application/config/[ENVIRONMENT]/config.php
-    + line 26: set your base site URL (requirement as of CI v3.0.3)
+    + line 26: set your base site URL (requirement as of CI v3.0.3) - **local is http://ci3-fire-starter.dev/**
 * Modify /application/config/config.php
-    + line 220: set your log threshold - I usually set it to 1 for production environments
+    + line 220: set your log threshold - recommend 1 for production environments
     + line 314: set your encryption key using the [recommended method](http://www.codeigniter.com/user_guide/libraries/encryption.html#setting-your-encryption-key "Encryption Library: Setting your encryption key")
 * Modify /application/config/[ENVIRONMENT]/database.php to connect to your database
 * Modify /application/config/core.php and set your preferences
 * Upload all files to your server
 * Make sure the /assets/captcha folder has write permission
-* Set /application/sessions permission to 0600
+* If you switch to file sessions, set /application/sessions permission to 0600
 * Visit your new URL
 * The default welcome page includes links to the admin tool and the private user profile page
 * Make sure you log in to admin and change the administrator password!
@@ -437,7 +437,7 @@ As I mentioned earlier, CI3 Fire Starter does not attempt to be a full-blown CMS
 to build that functionality yourself. If you're looking for a full CMS built on CodeIgniter,
 or need a more robust starting point, then check out one of these applications:
 
-* [GoCart](http://gocartdv.com/)
+* [OpenBlog](http://open-blog.org/)
 * [Bonfire](http://cibonfire.com/)
 * [FuelCMS](http://getfuelcms.com/)
 * [Hoosk](http://hoosk.org/)
@@ -453,14 +453,19 @@ _This list is provided only as an alternative resource. It is not an endorsement
 <a name="whats-new"></a>
 ## WHAT'S NEW
 
+#### Version 3.4.2
+08/10/2017
+* Switched default session storage to database driver: includes "3.4.2 - new ci_sessions table.sql" schema update
+* Display MySQL version in template footers
+
 #### Version 3.4.1
-08/08/2017
+08/09/2017
 * Changed environment auto-detection in root index.php
 * Minor change to .htaccess
 * Launched demo at http://ci3-fire-starter.jasonbaier.com
 
 #### Version 3.4.0
-08/08/2017
+08/09/2017
 
 * Since some system configurations won't allow file placement outside webroot, I removed the
   /webroot sublevel and moved index.php to the project root. Themes and captcha have been
@@ -471,7 +476,7 @@ _This list is provided only as an alternative resource. It is not an endorsement
 * Some code cleanup
 
 #### Version 3.3.7
-08/08/2017
+08/09/2017
 
 * Upgraded to CI 3.1.5
 * Added environment-specific config files for main config and database files

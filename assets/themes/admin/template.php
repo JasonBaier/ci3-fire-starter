@@ -125,6 +125,7 @@
             <p class="text-muted">
                 <?php echo lang('core text page_rendered'); ?>
                 | PHP v<?php echo phpversion(); ?>
+                | MySQL v<?php echo mysqli_get_client_version(); ?>
                 | CodeIgniter v<?php echo CI_VERSION; ?>
                 | <?php echo $this->settings->site_name; ?> v<?php echo $this->settings->site_version; ?>
                 | <a href="http://jasonbaier.github.io/ci3-fire-starter/" target="_blank">Github.com</a>

@@ -36,6 +36,20 @@ CREATE TABLE IF NOT EXISTS `captcha` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ci_sessions`
+--
+
+CREATE TABLE IF NOT EXISTS `ci_sessions` (
+  `id` varchar(128) NOT NULL,
+  `ip_address` varchar(45) NOT NULL,
+  `timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
+  `data` blob NOT NULL,
+  KEY `ci_sessions_timestamp` (`timestamp`)
+);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `emails`
 --
 
@@ -146,6 +160,12 @@ INSERT INTO `users` (`id`, `username`, `password`, `salt`, `first_name`, `last_n
 ALTER TABLE `captcha`
   ADD PRIMARY KEY (`captcha_id`),
   ADD KEY `word` (`word`);
+
+--
+-- Indexes for table `ci_sessions`
+--
+ALTER TABLE `ci_sessions`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `emails`
