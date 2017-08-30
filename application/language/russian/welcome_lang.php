@@ -17,3 +17,5 @@ $lang['welcome content sample_admin']        = " чтобы посмотреть
 $lang['welcome content username']            = "Логин";
 $lang['welcome content or_email']            = "или Email";
 $lang['welcome content password']            = "Пароль";
+$lang['welcome content 404_error']           = "Просмотреть страницу ошибки 404.";
+$lang['welcome content sitemap']             = "Просмотр динамической карты сайта.";

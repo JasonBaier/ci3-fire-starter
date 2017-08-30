@@ -228,3 +228,25 @@ if ( ! function_exists('get_languages'))
         return $languages;
     }
 }
+
+
+/**
+ * Sort a multi-dimensional array
+ *
+ * @param array $arr - the array to sort
+ * @param string $col - the key to base the sorting on
+ * @param string $dir - SORT_ASC or SORT_DESC
+ */
+if ( ! function_exists('array_sort_by_column'))
+{
+    function array_sort_by_column(&$arr, $col, $dir=SORT_ASC)
+    {
+        $sort_col = array();
+        foreach ($arr as $key=>$row)
+        {
+            $sort_col[$key] = $row[$col];
+        }
+
+        array_multisort($sort_col, $dir, $arr);
+    }
+}

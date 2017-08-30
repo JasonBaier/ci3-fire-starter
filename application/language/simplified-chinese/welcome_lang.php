@@ -17,3 +17,5 @@ $lang['welcome content sample_admin']        = "查看管理界面.";
 $lang['welcome content username']            = "用户名";
 $lang['welcome content or_email']            = "或电子邮件";
 $lang['welcome content password']            = "密码";
+$lang['welcome content 404_error']           = "查看自定义404错误页面.";
+$lang['welcome content sitemap']             = "查看动态站点地图.";

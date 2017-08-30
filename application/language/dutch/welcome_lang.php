@@ -17,3 +17,5 @@ $lang['welcome content sample_admin']        = "bekijk de admin -interface.";
 $lang['welcome content username']            = "Gebruikersnaam";
 $lang['welcome content or_email']            = "OF Email";
 $lang['welcome content password']            = "Wachtwoord";
+$lang['welcome content 404_error']           = "Bekijk aangepaste 404 foutpagina.";
+$lang['welcome content sitemap']             = "Bekijk dynamische sitemap.";

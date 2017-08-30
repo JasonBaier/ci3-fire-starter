@@ -5,6 +5,9 @@
 <a name="toc"></a>
 ## TABLE OF CONTENTS
 * [Introduction](#introduction)
+* [System Requirements](#system-requirements)
+* [Installation](#installation)
+* [Updates](#updates)
 * [(Not) Modular](#not-modular)
 * [Base Classes](#base-classes)
   * [MY\_controller](#my-controller)
@@ -24,9 +27,6 @@
 * [Themes](#themes)
   * [Theme Functions](#theme-functions)
 * [APIs](#apis)
-* [System Requirements](#system-requirements)
-* [Installation](#installation)
-* [Updates](#updates)
 * [Conclusion](#conclusion)
 * [What's New](#whats-new)
 * [Fork It!](#forkit)
@@ -50,19 +50,22 @@ developers who want a simple, easy platform for learning the framework.
 * [Summernote](http://summernote.org/ "Summernote") WYSIWYG editor
 * Auto-loaded core config file
 * Auto-loaded core language file (based on selected language) with English fallback
-* Auto-loaded core helper files
+* Auto-loaded core helper file
     + Human-readable JSON string output for API functions
     + Array to CSV exporting
     + Enhanced CAPTCHA
     + Random password generator
     + Available languages fetcher
+    + Multi-dimensional array sorting
 * Simple user authentication with registration, forgot password and profile editor
 * Contact Us page with enhanced CAPTCHA
+* Custom 404 error page
+* Sitemap
 * Basic admin tool with dashboard, user management, settings and Contact Us message list
 * Database sessions
 
 That should cover the basic needs for kickstarting many small CodeIgniter 3 projects. While there are some
-great CodeIgniter CMS applications ([see below](#conclusion)), sometimes you don't need a full CMS or you
+CodeIgniter CMS applications ([see below](#conclusion)), sometimes you don't need a full CMS or you
 need a completely customizable solution. That's why I created CI3 Fire Starter. I was tired of always
 having to do the same things over and over again. So I took some best practices, included all the addons and
 functions I most commonly use, and this was the end result, which I use to start many of my smaller projects.
@@ -75,6 +78,41 @@ visit [php.net](http://php.net/). If you need to learn more about CodeIgniter, v
 [CodeIgniter User Guide](http://www.codeigniter.com/userguide3/index.html).
 
 ![Welcome Screen](https://s32.postimg.org/oq5fugrgl/Screen_Shot_2016_07_26_at_3_13_15_PM.png?raw=true)
+
+<a name="system-requirements"></a>
+## SYSTEM REQUIREMENTS
+
+* PHP version 5.6+ (successfully tested on PHP 7.0.x)
+* MySQL 5.1+ (successfully tested on MySQL 5.7)
+* PHP GD extension for CAPTCHA to work
+* PHP Mcrypt extension if you want to use the Encryption class
+
+See CodeIgniter's [Server Requirements](https://codeigniter.com/user_guide/general/requirements.html)
+for the complete list.
+
+<a name="installation"></a>
+## INSTALLATION
+
+* Create a new database and import the included sql file from the /data folder
+    + default administrator username/password is **admin/admin**
+* Modify /application/config/[ENVIRONMENT]/config.php
+    + line 26: set your base site URL (requirement as of CI v3.0.3) - **local is http[]()://ci3-fire-starter.dev/**
+* Modify /application/config/config.php
+    + line 220: set your log threshold - recommend 1 for production environments
+    + line 314: set your encryption key using the [recommended method](http://www.codeigniter.com/user_guide/libraries/encryption.html#setting-your-encryption-key "Encryption Library: Setting your encryption key")
+* Modify /application/config/[ENVIRONMENT]/database.php to connect to your database
+* Modify /application/config/core.php and set your preferences
+* Upload all files to your server (excluding the /data folder)
+* Make sure the /assets/captcha folder has write permission
+* If you switch to file sessions, set /application/sessions permission to 0600
+* Visit your new URL
+* The default welcome page includes links to the admin tool and the private user profile page
+* Make sure you log in to admin and change the administrator password!
+
+<a name="updates"></a>
+## UPDATES
+
+Since version 3.2.4, anytime changes to the database are required, you'll find SQL files in /data/schema\_updates
 
 <a name="not-modular"></a>
 ## (NOT) MODULAR
@@ -395,41 +433,6 @@ could also just set your own request authentication headers to the code that's a
 
 ![Sample JSON String](http://s8.postimg.org/nx4x1tdlx/ci3_fire_starter_sample_api.png?raw=true)
 
-<a name="system-requirements"></a>
-## SYSTEM REQUIREMENTS
-
-* PHP version 5.6+ (successfully tested on PHP 7.0.x)
-* MySQL 5.1+ (successfully tested on MySQL 5.7)
-* PHP GD extension for CAPTCHA to work
-* PHP Mcrypt extension if you want to use the Encryption class
-
-See CodeIgniter's [Server Requirements](https://codeigniter.com/user_guide/general/requirements.html)
-for the complete list.
-
-<a name="installation"></a>
-## INSTALLATION
-
-* Create a new database and import the included sql file from the /data folder
-    + default administrator username/password is **admin/admin**
-* Modify /application/config/[ENVIRONMENT]/config.php
-    + line 26: set your base site URL (requirement as of CI v3.0.3) - **local is http://ci3-fire-starter.dev/**
-* Modify /application/config/config.php
-    + line 220: set your log threshold - recommend 1 for production environments
-    + line 314: set your encryption key using the [recommended method](http://www.codeigniter.com/user_guide/libraries/encryption.html#setting-your-encryption-key "Encryption Library: Setting your encryption key")
-* Modify /application/config/[ENVIRONMENT]/database.php to connect to your database
-* Modify /application/config/core.php and set your preferences
-* Upload all files to your server
-* Make sure the /assets/captcha folder has write permission
-* If you switch to file sessions, set /application/sessions permission to 0600
-* Visit your new URL
-* The default welcome page includes links to the admin tool and the private user profile page
-* Make sure you log in to admin and change the administrator password!
-
-<a name="updates"></a>
-## UPDATES
-
-Since version 3.2.4, anytime changes to the database are required, you'll find SQL files in /data/schema\_updates
-
 <a name="conclusion"></a>
 ## CONCLUSION
 
@@ -442,16 +445,22 @@ or need a more robust starting point, then check out one of these applications:
 * [FuelCMS](http://getfuelcms.com/)
 * [Hoosk](http://hoosk.org/)
 * [Ionize](http://ionizecms.com/)
-* [NodCMS](http://www.nodcms.com)
 * [Codefight](http://codefight.org/)
-* [No-CMS](http://getnocms.com/)
-* [Expression Engine](http://ellislab.com/expressionengine/)
 * [Halogy](http://www.halogy.com/)
+* [ForgeIgniter](http://www.forgeigniter.com/)
+* [ImageCMS](https://www.imagecms.net/) - Russian
+* [MaxSite CMS](http://max-3000.com/) - Russian
 
-_This list is provided only as an alternative resource. It is not an endorsement for any of the applications listed._
+_This list is provided only for reference. It is not an endorsement for any of the applications listed._
 
 <a name="whats-new"></a>
 ## WHAT'S NEW
+
+#### Version 3.4.3
+08/30/2017
+* Added custom 404 error page
+* Added sitemap
+* Added multi-dimensional array sort helper
 
 #### Version 3.4.2
 08/10/2017

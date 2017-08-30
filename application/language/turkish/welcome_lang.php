@@ -17,3 +17,5 @@ $lang['welcome content sample_admin']        = "yönetici arayüzü görmek.";
 $lang['welcome content username']            = "Kullanıcı adı";
 $lang['welcome content or_email']            = "VEYA E-posta";
 $lang['welcome content password']            = "Parola";
+$lang['welcome content 404_error']           = "Özel 404 hata sayfasını görüntüle.";
+$lang['welcome content sitemap']             = "Dinamik site haritasını görüntüleyin.";

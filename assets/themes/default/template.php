@@ -18,7 +18,8 @@
     <?php if (isset($css_files) && is_array($css_files)) : ?>
         <?php foreach ($css_files as $css) : ?>
             <?php if ( ! is_null($css)) : ?>
-                <link rel="stylesheet" href="<?php echo $css; ?>?v=<?php echo $this->settings->site_version; ?>"><?php echo "\n"; ?>
+                <?php $separator = (strstr($css, '?')) ? '&' : '?'; ?>
+                <link rel="stylesheet" href="<?php echo $css; ?><?php echo $separator; ?>v=<?php echo $this->settings->site_version; ?>"><?php echo "\n"; ?>
             <?php endif; ?>
         <?php endforeach; ?>
     <?php endif; ?>
@@ -148,7 +149,8 @@
     <?php if (isset($js_files) && is_array($js_files)) : ?>
         <?php foreach ($js_files as $js) : ?>
             <?php if ( ! is_null($js)) : ?>
-                <?php echo "\n"; ?><script type="text/javascript" src="<?php echo $js; ?>?v=<?php echo $this->settings->site_version; ?>"></script><?php echo "\n"; ?>
+                <?php $separator = (strstr($js, '?')) ? '&' : '?'; ?>
+                <?php echo "\n"; ?><script type="text/javascript" src="<?php echo $js; ?><?php echo $separator; ?>v=<?php echo $this->settings->site_version; ?>"></script><?php echo "\n"; ?>
             <?php endif; ?>
         <?php endforeach; ?>
     <?php endif; ?>

@@ -20,10 +20,6 @@
 
 <div class="clearfix"><hr /></div>
 
-<p><a href="<?php echo base_url('api/users'); ?>"><?php echo lang('welcome content click_here'); ?></a>: <?php echo lang('welcome content sample_api'); ?></p>
-
-<div class="clearfix"><hr /></div>
-
 <p><a href="<?php echo base_url('profile'); ?>"><?php echo lang('welcome content click_here'); ?></a>: <?php echo lang('welcome content sample_profile'); ?></p>
 <p>
     <?php echo lang('welcome content username'); ?>: <strong>johndoe</strong><br />
@@ -39,3 +35,15 @@
     <?php echo lang('welcome content or_email'); ?>: <strong>admin@admin.com</strong><br />
     <?php echo lang('welcome content password'); ?>: <strong>admin</strong>
 </p>
+
+<div class="clearfix"><hr /></div>
+
+<p><a href="<?php echo base_url('api/users'); ?>"><?php echo lang('welcome content click_here'); ?></a>: <?php echo lang('welcome content sample_api'); ?></p>
+
+<div class="clearfix"><hr /></div>
+
+<p><a href="<?php echo base_url('test'); ?>"><?php echo lang('welcome content click_here'); ?></a>: <?php echo lang('welcome content 404_error'); ?></p>
+
+<div class="clearfix"><hr /></div>
+
+<p><a href="<?php echo base_url('sitemap.xml'); ?>"><?php echo lang('welcome content click_here'); ?></a>: <?php echo lang('welcome content sitemap'); ?></p>

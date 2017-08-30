@@ -27,3 +27,9 @@
         margin: 12px 0 0 15px;
     }
 }
+
+pre.error-404 {
+    border: 0;
+    margin: 0 auto;
+    display: table;
+}

@@ -17,3 +17,5 @@ $lang['welcome content sample_admin']        = "melihat antarmuka admin.";
 $lang['welcome content username']            = "Nama pengguna";
 $lang['welcome content or_email']            = "atau Email";
 $lang['welcome content password']            = "Kata sandi";
+$lang['welcome content 404_error']           = "Lihat halaman kesalahan kustom 404.";
+$lang['welcome content sitemap']             = "Lihat peta situs dinamis.";

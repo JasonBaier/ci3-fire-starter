@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 /**
- * Core Language File
+ * Core Language File - Spanish
  */
 
 // Buttons
@@ -16,12 +16,15 @@ $lang['core button profile']              	= "Perfil";
 $lang['core button reset']               	= "Reiniciar";
 $lang['core button save']                	= "Guardar";
 $lang['core button search']              	= "Buscar";
-$lang['core button toggle_nav']          	= "Toggle navigation";
+$lang['core button toggle_nav']          	= "Navegación de palanca";
+$lang['core button return_home']            = "Regresar a la página principal";
 
 // Text
 $lang['core text no']                    	= "No";
 $lang['core text yes']                   	= "Sí";
 $lang['core text page_rendered']            = "Página generada en <strong>{elapsed_time}</strong> segundos";
+$lang['core text oops']                     = "¡Vaya!";
+$lang['core text 404_error']                = "Solicitó una página que no existe.";
 
 // Emails
 $lang['core email start']                	= "<!DOCTYPE html><html><head><style>
@@ -34,4 +37,5 @@ $lang['UM75']	                         	= "(UTC -7:00) Arizona Time";
 
 // Errors
 $lang['core error no_results']              = "¡No se han encontrado resultados!";
+$lang['core error page_not_found']          = "¡Página no encontrada!";
 $lang['core error session_language']        = "¡Hubo un problema al establecer el idioma!";

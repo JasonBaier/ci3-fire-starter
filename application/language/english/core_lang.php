@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 /**
- * Core Language File
+ * Core Language File - English
  */
 
 // Buttons
@@ -17,11 +17,14 @@ $lang['core button reset']               	= "Reset";
 $lang['core button save']                	= "Save";
 $lang['core button search']              	= "Search";
 $lang['core button toggle_nav']          	= "Toggle navigation";
+$lang['core button return_home']            = "Return Home";
 
 // Text
 $lang['core text no']                    	= "No";
 $lang['core text yes']                   	= "Yes";
 $lang['core text page_rendered']            = "Page rendered in <strong>{elapsed_time}</strong> seconds";
+$lang['core text oops']                     = "OOPS!";
+$lang['core text 404_error']                = "You requested a page that does not exist.";
 
 // Emails
 $lang['core email start']                	= "<!DOCTYPE html><html><head><style>
@@ -34,4 +37,5 @@ $lang['UM75']	                         	= "(UTC -7:00) Arizona Time";
 
 // Errors
 $lang['core error no_results']              = "No results found!";
+$lang['core error page_not_found']          = "Page Not Found";
 $lang['core error session_language']        = "There was a problem setting the language!";
