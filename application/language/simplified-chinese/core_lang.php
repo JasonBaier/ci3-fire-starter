@@ -40,4 +40,5 @@ $lang['UM75']	                         	= "(UTC -7:00) Arizona Time";
 // Errors
 $lang['core error no_results']              = "没有数据!";
 $lang['core error page_not_found']          = "找不到网页!";
-$lang['core error session_language']        = "有一个问题，设置语言";
+$lang['core error session_language']        = "有一个问题，设置语言!";
+$lang['core error direct_access_forbidden'] = "禁止直接访问!";

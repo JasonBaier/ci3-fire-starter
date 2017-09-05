@@ -49,7 +49,7 @@ class Contact extends Admin_Controller {
     /**
      * Message list page
      */
-    public function index()
+    function index()
     {
         // get parameters
         $limit  = $this->input->get('limit')  ? $this->input->get('limit', TRUE)  : DEFAULT_LIMIT;
@@ -229,7 +229,7 @@ class Contact extends Admin_Controller {
      * @param  int $id
      * @return boolean
      */
-    public function read($id=NULL)
+    function read($id=NULL)
     {
         if ($id)
         {

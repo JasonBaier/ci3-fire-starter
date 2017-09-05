@@ -28,7 +28,7 @@ class Contact extends Public_Controller {
     /**
      * Default
      */
-    public function index()
+    function index()
     {
         // validators
         $this->form_validation->set_error_delimiters($this->config->item('error_delimeter_left'), $this->config->item('error_delimeter_right'));

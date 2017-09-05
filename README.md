@@ -14,6 +14,7 @@
   * [Public\_controller](#public-controller)
   * [Private\_controller](#private-controller)
   * [Admin\_controller](#admin-controller)
+  * [Cron\_controller](#cron-controller)
   * [API\_controller](#api-controller)
   * [Understanding Includes](#understanding-includes)
 * [Core Files](#core-files)
@@ -96,7 +97,8 @@ for the complete list.
 * Create a new database and import the included sql file from the /data folder
     + default administrator username/password is **admin/admin**
 * Modify /application/config/[ENVIRONMENT]/config.php
-    + line 26: set your base site URL (requirement as of CI v3.0.3) - **local is http[]()://ci3-fire-starter.dev/**
+    + line 26: set your base site URL (requirement as of CI v3.0.3) - **development is http[]()://ci3-fire-starter.dev/**
+    + If you want to use HTTPS, use https:// in your base site URL and uncomment lines 2 and 3 in /.htaccess
 * Modify /application/config/config.php
     + line 220: set your log threshold - recommend 1 for production environments
     + line 314: set your encryption key using the [recommended method](http://www.codeigniter.com/user_guide/libraries/encryption.html#setting-your-encryption-key "Encryption Library: Setting your encryption key")
@@ -159,6 +161,12 @@ This extends MY\_Controller and drives all your administration pages. Any contro
 Admin\_Controller will require authentication from a user with administration privileges. Specific
 page requests are stored in session and will redirect upon successful authentication.
 
+<a name="cron-controller"></a>
+#### Cron_Controller
+
+This extends MY\_Controller and drives all your cron methods. See comments in
+/application/controllers/Cron.php on how to use.
+
 <a name="api-controller"></a>
 #### API_Controller
 
@@ -203,6 +211,7 @@ In /application/helpers is a file core\_helper.php. This includes the following 
 * array\_to\_csv($array, $filename) - exports an array into a CSV file (see admin user list)
 * generate\_random\_pasword() - used to reset password for users who forgot password
 * get\_languages() - retrieves a list of all language folders
+* array\_sort\_by\_column - sort multi-dimensional arrays by column values
 
 <a name="i18n"></a>
 ## INTERNATIONALIZATION
@@ -411,11 +420,11 @@ as the parameter, or add js complete with path. See example below:
 These methods can also be chained like this:
 
     $this
-        ->add_css_theme("bootstrap.min.css, style.css, admin.css")
-		->add_external_css("global.css, color.css", "http://example.com/assets/css/")
-        ->add_js_theme("jquery-1.11.1.min.js, bootstrap.min.js, another.js")
-		->add_js_theme("dahboard_i18n.js, contact_i18n.js", TRUE)
-		->add_external_js("global.js, color.js", "http://example.com/assets/js/");
+      ->add_css_theme("bootstrap.min.css, style.css, admin.css")
+		  ->add_external_css("global.css, color.css", "http://example.com/assets/css/")
+      ->add_js_theme("jquery-1.11.1.min.js, bootstrap.min.js, another.js")
+		  ->add_js_theme("dahboard_i18n.js, contact_i18n.js", TRUE)
+		  ->add_external_js("global.js, color.js", "http://example.com/assets/js/");
 
 ***set_template($template_file)***
 
@@ -451,10 +460,16 @@ or need a more robust starting point, then check out one of these applications:
 * [ImageCMS](https://www.imagecms.net/) - Russian
 * [MaxSite CMS](http://max-3000.com/) - Russian
 
-_This list is provided only for reference. It is not an endorsement for any of the applications listed._
+_This list is provided only as a reference and is not an endorsement for any of these applications._
 
 <a name="whats-new"></a>
 ## WHAT'S NEW
+
+#### Version 3.4.4
+09/05/2017
+* Added cron controllers
+* Added force HTTPS in .htaccess (commented)
+* Removed like-letters and numbers (01iloIO) from CAPTCHA images
 
 #### Version 3.4.3
 08/30/2017
@@ -680,6 +695,11 @@ for your contributions.
 * Removed database navigation
 * Replaced TinyMCE with Summernote WYSIWYG editor
 * Lots of code cleanup and other improvements
+
+#### Version 2.1.0
+07/25/2014
+
+* Upgraded from CI 2.1.4 to CI 2.2.0
 
 #### Version 2.0.0
 05/06/2014

@@ -16,7 +16,15 @@
  */
 function create_captcha($data = '', $img_path = '', $img_url = '', $font_path = '')
 {
-    $defaults = array('word' => '', 'img_path' => '', 'img_url' => '', 'img_width' => '150', 'img_height' => '30', 'font_path' => '', 'expiration' => 7200);
+    $defaults = array(
+        'word'       => '',
+        'img_path'   => '',
+        'img_url'    => '',
+        'img_width'  => '150',
+        'img_height' => '30',
+        'font_path'  => '',
+        'expiration' => 7200
+    );
 
     foreach ($defaults as $key => $val)
     {
@@ -83,7 +91,7 @@ function create_captcha($data = '', $img_path = '', $img_url = '', $font_path = 
 
     if ($word == '')
     {
-        $pool = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $pool = '23456789abcdefghjkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ';
 
         $str = '';
         for ($i = 0; $i < 5; $i++)
@@ -207,7 +215,7 @@ function create_captcha($data = '', $img_path = '', $img_url = '', $font_path = 
 
     ImageJPEG($im, $img_path.$img_name);
 
-    $img = "<img src=\"$img_url$img_name\" width=\"$img_width\" height=\"$img_height\" style=\"border:0;\" alt=\" \" />";
+    $img = "<img src=\"$img_url$img_name\" width=\"$img_width\" height=\"$img_height\" style=\"border:0;\" alt=\"\">";
 
     ImageDestroy($im);
 

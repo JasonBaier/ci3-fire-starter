@@ -31,7 +31,7 @@ class Jsi18n {
     /**
      * Constructor
      */
-    public function __construct()
+    function __construct()
     {
         $CI =& get_instance();
 

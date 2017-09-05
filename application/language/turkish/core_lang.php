@@ -39,3 +39,4 @@ $lang['UM75']	                         	= "(UTC -7:00) Arizona zaman";
 $lang['core error no_results']              = "Hiçbir sonuç bulunamadı!";
 $lang['core error page_not_found']          = "Sayfa bulunamadı!";
 $lang['core error session_language']        = "Dil ayarı bir sorun oldu!";
+$lang['core error direct_access_forbidden'] = "Doğrudan erişim yasak!";

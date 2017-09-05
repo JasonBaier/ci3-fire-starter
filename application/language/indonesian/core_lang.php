@@ -39,3 +39,4 @@ $lang['UM75']	                         	= "(UTC -7:00) Arizona Time";
 $lang['core error no_results']              = "Tidak ada hasil yang ditemukan!";
 $lang['core error page_not_found']          = "Halaman tidak ditemukan!";
 $lang['core error session_language']        = "Ada masalah pengaturan bahasa!";
+$lang['core error direct_access_forbidden'] = "Akses langsung dilarang!";

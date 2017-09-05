@@ -5,7 +5,7 @@ class Api extends API_Controller {
     /**
      * Constructor
      */
-    public function __construct()
+    function __construct()
     {
         parent::__construct();
     }
@@ -14,7 +14,7 @@ class Api extends API_Controller {
     /**
      * Default
      */
-    public function index()
+    function index()
     {
         $this->lang->load('core');
         $results['error'] = lang('core error no_results');
@@ -26,7 +26,7 @@ class Api extends API_Controller {
     /**
      * Users API - DO NOT LEAVE THIS ACTIVE IN A PRODUCTION ENVIRONMENT !!! - for demo purposes only
      */
-    public function users()
+    function users()
     {
         // load the users model and admin language file
         $this->load->model('users_model');
