@@ -465,6 +465,10 @@ _This list is provided only as a reference and is not an endorsement for any of 
 <a name="whats-new"></a>
 ## WHAT'S NEW
 
+#### Version 3.4.5
+10/25/2017
+* Upgraded to CI 3.1.6
+
 #### Version 3.4.4
 09/05/2017
 * Added cron controllers
