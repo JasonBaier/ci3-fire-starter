@@ -64,7 +64,7 @@ class Profile extends Private_Controller {
         }
 
         // setup page header data
-		$this->set_title( lang('users title profile') );
+		$this->set_title(lang('users title profile'));
 
         $data = $this->includes;
 

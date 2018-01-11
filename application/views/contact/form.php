@@ -51,7 +51,7 @@
     <?php // buttons ?>
     <div class="row">
         <div class="form-group col-sm-6">
-            <a class="btn btn-default" href="<?php echo base_url(); ?>">Cancel</a>
+            <a class="btn btn-link" href="<?php echo base_url(); ?>">Cancel</a>
             <button type="submit" name="submit" class="btn btn-success"><span class="glyphicon glyphicon-envelope"></span> Send</button>
         </div>
     </div>

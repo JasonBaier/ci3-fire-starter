@@ -1,4 +1,3 @@
-*/config/development
 */logs/log-*.php
 */logs/!index.html
 */logs/*
@@ -9,4 +8,5 @@
 */sessions/ci_session*
 .DS_Store
 Thumbs.db
-
+._*
+*.pdf

@@ -233,7 +233,8 @@ foreach($username_list as $row) { ?>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo lang('core button cancel'); ?></button>
-                        <button type="button" class="btn btn-primary btn-delete-record" data-id="<?php echo $finance['id']; ?>"><?php echo lang('admin button delete'); ?></button>
+						<button type="button" class="btn btn-primary btn-delete-record" data-target="<?php echo $finance['id']; ?>"><?php echo lang('admin button delete'); ?></button>
+                        <a href="#modal-<?php echo $finance['id']; ?>" data-toggle="modal" class="btn btn-danger btn-delete-record red" title="<?php echo lang('admin button delete'); ?>">Delete</a>
                     </div>
                 </div>
             </div>

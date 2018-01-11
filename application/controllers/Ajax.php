@@ -1,9 +1,11 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * All AJAX functions should go in here
+ * All  > PUBLIC <  AJAX functions should go in here
  *
  * CSRF protection has been disabled for this controller in the config file
+ *
+ * IMPORTANT: DO NOT DO ANY WRITEBACKS FROM HERE!!! For retrieving data only.
  */
 class Ajax extends Public_Controller {
 

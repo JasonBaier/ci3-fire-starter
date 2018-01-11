@@ -1,2 +1,0 @@
-id, title(username), category(first_name), filename(last_name), description (last_name), assigned_user, is_admin, status, deleted, validation_code, created, updated
-id, username, password, salt, first_name, last_name, email, language, is_admin, status, deleted, validation_code, created, updated

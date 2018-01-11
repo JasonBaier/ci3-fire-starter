@@ -327,6 +327,7 @@ class Finance extends Admin_Controller {
 			'site_email_subject'					=> 'R'.$finance["id"].' - Title:'.$finance['title'].', Filename:'.$finance["filename"].', Category:'.$finance['category'].', Vendor:'.$finance['vendor'].', Updated:' . date('Y-m-d H:i:s'), 
 			'site_email_to'					=> $this->finance_model->get_email($finance['assigned_user']), 
             'finance'              => $finance,
+            'currentDirectory'              => getcwd(), 
             'user_id'           => $id,
             'password_required' => FALSE
         );

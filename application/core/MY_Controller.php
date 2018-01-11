@@ -32,15 +32,19 @@ class MY_Controller extends CI_Controller {
         {
             $this->settings->{$setting['name']} = (@unserialize($setting['value']) !== FALSE) ? unserialize($setting['value']) : $setting['value'];
         }
-        $this->settings->site_version = $this->config->item('site_version');
-        $this->settings->root_folder  = $this->config->item('root_folder');
+        $this->settings->site_version   = $this->config->item('site_version');
+        $this->settings->themes_folder  = $this->config->item('themes_folder');
+        $this->settings->captcha_folder = $this->config->item('captcha_folder');
 
         // get current uri
         $this->current_uri = "/" . uri_string();
 
         // set the time zone
         $timezones = $this->config->item('timezones');
-        date_default_timezone_set($timezones[$this->settings->timezones]);
+        if (function_exists('date_default_timezone_set'))
+        {
+            date_default_timezone_set($timezones[$this->settings->timezones]);
+        }
 
         // get current user
         $this->user = $this->session->userdata('logged_in');
@@ -78,19 +82,22 @@ class MY_Controller extends CI_Controller {
         $this
             ->add_external_css(
                 array(
-                    "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css",
-                    "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css",
-                    "//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css",
-                    "/themes/core/css/core.css"
+                    "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css",
+                    "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css",
+                    "//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css",
+                    base_url("/{$this->settings->themes_folder}/core/css/core.css")
                 ))
             ->add_external_js(
                 array(
-                    "//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js",
-                    "//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"
+                    "//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js",
+                    "//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
                 ));
 
-        $this->includes[ 'js_files_i18n' ] = array(
-            $this->jsi18n->translate("/themes/core/js/core_i18n.js")
+		$core_js = $this->jsi18n->translate("/{$this->settings->themes_folder}/core/js/core_i18n.js");
+		$core_js = str_replace("<<base_url>>", base_url(), $core_js);
+
+        $this->includes['js_files_i18n'] = array(
+            $core_js
         );
 
         // enable the profiler?
@@ -125,28 +132,30 @@ class MY_Controller extends CI_Controller {
      * @since   Version 3.1.0
      * @access  public
      * @param   mixed
-     * @param string, default = NULL
+     * @param   string, default = NULL
      * @return  chained object
      */
-    function add_external_css($css_files, $path = NULL)
+    function add_external_css($css_files, $path=NULL)
     {
         // make sure that $this->includes has array value
-        if ( ! is_array( $this->includes ) )
+        if ( ! is_array($this->includes))
+        {
             $this->includes = array();
+        }
 
         // if $css_files is string, then convert into array
-        $css_files = is_array( $css_files ) ? $css_files : explode( ",", $css_files );
+        $css_files = is_array($css_files) ? $css_files : explode(",", $css_files);
 
-        foreach( $css_files as $css )
+        foreach ($css_files as $css)
         {
             // remove white space if any
-            $css = trim( $css );
+            $css = trim($css);
 
             // go to next when passing empty space
-            if ( empty( $css ) ) continue;
+            if (empty($css)) continue;
 
-            // using sha1( $css ) as a key to prevent duplicate css to be included
-            $this->includes[ 'css_files' ][ sha1( $css ) ] = is_null( $path ) ? $css : $path . $css;
+            // using sha1($css) as a key to prevent duplicate css to be included
+            $this->includes['css_files'][sha1($css)] = is_null($path) ? $css : $path . $css;
         }
 
         return $this;
@@ -180,28 +189,30 @@ class MY_Controller extends CI_Controller {
      * @since   Version 3.1.0
      * @access  public
      * @param   mixed
-     * @param string, default = NULL
+     * @param   string, default = NULL
      * @return  chained object
      */
-    function add_external_js( $js_files, $path = NULL )
+    function add_external_js($js_files, $path=NULL)
     {
         // make sure that $this->includes has array value
-        if ( ! is_array( $this->includes ) )
+        if ( ! is_array($this->includes))
+        {
             $this->includes = array();
+        }
 
         // if $js_files is string, then convert into array
-        $js_files = is_array( $js_files ) ? $js_files : explode( ",", $js_files );
+        $js_files = is_array($js_files) ? $js_files : explode(",", $js_files);
 
-        foreach( $js_files as $js )
+        foreach ($js_files as $js)
         {
             // remove white space if any
-            $js = trim( $js );
+            $js = trim($js);
 
             // go to next when passing empty space
-            if ( empty( $js ) ) continue;
+            if (empty($js)) continue;
 
-            // using sha1( $css ) as a key to prevent duplicate css to be included
-            $this->includes[ 'js_files' ][ sha1( $js ) ] = is_null( $path ) ? $js : $path . $js;
+            // using sha1($css) as a key to prevent duplicate css to be included
+            $this->includes['js_files'][sha1($js)] = is_null($path) ? $js : $path . $js;
         }
 
         return $this;
@@ -233,25 +244,27 @@ class MY_Controller extends CI_Controller {
      * @param   mixed
      * @return  chained object
      */
-    function add_css_theme( $css_files )
+    function add_css_theme($css_files)
     {
         // make sure that $this->includes has array value
-        if ( ! is_array( $this->includes ) )
+        if ( ! is_array($this->includes))
+        {
             $this->includes = array();
+        }
 
         // if $css_files is string, then convert into array
-        $css_files = is_array( $css_files ) ? $css_files : explode( ",", $css_files );
+        $css_files = is_array($css_files) ? $css_files : explode(",", $css_files);
 
-        foreach( $css_files as $css )
+        foreach ($css_files as $css)
         {
             // remove white space if any
-            $css = trim( $css );
+            $css = trim($css);
 
             // go to next when passing empty space
-            if ( empty( $css ) ) continue;
+            if (empty($css)) continue;
 
-            // using sha1( $css ) as a key to prevent duplicate css to be included
-            $this->includes[ 'css_files' ][ sha1( $css ) ] = base_url( "/themes/{$this->settings->theme}/css" ) . "/{$css}";
+            // using sha1($css) as a key to prevent duplicate css to be included
+            $this->includes['css_files'][sha1($css)] = base_url("/{$this->settings->themes_folder}/{$this->settings->theme}/css/{$css}");
         }
 
         return $this;
@@ -287,28 +300,32 @@ class MY_Controller extends CI_Controller {
      * @param   boolean
      * @return  chained object
      */
-    function add_js_theme( $js_files, $is_i18n = FALSE )
+    function add_js_theme($js_files, $is_i18n=FALSE)
     {
-        if ( $is_i18n )
-            return $this->add_jsi18n_theme( $js_files );
+        if ($is_i18n)
+        {
+            return $this->add_jsi18n_theme($js_files);
+        }
 
         // make sure that $this->includes has array value
-        if ( ! is_array( $this->includes ) )
+        if ( ! is_array($this->includes))
+        {
             $this->includes = array();
+        }
 
         // if $css_files is string, then convert into array
-        $js_files = is_array( $js_files ) ? $js_files : explode( ",", $js_files );
+        $js_files = is_array($js_files) ? $js_files : explode(",", $js_files);
 
-        foreach( $js_files as $js )
+        foreach ($js_files as $js)
         {
             // remove white space if any
-            $js = trim( $js );
+            $js = trim($js);
 
             // go to next when passing empty space
-            if ( empty( $js ) ) continue;
+            if (empty($js)) continue;
 
-            // using sha1( $js ) as a key to prevent duplicate js to be included
-            $this->includes[ 'js_files' ][ sha1( $js ) ] = base_url( "/themes/{$this->settings->theme}/js" ) . "/{$js}";
+            // using sha1($js) as a key to prevent duplicate js to be included
+            $this->includes['js_files'][sha1($js)] = base_url("/{$this->settings->themes_folder}/{$this->settings->theme}/js/{$js}");
         }
 
         return $this;
@@ -344,25 +361,27 @@ class MY_Controller extends CI_Controller {
      * @param   mixed
      * @return  chained object
      */
-    function add_jsi18n_theme( $js_files )
+    function add_jsi18n_theme($js_files)
     {
         // make sure that $this->includes has array value
-        if ( ! is_array( $this->includes ) )
+        if ( ! is_array($this->includes))
+        {
             $this->includes = array();
+        }
 
         // if $css_files is string, then convert into array
-        $js_files = is_array( $js_files ) ? $js_files : explode( ",", $js_files );
+        $js_files = is_array($js_files) ? $js_files : explode(",", $js_files);
 
-        foreach( $js_files as $js )
+        foreach ($js_files as $js)
         {
             // remove white space if any
-            $js = trim( $js );
+            $js = trim($js);
 
             // go to next when passing empty space
-            if ( empty( $js ) ) continue;
+            if (empty($js)) continue;
 
-            // using sha1( $js ) as a key to prevent duplicate js to be included
-            $this->includes[ 'js_files_i18n' ][ sha1( $js ) ] = $this->jsi18n->translate( "/themes/{$this->settings->theme}/js/{$js}" );
+            // using sha1($js) as a key to prevent duplicate js to be included
+            $this->includes['js_files_i18n'][sha1($js)] = $this->jsi18n->translate("/{$this->settings->themes_folder}/{$this->settings->theme}/js/{$js}");
         }
 
         return $this;
@@ -377,14 +396,14 @@ class MY_Controller extends CI_Controller {
      * @param   string
      * @return  chained object
      */
-    function set_title( $page_title )
+    function set_title($page_title)
     {
-        $this->includes[ 'page_title' ] = $page_title;
+        $this->includes['page_title'] = $page_title;
 
         /* check wether page_header has been set or has a value
         * if not, then set page_title as page_header
         */
-        $this->includes[ 'page_header' ] = isset( $this->includes[ 'page_header' ] ) ? $this->includes[ 'page_header' ] : $page_title;
+        $this->includes['page_header'] = isset($this->includes['page_header']) ? $this->includes['page_header'] : $page_title;
         return $this;
     }
 
@@ -399,9 +418,9 @@ class MY_Controller extends CI_Controller {
      * @param   string
      * @return  chained object
      */
-    function set_page_header( $page_header )
+    function set_page_header($page_header)
     {
-        $this->includes[ 'page_header' ] = $page_header;
+        $this->includes['page_header'] = $page_header;
         return $this;
     }
 
@@ -417,12 +436,12 @@ class MY_Controller extends CI_Controller {
      * @param   string, template file name
      * @return  chained object
      */
-    function set_template( $template_file = 'template.php' )
+    function set_template($template_file="template.php")
     {
         // make sure that $template_file has .php extension
-        $template_file = substr( $template_file, -4 ) == '.php' ? $template_file : ( $template_file . ".php" );
+        $template_file = substr($template_file, -4) == '.php' ? $template_file : ($template_file . ".php");
 
-        $this->template = "../../{$this->settings->root_folder}/themes/{$this->settings->theme}/{$template_file}";
+        $this->template = "../../{$this->settings->themes_folder}/{$this->settings->theme}/{$template_file}";
     }
 
 }

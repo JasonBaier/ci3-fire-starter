@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 /**
- * Core Language File
+ * Core Language File - Dutch
  */
 
 // Buttons
@@ -17,11 +17,14 @@ $lang['core button reset']               	= "Reset";
 $lang['core button save']                	= "Opslaan";
 $lang['core button search']              	= "Zoek";
 $lang['core button toggle_nav']          	= "Schakel navigatie";
+$lang['core button return_home']            = "Keer terug naar de start pagina";
 
 // Text
 $lang['core text no']                    	= "Nee";
 $lang['core text yes']                   	= "Ja";
 $lang['core text page_rendered']            = "Page rendered in <strong>{elapsed_time}</strong> seconden";
+$lang['core text oops']                     = "OOPS!";
+$lang['core text 404_error']                = "U heeft een pagina aangevraagd die niet bestaat.";
 
 // Emails
 $lang['core email start']                	= "<!DOCTYPE html><html><head><style>
@@ -34,4 +37,6 @@ $lang['UM75']	                         	= "(UTC -7:00) Arizona tijd";
 
 // Errors
 $lang['core error no_results']              = "Geen resultaten gevonden!";
+$lang['core error page_not_found']          = "Pagina niet gevonden!";
 $lang['core error session_language']        = "Er was een probleem het instellen van de taal!";
+$lang['core error direct_access_forbidden'] = "Directe toegang is verboden!";

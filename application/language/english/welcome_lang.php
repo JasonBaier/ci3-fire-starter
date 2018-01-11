@@ -17,3 +17,5 @@ $lang['welcome content sample_admin']        = "view the admin interface.";
 $lang['welcome content username']            = "Username";
 $lang['welcome content or_email']            = "OR Email";
 $lang['welcome content password']            = "Password";
+$lang['welcome content 404_error']           = "view custom 404 error page.";
+$lang['welcome content sitemap']             = "view dynamic sitemap.";

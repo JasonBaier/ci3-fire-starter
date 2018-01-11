@@ -28,7 +28,7 @@ if ( ! function_exists('display_json'))
  */
 if ( ! function_exists('json_indent'))
 {
-    function json_indent($array = array())
+    function json_indent($array=array())
     {
         // make sure array is provided
         if (empty($array))
@@ -104,7 +104,7 @@ if ( ! function_exists('json_indent'))
  */
 if ( ! function_exists('array_to_csv'))
 {
-    function array_to_csv($array = array(), $filename = "export.csv")
+    function array_to_csv($array=array(), $filename="export.csv")
     {
         $CI = get_instance();
 
@@ -226,5 +226,27 @@ if ( ! function_exists('get_languages'))
         $CI->session->languages = $languages;
 
         return $languages;
+    }
+}
+
+
+/**
+ * Sort a multi-dimensional array
+ *
+ * @param array $arr - the array to sort
+ * @param string $col - the key to base the sorting on
+ * @param string $dir - SORT_ASC or SORT_DESC
+ */
+if ( ! function_exists('array_sort_by_column'))
+{
+    function array_sort_by_column(&$arr, $col, $dir=SORT_ASC)
+    {
+        $sort_col = array();
+        foreach ($arr as $key=>$row)
+        {
+            $sort_col[$key] = $row[$col];
+        }
+
+        array_multisort($sort_col, $dir, $arr);
     }
 }

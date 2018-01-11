@@ -28,7 +28,7 @@ class MY_Lang extends CI_Lang {
 	 *
 	 * @return	void
 	 */
-	public function __construct()
+	function __construct()
 	{
 		log_message('info', 'Language Class Initialized');
 	}
@@ -46,7 +46,7 @@ class MY_Lang extends CI_Lang {
 	 *
 	 * @return	void|string[]	Array containing translations, if $return is set to TRUE
 	 */
-	public function load($langfile, $idiom = '', $return = FALSE, $add_suffix = TRUE, $alt_path = '')
+	function load($langfile, $idiom = '', $return = FALSE, $add_suffix = TRUE, $alt_path = '')
 	{
 		if (is_array($langfile))
 		{
@@ -156,7 +156,7 @@ class MY_Lang extends CI_Lang {
 	 * @param	bool	$log_errors	Whether to log an error message if the line is not found
 	 * @return	string	Translation
 	 */
-	public function line($line, $log_errors = TRUE)
+	function line($line, $log_errors = TRUE)
 	{
 		$value = isset($this->language[$line]) ? $this->language[$line] : FALSE;
 

@@ -17,3 +17,5 @@ $lang['welcome content sample_admin']        = "ver la interfaz de administraci�
 $lang['welcome content username']            = "Nombre de usuario";
 $lang['welcome content or_email']            = "O correo electrónico";
 $lang['welcome content password']            = "Clave";
+$lang['welcome content 404_error']           = "ver la página de error personalizada 404.";
+$lang['welcome content sitemap']             = "ver mapa de sitio dinámico.";

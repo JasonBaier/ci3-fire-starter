@@ -26,7 +26,7 @@ class Contact_model extends CI_Model {
      * @param  array $data
      * @return boolean
      */
-    public function save_captcha($data = array())
+    public function save_captcha($data=array())
     {
         // CAPTCHA data required
         if ($data)
@@ -49,7 +49,7 @@ class Contact_model extends CI_Model {
      * @param  string $captcha
      * @return boolean
      */
-    public function verify_captcha($captcha = NULL)
+    public function verify_captcha($captcha=NULL)
     {
         // CAPTCHA string required
         if ($captcha)
@@ -154,7 +154,7 @@ class Contact_model extends CI_Model {
      * @param  string $dir
      * @return array|boolean
      */
-    function get_all($limit = 0, $offset = 0, $filters = array(), $sort = 'created', $dir = 'DESC')
+    function get_all($limit=0, $offset=0, $filters=array(), $sort='created', $dir='DESC')
     {
         // start building query
         $sql = "
@@ -212,7 +212,7 @@ class Contact_model extends CI_Model {
      * @param  int $read_by
      * @return boolean
      */
-    public function read($id = NULL, $read_by = NULL)
+    public function read($id=NULL, $read_by=NULL)
     {
         // data required
         if ($id and $read_by)

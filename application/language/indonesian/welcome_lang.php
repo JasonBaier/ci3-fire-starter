@@ -11,9 +11,11 @@ $lang['welcome content view_location']       = "Jika Anda ingin menyunting halam
 $lang['welcome content controller_location'] = "Controller yang sesuai untuk halaman ini ditemukan di:";
 $lang['welcome content ci_docs']             = "Jika Anda menjelajahi CodeIgniter untuk pertama kalinya, Anda harus mulai dengan membaca <a href=\"http://www.codeigniter.com/userguide3/index.html\" target=\"_blank\">Panduan Pengguna</a>.";
 $lang['welcome content click_here']          = "KLIK DISINI";
-$lang['welcome content sample_api']          = "Output API lihat contoh pengguna. Ini adalah untuk keperluan demo saja! Pastikan untuk menghapus pengguna API sebelum meletakkan situs Anda dalam lingkungan produksi.";
-$lang['welcome content sample_profile']      = "melihat profil sampel pengguna.";
+$lang['welcome content sample_api']          = "lihat contoh Output API pengguna. Ini adalah untuk keperluan demo saja! Pastikan untuk menghapus API pengguna sebelum meletakkan situs Anda dalam lingkungan produksi.";
+$lang['welcome content sample_profile']      = "melihat contoh profil pengguna.";
 $lang['welcome content sample_admin']        = "melihat antarmuka admin.";
 $lang['welcome content username']            = "Nama pengguna";
-$lang['welcome content or_email']            = "OR Email";
+$lang['welcome content or_email']            = "atau Email";
 $lang['welcome content password']            = "Kata sandi";
+$lang['welcome content 404_error']           = "Lihat halaman kesalahan kustom 404.";
+$lang['welcome content sitemap']             = "Lihat peta situs dinamis.";

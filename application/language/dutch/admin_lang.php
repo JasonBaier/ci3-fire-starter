@@ -14,7 +14,6 @@ $lang['admin button edit']                = "Bewerken";
 $lang['admin button messages']            = "Berichten";
 $lang['admin button settings']            = "Instellingen";
 $lang['admin button users']               = "Gebruikers";
-$lang['admin button manage_catven']               = "Manage";
 $lang['admin button users_add']           = "Nieuwe gebruiker toevoegen";
 $lang['admin button users_list']          = "Gebruikers lijst";
 

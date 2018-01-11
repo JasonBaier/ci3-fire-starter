@@ -6,7 +6,7 @@
     <?php if (isset($finance['id'])) : ?>
         <?php echo form_hidden('id', $finance['id']); ?>
     <?php endif; ?>
-    
+    <?php echo "here" . $currentDirectory; ?>
     <div class="row">
         <?php // title ?>
         <div class="form-group col-sm-4<?php echo form_error('title') ? ' has-error' : ''; ?>">

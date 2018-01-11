@@ -514,7 +514,7 @@ Updated: " . date('Y-m-d H:i:s') . "";
     }
 	
 	    /**
-     * Soft delete an existing record
+     * Soft delete an existing category
      *
      * @param  int $id
      * @return boolean

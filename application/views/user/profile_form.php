@@ -66,7 +66,7 @@
 
     <?php // buttons ?>
     <div class="row pull-right">
-        <a class="btn btn-default" href="<?php echo $cancel_url; ?>"><?php echo lang('core button cancel'); ?></a>
+        <a class="btn btn-link" href="<?php echo $cancel_url; ?>"><?php echo lang('core button cancel'); ?></a>
         <?php if ($this->session->userdata('logged_in')) : ?>
             <button type="submit" name="submit" class="btn btn-success"><span class="glyphicon glyphicon-save"></span> <?php echo lang('core button save'); ?></button>
         <?php else : ?>

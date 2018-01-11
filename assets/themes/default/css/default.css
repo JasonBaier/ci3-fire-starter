@@ -1,0 +1,35 @@
+#session-language {
+    margin: 8px 15px 0 20px;
+}
+
+#session-language-dropdown {
+    margin: 13px 15px 0 0;
+}
+
+#session-language-dropdown li {
+    position: relative;
+}
+
+.selected-session-language {
+    position: absolute;
+    top: 6px;
+    left: 4px;
+}
+
+#captcha {
+    width: 100px !important;
+    display: inline-block !important;
+}
+
+
+@media (max-width:767px) {
+    #session-language {
+        margin: 12px 0 0 15px;
+    }
+}
+
+pre.error-404 {
+    border: 0;
+    margin: 0 auto;
+    display: table;
+}
