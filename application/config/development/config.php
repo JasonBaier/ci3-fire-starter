@@ -23,4 +23,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://ci3-fire-starter.dev/';
+
+/**
+ * Google Chrome 63 Forcing .dev Domains to HTTPS
+ * Switched to .local for development
+ * http://fossilgeek.jasonbaier.com/posts/google-chrome-63-forcing-dev-domains-to-https
+ */
+$config['base_url'] = 'http://ci3-fire-starter.local/';

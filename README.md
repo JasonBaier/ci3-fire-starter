@@ -97,7 +97,7 @@ for the complete list.
 * Create a new database and import the included sql file from the /data folder
     + default administrator username/password is **admin/admin**
 * Modify /application/config/[ENVIRONMENT]/config.php
-    + line 26: set your base site URL (requirement as of CI v3.0.3) - **development is http[]()://ci3-fire-starter.dev/**
+    + line 26: set your base site URL (requirement as of CI v3.0.3) - **development is http[]()://ci3-fire-starter.local/**
     + If you want to use HTTPS, use https:// in your base site URL and uncomment lines 2 and 3 in /.htaccess
 * Modify /application/config/config.php
     + line 220: set your log threshold - recommend 1 for production environments
@@ -464,6 +464,11 @@ _This list is provided only as a reference and is not an endorsement for any of 
 
 <a name="whats-new"></a>
 ## WHAT'S NEW
+
+#### Version 3.4.6
+01/25/2018
+* Upgraded to CI 3.1.7
+* Changed development domain extension from .dev to .local - see note in /application/config/development/config.php
 
 #### Version 3.4.5
 10/25/2017
