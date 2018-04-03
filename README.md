@@ -465,6 +465,10 @@ _This list is provided only as a reference and is not an endorsement for any of 
 <a name="whats-new"></a>
 ## WHAT'S NEW
 
+#### Version 3.4.7
+04/02/2018
+* Upgraded to CI 3.1.8
+
 #### Version 3.4.6
 01/25/2018
 * Upgraded to CI 3.1.7
