@@ -120,7 +120,7 @@ $autoload['config'] = array('core', 'timezones');
 |
 */
 
-$autoload['language'] = array();
+$autoload['language'] = array('core');
 
 
 /*

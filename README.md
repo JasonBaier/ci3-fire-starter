@@ -449,14 +449,14 @@ As I mentioned earlier, CI3 Fire Starter does not attempt to be a full-blown CMS
 to build that functionality yourself. If you're looking for a full CMS built on CodeIgniter,
 or need a more robust starting point, then check out one of these applications:
 
-* [OpenBlog](http://open-blog.org/)
+* [Pubvana (formerly Open-Blog)](https://pubvana.org/)
 * [Bonfire](http://cibonfire.com/)
 * [FuelCMS](http://getfuelcms.com/)
 * [Hoosk](http://hoosk.org/)
 * [Ionize](http://ionizecms.com/)
 * [Codefight](http://codefight.org/)
-* [Halogy](http://www.halogy.com/)
 * [ForgeIgniter](http://www.forgeigniter.com/)
+* [CSZ CMS] (https://www.cszcms.com/)
 * [ImageCMS](https://www.imagecms.net/) - Russian
 * [MaxSite CMS](http://max-3000.com/) - Russian
 
@@ -464,6 +464,11 @@ _This list is provided only as a reference and is not an endorsement for any of 
 
 <a name="whats-new"></a>
 ## WHAT'S NEW
+
+#### Version 3.4.9
+01/16/2019
+* Upgraded to CI 3.1.10
+* User list bug fix
 
 #### Version 3.4.8
 06/25/2018
