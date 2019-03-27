@@ -465,6 +465,10 @@ _This list is provided only as a reference and is not an endorsement for any of 
 <a name="whats-new"></a>
 ## WHAT'S NEW
 
+#### Version 3.4.10
+013/27/2019
+* Replaced __autoload with spl_autoload_register in config.php for PHP 7.2 compatibility
+
 #### Version 3.4.9
 01/16/2019
 * Upgraded to CI 3.1.10

@@ -516,10 +516,10 @@ $config['proxy_ips'] = '';
 | for base controllers and some third-party libraries.
 |
 */
-function __autoload($class)
+spl_autoload_register(function($class)
 {
     if (strpos($class, 'CI_') !== 0)
     {
         @include_once(APPPATH . 'core/' . $class . '.php');
     }
-}
+});
