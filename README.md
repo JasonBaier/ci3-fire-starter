@@ -78,7 +78,7 @@ NOTE: This documentation assumes you are already familiar with PHP and CodeIgnit
 visit [php.net](http://php.net/). If you need to learn more about CodeIgniter, visit the
 [CodeIgniter User Guide](http://www.codeigniter.com/userguide3/index.html).
 
-![Welcome Screen](https://s32.postimg.org/oq5fugrgl/Screen_Shot_2016_07_26_at_3_13_15_PM.png?raw=true)
+![Welcome Screen](https://s32.postimage.org/oq5fugrgl/Screen_Shot_2016_07_26_at_3_13_15_PM.png?raw=true)
 
 <a name="system-requirements"></a>
 ## SYSTEM REQUIREMENTS
@@ -152,7 +152,7 @@ This extends MY\_Controller and drives all your private pages (user profile, etc
 extends Private\_Controller will require authentication. Specific page requests are stored in session
 and will redirect upon successful authentication.
 
-![Profile Screen](http://s14.postimg.org/3xmw5l4f5/Screen_Shot_2015_12_19_at_9_51_23_AM.png?raw=true)
+![Profile Screen](http://s14.postimage.org/3xmw5l4f5/Screen_Shot_2015_12_19_at_9_51_23_AM.png?raw=true)
 
 <a name="admin-controller"></a>
 #### Admin_Controller
@@ -283,7 +283,7 @@ basic but important functionality:
 * Form validation
 * Harnessing the power of Twitter Bootstrap to accelerate development
 
-![User Administration](http://s27.postimg.org/orbhgea1f/Screen_Shot_2015_12_19_at_9_52_44_AM.png?raw=true)
+![User Administration](http://s27.postimage.org/orbhgea1f/Screen_Shot_2015_12_19_at_9_52_44_AM.png?raw=true)
 
 IMPORTANT NOTE: user id 1 is the main administrator - DO NOT MANUALLY DELETE. You can not delete this
 user from within the admin tool.
@@ -322,7 +322,7 @@ Settings are loaded in MY_Controller and are accessible in every controller, mod
 
     $this->settings->welcome_message[$this->session->language]
 
-![Settings Screen](https://s32.postimg.org/4dn4nvo5x/Screen_Shot_2016_07_26_at_3_12_17_PM.png?raw=true)
+![Settings Screen](https://s32.postimage.org/4dn4nvo5x/Screen_Shot_2016_07_26_at_3_12_17_PM.png?raw=true)
 
 <a name="themes"></a>
 ## THEMES
@@ -440,7 +440,7 @@ security on these, so if you need a more robust solution, such as authentication
 out Phil Sturgeon's [CI Rest Server](https://github.com/philsturgeon/codeigniter-restserver). You
 could also just set your own request authentication headers to the code that's already there.
 
-![Sample JSON String](http://s8.postimg.org/nx4x1tdlx/ci3_fire_starter_sample_api.png?raw=true)
+![Sample JSON String](http://s8.postimage.org/nx4x1tdlx/ci3_fire_starter_sample_api.png?raw=true)
 
 <a name="conclusion"></a>
 ## CONCLUSION
@@ -465,8 +465,13 @@ _This list is provided only as a reference and is not an endorsement for any of 
 <a name="whats-new"></a>
 ## WHAT'S NEW
 
+#### Version 3.5.00
+09/20/2019
+* Upgraded to CI 3.1.11
+* Modified permitted_uri_chars config setting
+
 #### Version 3.4.10
-013/27/2019
+01/27/2019
 * Replaced __autoload with spl_autoload_register in config.php for PHP 7.2 compatibility
 
 #### Version 3.4.9
