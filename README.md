@@ -1,5 +1,7 @@
 # CI3 Fire Starter (ci3-fire-starter)
 
+## NOW THAT CODEIGNITER 4 HAS BEEN RELEASED, THIS PROJECT WILL NOT BE UPDATED ANYMORE. 
+
 **[VIEW THE DEMO](http://ci3-fire-starter.jasonbaier.com)**
 
 <a name="toc"></a>
